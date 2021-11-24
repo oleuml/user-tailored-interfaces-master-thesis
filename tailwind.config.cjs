@@ -4,9 +4,12 @@ const config = {
 
   theme: {
     extend: {
+      minHeight: {
+        '20': '5rem',
+        '24': '6rem'
+      },
       height: {
         '18': '4.5rem',
-
       }
 
     }
