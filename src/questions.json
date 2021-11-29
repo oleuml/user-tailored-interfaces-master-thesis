@@ -1,0 +1,100 @@
+[
+  {
+    "qid": 0,
+    "question": "Wie viele Autos möchtest du haben?",
+    "questionPrefix": "Frage 1: ",
+    "type": "likert",
+    "answers": ["0", "1", "2", "3", "4", "5", "6"],
+    "noStatement": false,
+    "legendType": "bottom"
+  },
+  {
+    "qid": 1,
+    "question": "Wie schön ist das Wetter heute?",
+    "questionPrefix": "Frage 2: ",
+    "type": "likert",
+    "answers": ["sehr schlecht", "1", "2", "3", "sehr gut"],
+    "noStatement": true,
+    "legendType": "start-end"
+  },
+  {
+    "qid": 2,
+    "question": "Wie viele Häuser möchtest du haben?",
+    "questionPrefix": "Frage 3: ",
+    "type": "likert",
+    "answers": ["0", "1", "2", "3", "4"],
+    "noStatement": true,
+    "legendType": "top"
+  },
+  {
+    "qid": 3,
+    "question": ["Gebe an welchen Buchstaben du lieber magst.", ["a", "b", "c"]],
+    "questionPrefix": "Frage 4: ",
+    "type": "group-likert",
+    "answers": [
+      ["0", "1", "2", "3", "4"],
+      ["0", "1", "2", "3", "4"],
+      ["0", "1", "2", "3", "4"]
+    ],
+    "noStatement": true,
+    "legendType": "top"
+  },
+  {
+    "qid": 4,
+    "question": "Wie viele Autos möchtest du haben?",
+    "questionPrefix": "Frage 5: ",
+    "type": "likert",
+    "answers": ["sehr gut", "", "", "neutral", "", "", "sehr schlecht"],
+    "noStatement": true,
+    "legendType": "top"
+  },
+  {
+    "qid": 5,
+    "question": "Wie viele Autos möchtest du haben? Ist das jetzt auf doof? Das scheint zu funktionieren!",
+    "questionPrefix": "Frage 6: ",
+    "type": "likert",
+    "answers": ["sehr gut", "", "", "neutral", "", "", "sehr schlecht"],
+    "noStatement": true,
+    "legendType": "top-rotated"
+  },
+  {
+    "qid": 6,
+    "question": ["Gebe an welchen Buchstaben du lieber magst. Das ist ja doof!", ["a", "b", "c"]],
+    "questionPrefix": "Frage 7: ",
+    "type": "group-likert",
+    "answers": [
+      ["test kurz?", "1", "2", "3", "test lang"],
+      ["0", "1", "2", "3", "4"],
+      ["0", "1", "2", "3", "4"]
+    ],
+    "noStatement": true,
+    "legendType": "top-rotated"
+  },
+  {
+    "qid": 7,
+    "question": "Test Frage Hase 1, 2, 3?",
+    "questionPrefix": "Frage 8: ",
+    "type": "likert",
+    "answers": ["0", "1", "2", "3", "4"],
+    "noStatement": true,
+    "legendType": "bottom"
+  },
+  {
+    "qid": 8,
+    "question": "Test Frage Hase 1, 2, 3?",
+    "questionPrefix": "Frage 9: ",
+    "type": "likert",
+    "answers": ["0", "1", "2", "3", "4"],
+    "noStatement": true,
+    "legendType": "bottom"
+  },
+  {
+    "qid": 9,
+    "question": "Test Frage Hase 1, 2, 3?",
+    "questionPrefix": "Frage 10: ",
+    "type": "likert",
+    "answers": ["0", "1", "2", "3", "4"],
+    "noStatement": true,
+    "legendType": "bottom"
+  }
+]

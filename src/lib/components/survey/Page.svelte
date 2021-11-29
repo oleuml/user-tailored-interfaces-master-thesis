@@ -7,37 +7,26 @@
 
   const dispatcher = createEventDispatcher();
 
-  answers = generateInitialAnswers(questions);
-
-  function generateInitialAnswers(questions) {
-    let answers = questions.map((q) => {
-      if (q.type === 'group-likert') return q.answers.map((a) => undefined);
-      else return undefined;
-    });
-    return answers;
-  }
-
   function checkAllFulfilled(questions, answers) {
-    return answers.reduce(
-      (prev, curr, i) => questionAnswered(questions[i].type, curr) && prev,
-      true
-    );
+    return questions
+      .map((q) => questionAnswered(q.type, answers[q.qid]))
+      .reduce((prev, curr) => prev && curr, true);
   }
 
   let check = false;
 </script>
 
-<div class="space-y-2 mx-2">
-  {#each questions as q, i}
+<div class="space-y-2">
+  {#each questions as q}
     <Question
-      id={q.id}
       question={q.question}
       questionPrefix={q.questionPrefix}
       type={q.type}
       answers={q.answers}
       legendType={q.legendType}
-      bind:answer={answers[i]}
-      unfulfilledAlert={!questionAnswered(q.type, answers[i]) && check}
+      bind:answer={answers[q.qid]}
+      unfulfilledAlert={check && !questionAnswered(q.type, answers[q.qid])}
+      noStatement={q.noStatement}
     />
   {/each}
 </div>
