@@ -1,19 +1,18 @@
-<script>
-  import Question, { questionAnswered } from '$lib/components/survey/Question.svelte';
-  import { createEventDispatcher } from 'svelte';
-
-  export let questions;
-  export let answers;
-
-  const dispatcher = createEventDispatcher();
-
-  function checkAllFulfilled(questions, answers) {
+<script context="module">
+  export function checkAllFulfilled(questions, answers) {
     return questions
       .map((q) => questionAnswered(q.type, answers[q.qid]))
       .reduce((prev, curr) => prev && curr, true);
   }
+</script>
 
-  let check = false;
+<script>
+  import Question, { questionAnswered } from '$lib/components/survey/Question.svelte';
+
+  export let questions;
+  export let answers;
+
+  export let check;
 </script>
 
 <div class="space-y-2">
@@ -30,9 +29,3 @@
     />
   {/each}
 </div>
-<button
-  on:click={() => {
-    check = true;
-    if (checkAllFulfilled(questions, answers)) dispatcher('next');
-  }}>Next</button
->
