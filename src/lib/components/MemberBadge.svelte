@@ -17,7 +17,7 @@
       : Color.rgb(getRandomInt(0, 255), getRandomInt(0, 255), getRandomInt(0, 255));
 </script>
 
-<div class="relative h-8 w-8" on:click>
+<div class="relative h-8 w-8" on:click|stopPropagation>
   <div
     class="absolute rounded-full h-8 w-8 flex flex-wrap content-center justify-center overflow-hidden"
     style="color: {Color(color).isLight() ? Color(color).lighten(0.5) : color}; background: {Color(

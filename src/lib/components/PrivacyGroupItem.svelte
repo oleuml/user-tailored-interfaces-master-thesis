@@ -69,7 +69,7 @@
                 class:bg-gray-200={!(i % 2)}
                 class:rounded-t-md={i === 0}
                 class:rounded-b-md={i === members.length - 1}
-                on:click={() => (members[i].checked = !members[i].checked)}
+                on:click|stopPropagation={() => (members[i].checked = !members[i].checked)}
               >
                 <span class="flex flex-wrap items-center gap-2"
                   ><MemberBadge
