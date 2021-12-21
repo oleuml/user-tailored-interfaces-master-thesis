@@ -7,6 +7,10 @@
   touch-action: manipulation;
 }
 
+body {
+  @apply bg-yellow-500 bg-opacity-10;
+}
+
 .box {
   @apply shadow-md rounded p-1;
 }
