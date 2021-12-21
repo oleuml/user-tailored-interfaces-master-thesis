@@ -1,24 +1,15 @@
-# create-svelte
+# Master Thesis
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte);
+My master thesis is about the comparison of two UIs for privacy settings. In order to determine this, a study is conducted. In this study, a questionnaire is asked, which first asks general information about the user. This is followed by the IUIPC-10 scale. After the general information is determined, the users are shown 2 different UIs in random order. There they have to complete different tasks. After each UI, a usability questionnaire (SUS) is asked. During the execution, meta information is collected to track the behavior afterwards.
+All questions and tasks are in German, since the study also takes place in German-speaking countries.
 
-## Creating a project
+## Data protection and privacy
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm init svelte@next
-
-# create a new project in my-app
-npm init svelte@next my-app
-```
-
-> Note: the `@next` is temporary
+No IP addresses or other personal data are stored. The only information that is stored is the user agent to track whether the user completed the tasks from a smartphone.
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Once you've cloned the project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
 ```bash
 npm run dev
