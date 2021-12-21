@@ -1,100 +1,387 @@
 [
   {
-    "qid": 0,
-    "question": "Wie viele Autos möchtest du haben?",
-    "questionPrefix": "Frage 1: ",
-    "type": "likert",
-    "answers": ["0", "1", "2", "3", "4", "5", "6"],
-    "noStatement": false,
-    "legendType": "bottom"
+    "title": "Allgemeines",
+    "questions": [
+      {
+        "qid": 100,
+        "question": "Geschlecht",
+        "questionPrefix": "Frage 1.1: ",
+        "type": "likert",
+        "answers": ["divers", "männlich", "weiblich"],
+        "noStatement": false,
+        "legendType": "bottom"
+      },
+      {
+        "qid": 101,
+        "question": "Alter (in Jahren)",
+        "questionPrefix": "Frage 1.2: ",
+        "type": "likert",
+        "answers": ["unter 18", "18-24", "25-34", "35-44", "45-54", "55-64", "über 65"],
+        "noStatement": false,
+        "legendType": "top"
+      },
+      {
+        "qid": 102,
+        "question": "Bildungsgrad",
+        "questionPrefix": "Frage 1.3: ",
+        "type": "single-choice",
+        "answers": [
+          "ohne Schulabschluss",
+          "Hauptschulabschluss",
+          "Realschulabschluss",
+          "Fachhochschul- oder Hochschulreife",
+          "Bachelor",
+          "Master/Dipl.",
+          "Promotion"
+        ],
+        "noStatement": true,
+        "legendType": "top"
+      },
+      {
+        "qid": 103,
+        "question": "Internet Erfahrung (in Jahren)",
+        "questionPrefix": "Frage 1.4: ",
+        "type": "likert",
+        "answers": ["unter 1", "1-2", "2-4", "4-6", "6-8", "8-10", "über 10"],
+        "noStatement": true,
+        "legendType": "top"
+      },
+      {
+        "qid": 104,
+        "question": ["Wie häufig nutze ich...", ["Facebook", "Instagram", "Snapchat", "TikTok"]],
+        "questionPrefix": "Frage 1.5: ",
+        "type": "group-likert",
+        "answers": [
+          ["nie", "selten", "manch-mal", "häufig", "sehr häufig"],
+          ["nie", "selten", "manch-mal", "häufig", "sehr häufig"],
+          ["nie", "selten", "manch-mal", "häufig", "sehr häufig"],
+          ["nie", "selten", "manch-mal", "häufig", "sehr häufig"]
+        ],
+        "noStatement": false,
+        "legendType": "top"
+      }
+    ]
   },
   {
-    "qid": 1,
-    "question": "Wie schön ist das Wetter heute?",
-    "questionPrefix": "Frage 2: ",
-    "type": "likert",
-    "answers": ["sehr schlecht", "1", "2", "3", "sehr gut"],
-    "noStatement": true,
-    "legendType": "start-end"
+    "title": "Control",
+    "description": "- **1** = Stimme überhaupt nicht zu\n- **4** = Stimme weder zu noch lehne ich ab\n- **7** = Stimme voll und ganz zu",
+    "questions": [
+      {
+        "qid": 201,
+        "question": "Der Schutz der Privatsphäre der Verbraucher im Internet ist eine Frage des Rechts der Verbraucher, selbst zu entscheiden, wie ihre Daten gesammelt, verwendet und weitergegeben werden.",
+        "questionPrefix": "Frage 2.1: ",
+        "type": "likert",
+        "answers": ["1", "", "", "4", "", "", "7"],
+        "noStatement": false,
+        "legendType": "top"
+      },
+      {
+        "qid": 202,
+        "question": "Die Kontrolle der Verbraucher über ihre persönlichen Daten ist das Herzstück der Privatsphäre der Verbraucher.",
+        "questionPrefix": "Frage 2.2: ",
+        "type": "likert",
+        "answers": ["1", "", "", "4", "", "", "7"],
+        "noStatement": false,
+        "legendType": "top"
+      },
+      {
+        "qid": 203,
+        "question": "Ich glaube, dass die Online-Privatsphäre verletzt wird, wenn die Kontrolle durch eine Marketing-Transaktion ungewollt eingeschränkt wird.",
+        "questionPrefix": "Frage 2.3: ",
+        "type": "likert",
+        "answers": ["1", "", "", "4", "", "", "7"],
+        "noStatement": false,
+        "legendType": "top"
+      }
+    ]
   },
   {
-    "qid": 2,
-    "question": "Wie viele Häuser möchtest du haben?",
-    "questionPrefix": "Frage 3: ",
-    "type": "likert",
-    "answers": ["0", "1", "2", "3", "4"],
-    "noStatement": true,
-    "legendType": "top"
+    "title": "Awareness",
+    "description": "- **1** = Stimme überhaupt nicht zu\n- **4** = Stimme weder zu noch lehne ich ab\n- **7** = Stimme voll und ganz zu",
+    "questions": [
+      {
+        "qid": 301,
+        "question": "Unternehmen, die online Informationen einholen, sollten offenlegen, wie die Daten erhoben, verarbeitet und genutzt werden.",
+        "questionPrefix": "Frage 3.1: ",
+        "type": "likert",
+        "answers": ["1", "", "", "4", "", "", "7"],
+        "noStatement": false,
+        "legendType": "top"
+      },
+      {
+        "qid": 302,
+        "question": "Eine gute Online-Datenschutzpolitik für Verbraucher sollte eine klare und unübersehbare Offenlegung enthalten.",
+        "questionPrefix": "Frage 3.2: ",
+        "type": "likert",
+        "answers": ["1", "", "", "4", "", "", "7"],
+        "noStatement": false,
+        "legendType": "top"
+      },
+      {
+        "qid": 303,
+        "question": "Es ist mir sehr wichtig, dass ich über die Verwendung meiner persönlichen Daten Bescheid weiß und darüber informiert bin.",
+        "questionPrefix": "Frage 3.3: ",
+        "type": "likert",
+        "answers": ["1", "", "", "4", "", "", "7"],
+        "noStatement": false,
+        "legendType": "top"
+      }
+    ]
   },
   {
-    "qid": 3,
-    "question": ["Gebe an welchen Buchstaben du lieber magst.", ["a", "b", "c"]],
-    "questionPrefix": "Frage 4: ",
-    "type": "group-likert",
-    "answers": [
-      ["0", "1", "2", "3", "4"],
-      ["0", "1", "2", "3", "4"],
-      ["0", "1", "2", "3", "4"]
-    ],
-    "noStatement": true,
-    "legendType": "top"
+    "title": "Collection",
+    "description": "- **1** = Stimme überhaupt nicht zu\n- **4** = Stimme weder zu noch lehne ich ab\n- **7** = Stimme voll und ganz zu",
+    "questions": [
+      {
+        "qid": 401,
+        "question": "Ich mache mir für gewöhnlich Gedanken darüber, wenn Unternehmen mich nach meinen persönlichen Informationen fragen.",
+        "questionPrefix": "Frage 4.1: ",
+        "type": "likert",
+        "answers": ["1", "", "", "4", "", "", "7"],
+        "noStatement": false,
+        "legendType": "top"
+      },
+      {
+        "qid": 402,
+        "question": "Ich denke manchmal zweimal darüber nach, meine persönlichen Daten auszuhändigen, wenn Unternehmen mich danach fragen.",
+        "questionPrefix": "Frage 4.2: ",
+        "type": "likert",
+        "answers": ["1", "", "", "4", "", "", "7"],
+        "noStatement": false,
+        "legendType": "top"
+      },
+      {
+        "qid": 403,
+        "question": "Es stört mich, meine persönlichen Informationen an so viele Unternehmen weiterzugeben.",
+        "questionPrefix": "Frage 4.3: ",
+        "type": "likert",
+        "answers": ["1", "", "", "4", "", "", "7"],
+        "noStatement": false,
+        "legendType": "top"
+      },
+      {
+        "qid": 404,
+        "question": "Ich mache mir Sorgen, dass Unternehmen zu viele persönliche Daten von mir sammeln.",
+        "questionPrefix": "Frage 4.4: ",
+        "type": "likert",
+        "answers": ["1", "", "", "4", "", "", "7"],
+        "noStatement": false,
+        "legendType": "top"
+      }
+    ]
   },
   {
-    "qid": 4,
-    "question": "Wie viele Autos möchtest du haben?",
-    "questionPrefix": "Frage 5: ",
-    "type": "likert",
-    "answers": ["sehr gut", "", "", "neutral", "", "", "sehr schlecht"],
-    "noStatement": true,
-    "legendType": "top"
+    "title": "SUS 1",
+    "description": "- **1** = Stimme überhaupt nicht zu\n- **3** = Stimme weder zu noch lehne ich ab\n- **5** = Stimme voll und ganz zu",
+    "questions": [
+      {
+        "qid": "SUS-01",
+        "question": "Ich denke, dass ich das System gerne häufig benutzen würde.",
+        "questionPrefix": "Frage 1: ",
+        "type": "likert",
+        "answers": ["1", "", "3", "", "5"],
+        "noStatement": false,
+        "legendType": "top"
+      },
+      {
+        "qid": "SUS-02",
+        "question": "Ich fand das System unnötig komplex.",
+        "questionPrefix": "Frage 2: ",
+        "type": "likert",
+        "answers": ["1", "", "3", "", "5"],
+        "noStatement": false,
+        "legendType": "top"
+      },
+      {
+        "qid": "SUS-03",
+        "question": "Ich fand das System einfach zu benutzen.",
+        "questionPrefix": "Frage 3: ",
+        "type": "likert",
+        "answers": ["1", "", "3", "", "5"],
+        "noStatement": false,
+        "legendType": "top"
+      },
+      {
+        "qid": "SUS-04",
+        "question": "Ich glaube, ich würde die Hilfe einer technisch versierten Person benötigen, um das System benutzen zu können.",
+        "questionPrefix": "Frage 4: ",
+        "type": "likert",
+        "answers": ["1", "", "3", "", "5"],
+        "noStatement": false,
+        "legendType": "top"
+      }
+    ]
   },
   {
-    "qid": 5,
-    "question": "Wie viele Autos möchtest du haben? Ist das jetzt auf doof? Das scheint zu funktionieren!",
-    "questionPrefix": "Frage 6: ",
-    "type": "likert",
-    "answers": ["sehr gut", "", "", "neutral", "", "", "sehr schlecht"],
-    "noStatement": true,
-    "legendType": "top-rotated"
+    "title": "SUS 2",
+    "description": "- **1** = Stimme überhaupt nicht zu\n- **3** = Stimme weder zu noch lehne ich ab\n- **5** = Stimme voll und ganz zu",
+    "questions": [
+      {
+        "qid": "SUS-05",
+        "question": "Ich fand, die verschiedenen Funktionen in diesem System waren gut integriert.",
+        "questionPrefix": "Frage 5: ",
+        "type": "likert",
+        "answers": ["1", "", "3", "", "5"],
+        "noStatement": false,
+        "legendType": "top"
+      },
+      {
+        "qid": "SUS-06",
+        "question": "Ich denke, das System enthielt zu viele Inkonsistenzen.",
+        "questionPrefix": "Frage 6: ",
+        "type": "likert",
+        "answers": ["1", "", "3", "", "5"],
+        "noStatement": false,
+        "legendType": "top"
+      },
+      {
+        "qid": "SUS-07",
+        "question": "Ich kann mir vorstellen, dass die meisten Menschen den Umgang mit diesem System sehr schnell lernen.",
+        "questionPrefix": "Frage 7: ",
+        "type": "likert",
+        "answers": ["1", "", "3", "", "5"],
+        "noStatement": false,
+        "legendType": "top"
+      }
+    ]
   },
   {
-    "qid": 6,
-    "question": ["Gebe an welchen Buchstaben du lieber magst. Das ist ja doof!", ["a", "b", "c"]],
-    "questionPrefix": "Frage 7: ",
-    "type": "group-likert",
-    "answers": [
-      ["test kurz?", "1", "2", "3", "test lang"],
-      ["0", "1", "2", "3", "4"],
-      ["0", "1", "2", "3", "4"]
-    ],
-    "noStatement": true,
-    "legendType": "top-rotated"
+    "title": "SUS 3",
+    "description": "- **1** = Stimme überhaupt nicht zu\n- **3** = Stimme weder zu noch lehne ich ab\n- **5** = Stimme voll und ganz zu",
+    "questions": [
+      {
+        "qid": "SUS-08",
+        "question": "Ich fand das System sehr umständlich zu nutzen.",
+        "questionPrefix": "Frage 8: ",
+        "type": "likert",
+        "answers": ["1", "", "3", "", "5"],
+        "noStatement": false,
+        "legendType": "top"
+      },
+      {
+        "qid": "SUS-09",
+        "question": "Ich fühlte mich bei der Benutzung des Systems sehr sicher.",
+        "questionPrefix": "Frage 9: ",
+        "type": "likert",
+        "answers": ["1", "", "3", "", "5"],
+        "noStatement": false,
+        "legendType": "top"
+      },
+      {
+        "qid": "SUS-10",
+        "question": "Ich musste eine Menge lernen, bevor ich anfangen konnte das System zu verwenden.",
+        "questionPrefix": "Frage 10: ",
+        "type": "likert",
+        "answers": ["1", "", "3", "", "5"],
+        "noStatement": false,
+        "legendType": "top"
+      }
+    ]
+  },
+  { "title": "Nächste Aufgabe", "description": "ENDE", "redirect": "" },
+  {
+    "title": "SUS 1",
+    "questions": [
+      {
+        "qid": "UI-2-SUS-01",
+        "question": "Ich denke, dass ich das System gerne häufig benutzen würde.",
+        "questionPrefix": "Frage 1: ",
+        "type": "likert",
+        "answers": ["1", "", "3", "", "5"],
+        "noStatement": false,
+        "legendType": "top"
+      },
+      {
+        "qid": "UI-2-SUS-02",
+        "question": "Ich fand das System unnötig komplex.",
+        "questionPrefix": "Frage 2: ",
+        "type": "likert",
+        "answers": ["1", "", "3", "", "5"],
+        "noStatement": false,
+        "legendType": "top"
+      },
+      {
+        "qid": "UI-2-SUS-03",
+        "question": "Ich fand das System einfach zu benutzen.",
+        "questionPrefix": "Frage 3: ",
+        "type": "likert",
+        "answers": ["1", "", "3", "", "5"],
+        "noStatement": false,
+        "legendType": "top"
+      },
+      {
+        "qid": "UI-2-SUS-04",
+        "question": "Ich glaube, ich würde die Hilfe einer technisch versierten Person benötigen, um das System benutzen zu können.",
+        "questionPrefix": "Frage 4: ",
+        "type": "likert",
+        "answers": ["1", "", "3", "", "5"],
+        "noStatement": false,
+        "legendType": "top"
+      }
+    ]
   },
   {
-    "qid": 7,
-    "question": "Test Frage Hase 1, 2, 3?",
-    "questionPrefix": "Frage 8: ",
-    "type": "likert",
-    "answers": ["0", "1", "2", "3", "4"],
-    "noStatement": true,
-    "legendType": "bottom"
+    "title": "SUS 2",
+    "questions": [
+      {
+        "qid": "UI-2-SUS-05",
+        "question": "Ich fand, die verschiedenen Funktionen in diesem System waren gut integriert.",
+        "questionPrefix": "Frage 5: ",
+        "type": "likert",
+        "answers": ["1", "", "3", "", "5"],
+        "noStatement": false,
+        "legendType": "top"
+      },
+      {
+        "qid": "UI-2-SUS-06",
+        "question": "Ich denke, das System enthielt zu viele Inkonsistenzen.",
+        "questionPrefix": "Frage 6: ",
+        "type": "likert",
+        "answers": ["1", "", "3", "", "5"],
+        "noStatement": false,
+        "legendType": "top"
+      },
+      {
+        "qid": "UI-2-SUS-07",
+        "question": "Ich kann mir vorstellen, dass die meisten Menschen den Umgang mit diesem System sehr schnell lernen.",
+        "questionPrefix": "Frage 7: ",
+        "type": "likert",
+        "answers": ["1", "", "3", "", "5"],
+        "noStatement": false,
+        "legendType": "top"
+      }
+    ]
   },
   {
-    "qid": 8,
-    "question": "Test Frage Hase 1, 2, 3?",
-    "questionPrefix": "Frage 9: ",
-    "type": "likert",
-    "answers": ["0", "1", "2", "3", "4"],
-    "noStatement": true,
-    "legendType": "bottom"
-  },
-  {
-    "qid": 9,
-    "question": "Test Frage Hase 1, 2, 3?",
-    "questionPrefix": "Frage 10: ",
-    "type": "likert",
-    "answers": ["0", "1", "2", "3", "4"],
-    "noStatement": true,
-    "legendType": "bottom"
+    "title": "SUS 3",
+    "questions": [
+      {
+        "qid": "UI-2-SUS-08",
+        "question": "Ich fand das System sehr umständlich zu nutzen.",
+        "questionPrefix": "Frage 8: ",
+        "type": "likert",
+        "answers": ["1", "", "3", "", "5"],
+        "noStatement": false,
+        "legendType": "top"
+      },
+      {
+        "qid": "UI-2-SUS-09",
+        "question": "Ich fühlte mich bei der Benutzung des Systems sehr sicher.",
+        "questionPrefix": "Frage 9: ",
+        "type": "likert",
+        "answers": ["1", "", "3", "", "5"],
+        "noStatement": false,
+        "legendType": "top"
+      },
+      {
+        "qid": "UI-2-SUS-10",
+        "question": "Ich musste eine Menge lernen, bevor ich anfangen konnte das System zu verwenden.",
+        "questionPrefix": "Frage 10: ",
+        "type": "likert",
+        "answers": ["1", "", "3", "", "5"],
+        "noStatement": false,
+        "legendType": "top"
+      }
+    ]
   }
 ]
