@@ -1,5 +1,5 @@
 <script context="module">
-  export async function load({ session }) {
+  export async function load({ session, page }) {
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(session.userAgent)) {
       return {
         status: 200
@@ -16,6 +16,4 @@
   import '../app.css';
 </script>
 
-<div class="grid grid-flow-row grid-cols-1 gap-2 mx-2 select-none">
-  <slot />
-</div>
+<slot />
