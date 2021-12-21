@@ -1,5 +1,9 @@
 <script lang="ts" context="module">
-  export type QuestionType = 'likert' | 'text' | 'group-likert';
+  export type QuestionType =
+    | 'likert'
+    | 'text'
+    | 'group-likert'
+    | 'single-choice';
 
   export function questionAnswered(type: QuestionType, answer: string | Array<string>) {
     switch (type) {
@@ -11,6 +15,8 @@
         }
       case 'likert':
         return answer !== null;
+      case 'single-choice':
+        return answer !== null;
       default:
         return true;
     }
@@ -18,7 +24,7 @@
 </script>
 
 <script lang="ts">
-  import LikertScala, { LegendType } from '$lib/components/survey/LikertScala.svelte';
+  import SingleChoice from './types/SingleChoice.svelte';
 
   export let question: string | [string, Array<string>];
   export let questionPrefix: string;
@@ -64,5 +70,11 @@
         </div>
       </div>
     {/each}
+  {:else if type === 'single-choice'}
+    <div class="flex w-full justify-center pt-2">
+      <div class="w-11/12">
+        <SingleChoice {answers} bind:answer />
+      </div>
+    </div>
   {/if}
 </div>
