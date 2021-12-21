@@ -38,8 +38,8 @@
 </script>
 
 <div
-  class="box bg-gray-50 border-2"
-  class:border-gray-50={!unfulfilledAlert}
+  class="box bg-blue-100 border-2 text-blue-900"
+  class:border-blue-100={!unfulfilledAlert}
   class:border-red-500={unfulfilledAlert}
 >
   <div class="font-medium text-md">
@@ -57,10 +57,13 @@
       <div
         class="flex w-full justify-center items-end"
         class:mt-8={i === 0}
+        class:mt-1={i !== 0}
         class:h-8={i === 0}
         class:h-6={i !== 0}
       >
-        <div class="w-2/12">{question[1][i]}</div>
+        <div class="w-2/12 mr-2 text-sm text-right">
+          {question[1][i]}
+        </div>
         <div class="w-9/12">
           <LikertScala
             bind:answer={answer[i]}
