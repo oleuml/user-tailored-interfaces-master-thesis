@@ -1,6 +1,21 @@
 <script>
   import { mdiAlert } from '@mdi/js';
   import Icon from 'mdi-svelte';
+  async function start() {
+    return await fetch('/api/start', {
+      redirect: 'follow',
+      credentials: 'same-origin',
+      method: 'POST',
+      body: `{"screenSize": {"w": ${width}, "h": ${height}}}`,
+      headers: new Headers([['Content-Type', 'application/json']])
+    }).then((res) => {
+      if (res.redirected) {
+        window.location.href = res.url;
+      }
+    });
+  }
+
+  let checked = false;
 </script>
 
 <div class="box text-blue-600 bg-blue-200">
@@ -32,6 +47,20 @@
     <p class="font-bold pb-1">Hallo und herzlich willkommen!</p>
     <p>Vielen Dank und viel Spaß.</p>
   </article>
+        <div class="flex px-2 pb-2">
+          <input type="checkbox" bind:checked />
+          <span on:click={() => (checked = !checked)} class="pl-2"
+            >Ich bin mit den <a
+              on:click|stopPropagation
+              href="#"
+              ><span>Datenschutzbestimmungen</span><Icon path={mdiOpenInNew} size={0.7} /></a
+            > einverstanden</span
+          >
+        </div>
+        <div class="flex flex-wrap justify-center">
+          <Button disabled={!checked} title="Studie starten" on:click={start} />
+        </div>
+      </div>
 </div>
 
 <a
