@@ -9,7 +9,7 @@
 </script>
 
 <script lang="ts">
-  export let answers = ['1', '2', '3'];
+  export let answers;
   export let noStatement = false;
   export let legendType: LegendType = 'none';
   export let answer: string;
@@ -35,7 +35,7 @@
           <div class="flex justify-center w-4 text-sm text-center">{noStatementTitle}</div>
         {/if}
       </div>
-    {:else if legendType == 'top-rotated'}
+    {:else if legendType === 'top-rotated'}
       <div class="grid grid-flow-col justify-between items-center">
         {#each answers as a}
           <div class="flex text-center w-4 text-sm -rotate-45">{a}</div>
@@ -48,22 +48,22 @@
       </div>
     {/if}
     <div class="grid grid-flow-col justify-between items-center">
-      <div class="flex w-full absolute h-5 px-0.5 items-center">
-        <div class="h-1.5 bg-gray-200" style="width: {barSize}%;" />
+      <div class="flex w-full absolute h-6 px-0.5 items-center">
+        <div class="h-1.5 bg-blue-900 opacity-50" style="width: {barSize}%;" />
       </div>
       {#each answers as a, i}
         <button
           class="relative button"
-          class:bg-gray-200={answer === null || answer.index !== i}
-          class:bg-blue-400={answer !== null && answer.index === i}
+          class:bg-blue-50={answer === null || answer.index !== i}
+          class:bg-yellow-500={answer !== null && answer.index === i}
           on:click={() => (answer = { text: a, index: i })}
         />
       {/each}
       {#if noStatement && legendType != 'start-end'}
         <button
           class="relative button"
-          class:bg-gray-200={answer === null || answer.text !== 'none'}
-          class:bg-blue-400={answer !== null && answer.text === 'none'}
+          class:bg-blue-50={answer === null || answer.text !== 'none'}
+          class:bg-yellow-500={answer !== null && answer.text === 'none'}
           on:click={() => (answer = { text: 'none', index: answers.length })}
         />
       {/if}
@@ -87,8 +87,8 @@
       <div class="text-sm pr-1">{noStatementTitle}</div>
       <button
         class="relative button"
-        class:bg-gray-200={answer === null || answer.text !== 'none'}
-        class:bg-blue-400={answer !== null && answer.text === 'none'}
+        class:bg-blue-50={answer === null || answer.text !== 'none'}
+        class:bg-yellow-500={answer !== null && answer.text === 'none'}
         on:click={() => (answer = { text: 'none', index: answers.length })}
       />
     {/if}
@@ -101,6 +101,6 @@
   }
 
   .button {
-    @apply rounded-full border-2 border-gray-400 w-5 h-5;
+    @apply rounded-full border-2 border-blue-900 w-6 h-6;
   }
 </style>

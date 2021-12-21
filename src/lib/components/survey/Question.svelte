@@ -24,6 +24,7 @@
 </script>
 
 <script lang="ts">
+  import LikertScala, { LegendType } from '$lib/components/survey/types/LikertScala.svelte';
   import SingleChoice from './types/SingleChoice.svelte';
 
   export let question: string | [string, Array<string>];
