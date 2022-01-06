@@ -1,22 +1,18 @@
-import type { GetSession, Handle } from '@sveltejs/kit';
-import db from '$lib/utils/database';
+import type { GetSession, Handle } from "@sveltejs/kit";
+import db from "$lib/utils/database";
+import cookie from "cookie";
 
 const dbConnector = db;
 
 export const getSession: GetSession = (request) => {
-  let cookie;
+  let c;
   if (request.headers.cookie) {
-    cookie = request.headers.cookie
-      .split('; ')
-      .map((cookie) => {
-        let splitted = cookie.split('=');
-        return { key: splitted[0], value: splitted[1] };
-      })
-      .find((cookie) => cookie.key === 'token');
+    c = cookie.parse(request.headers.cookie);
   }
   return {
-    userAgent: request.headers['user-agent'],
-    token: cookie ? cookie.value : undefined
+    userAgent: request.headers["user-agent"],
+    token: c ? c.token : undefined,
+    page: c ? c.page : undefined,
   };
 };
 

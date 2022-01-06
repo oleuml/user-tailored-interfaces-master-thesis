@@ -1,16 +1,16 @@
 <script>
-  import { fade } from 'svelte/transition';
-  import { expoIn } from 'svelte/easing';
-  import Icon from 'mdi-svelte';
+  import { fade } from "svelte/transition";
+  import { expoIn } from "svelte/easing";
+  import Icon from "mdi-svelte";
   import {
     mdiAccountGroup,
     mdiCheckCircleOutline,
     mdiImageArea,
     mdiImageEdit,
-    mdiSendLock
-  } from '@mdi/js';
-  import TopBar from '$lib/material/TopBar.svelte';
-  import { goto } from '$app/navigation';
+    mdiSendLock,
+  } from "@mdi/js";
+  import TopBar from "$lib/material/TopBar.svelte";
+  import { goto } from "$app/navigation";
 
   export let post;
   export let loading;
@@ -50,7 +50,9 @@
   </div>
   <div class="flex-auto justify-between">
     <div class="h-3/6">
-      <div class="relative h-full flex flex-wrap p-6 content-center justify-center">
+      <div
+        class="relative h-full flex flex-wrap p-6 content-center justify-center"
+      >
         <div
           class="flex flex-wrap h-full w-full justify-center rounded-3xl content-center bg-gray-100 text-blue-100"
         >

@@ -1,10 +1,16 @@
 <script context="module">
   /** @type {import('@sveltejs/kit').ErrorLoad} */
-  export function load({ error, status }) {
+  export function load({ error, status, page, session }) {
+    if (page.path === "/survey") {
+      return {
+        status: 302,
+        redirect: `/survey/${session.page !== undefined ? session.page : "0"}`,
+      };
+    }
     return {
       props: {
-        title: `${status}: ${error.message}`
-      }
+        title: `${status}: ${error.message}`,
+      },
     };
   }
 </script>
@@ -13,4 +19,6 @@
   export let title;
 </script>
 
-{title}
+{#if title}
+  {title}
+{/if}
