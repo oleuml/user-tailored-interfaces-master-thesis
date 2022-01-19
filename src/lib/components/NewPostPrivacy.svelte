@@ -47,25 +47,28 @@
     <div class="flex flex-col h-full w-full">
       <div class="flex-initial border-4 rounded-lg mx-36 mb-2" />
       <div class="flex-auto"><slot /></div>
-      <div class="flex mt-2 justify-end">
-        <Button
-          icon={mdiSend}
-          loading={sendLoading}
-          title="Senden"
-          on:click={() => {
-            tracking.push({
-              t: Date.now(),
-              action: 'send',
-              pos: 'privacy_modal'
-            });
-            sendLoading = true;
-            setTimeout(() => {
-              post = false;
-              sendLoading = false;
-            }, 400);
-          }}
-        />
+      <div class="flex justify-end">
+        <div class="w-full h-12" />
       </div>
     </div>
   </div>
+</div>
+<div class="absolute bottom-1 right-1 px-2" class:hidden={!post}>
+  <Button
+    icon={mdiSend}
+    loading={sendLoading}
+    title="Senden"
+    on:click={() => {
+      tracking.push({
+        t: Date.now(),
+        action: 'send',
+        pos: 'privacy_modal'
+      });
+      sendLoading = true;
+      setTimeout(() => {
+        post = false;
+        sendLoading = false;
+      }, 400);
+    }}
+  />
 </div>
