@@ -75,6 +75,10 @@
     on:background={() => (loading = false)}
   >
     <RiskIndicator riskValue={0.35} bind:tracking={$task1['tracking']} />
-    <PrivacyGroupList bind:tracking={$task1['tracking']} bind:groups={$task1.members} />
+    <PrivacyGroupList
+      defaultMembers={members}
+      bind:tracking={$task1['tracking']}
+      bind:groups={$task1.members}
+    />
   </NewPostPrivacy>
 {/if}

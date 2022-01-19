@@ -16,6 +16,7 @@
   export let title: string;
   export let members: any;
   export let tracking: any;
+  export let defaultMembers: any;
 
   let expanded = false;
 
@@ -26,6 +27,11 @@
       action: `toggle-expansion-${expanded}`,
       pos: `privacy-modal-group-list-${title}`
     });
+  }
+
+  function reset() {
+    members.forEach((x) => (x.checked = defaultMembers.find((y) => x.name === y.name).checked));
+    members = members;
   }
 </script>
 
@@ -127,7 +133,7 @@
           {#if expanded}
             <button
               class="flex justify-center items-center h-8 w-10"
-              on:click|stopPropagation={() => console.log('ToDo')}
+              on:click|stopPropagation={() => reset()}
               in:fade={{ delay: 100, duration: 200 }}
               out:fade={{ duration: 200 }}
             >
