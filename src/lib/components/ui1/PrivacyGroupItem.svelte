@@ -30,8 +30,11 @@
   }
 
   function reset() {
-    members.forEach((x) => (x.checked = defaultMembers.find((y) => x.name === y.name).checked));
-    members = members;
+    members.forEach((x) => {
+      let checked = defaultMembers.find((y) => x.name === y.name).checked;
+      x.checked = checked;
+    });
+    members = [...members];
   }
 </script>
 

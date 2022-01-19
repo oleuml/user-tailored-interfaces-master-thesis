@@ -45,6 +45,11 @@
   let loading = false;
   let imagePath = '/images/pet_image.png';
 
+  let defaultMembers = [];
+  members.forEach((x) => {
+    defaultMembers.push({ ...x });
+  });
+
   onMount(() => {
     if (!$task1['start']) $task1['start'] = Date.now();
     if (!$task1['members']) $task1['members'] = groups;
@@ -76,7 +81,7 @@
   >
     <RiskIndicator riskValue={0.35} bind:tracking={$task1['tracking']} />
     <PrivacyGroupList
-      defaultMembers={members}
+      {defaultMembers}
       bind:tracking={$task1['tracking']}
       bind:groups={$task1.members}
     />

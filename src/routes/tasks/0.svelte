@@ -46,6 +46,10 @@
 
   let imagePath = '/images/party_image.png';
 
+  let defaultMembers = [];
+  members.forEach((x) => {
+    defaultMembers.push({ ...x });
+  });
   onMount(() => {
     if (!$task0['start']) $task0['start'] = Date.now();
     if (!$task0['members']) $task0['members'] = groups;
@@ -75,7 +79,7 @@
   >
     <RiskIndicator riskValue={0.9} bind:tracking={$task0['tracking']} />
     <PrivacyGroupList
-      defaultMembers={members}
+      {defaultMembers}
       bind:tracking={$task0['tracking']}
       bind:groups={$task0['members']}
     />
