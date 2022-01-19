@@ -9,6 +9,7 @@
 
 body {
   @apply bg-yellow-500 bg-opacity-10;
+  overscroll-behavior-y: contain;
 }
 
 .box {
