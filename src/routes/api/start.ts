@@ -20,9 +20,9 @@ export const post: RequestHandler = async (request) => {
   return {
     status: 302,
     headers: {
-      'set-cookie': [`token=${token}; path=/; SameSite=Strict; Secure`],
-      Location: '/survey/0',
-      'Content-Type': 'application/x-www-form-urlencoded'
-    }
+      "set-cookie": [`token=${token}; path=/;`],
+      Location: "/survey/0",
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
   };
 };
