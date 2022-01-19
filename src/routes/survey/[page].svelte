@@ -51,8 +51,8 @@
   import Page, { checkAllFulfilled } from "$lib/components/survey/Page.svelte";
   import TopBar from "$lib/material/TopBar.svelte";
   import { answers } from "$lib/stores/answers";
-  import questionsA from "../../pagesA.json";
-  import questionsB from "../../pagesB.json";
+  import questionsA from "$lib/data/pagesA.json";
+  import questionsB from "$lib/data/pagesB.json";
   import { mdiChevronLeft, mdiChevronRight } from "@mdi/js";
   import Button from "$lib/material/Button.svelte";
   import { marked } from "marked";
