@@ -1,6 +1,6 @@
 const config = {
   mode: 'jit',
-  purge: ['./src/**/*.{html,js,svelte,ts}'],
+  content: ['./src/**/*.{html,js,svelte,ts}'],
 
   theme: {
     extend: {
@@ -11,7 +11,8 @@ const config = {
       height: {
         '13': '3.25rem',
         '18': '4.5rem',
-        '11/12': '91.66666%'
+        '11/12': '91.66666%',
+        '0.25': '0.0625rem'
       },
       maxHeight: {
         '4/6': '66.66666%',

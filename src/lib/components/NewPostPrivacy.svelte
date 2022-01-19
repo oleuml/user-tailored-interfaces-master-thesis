@@ -1,15 +1,16 @@
 <script>
   import Button from '$lib/material/Button.svelte';
-  import PrivacyGroupList from './PrivacyGroupList.svelte';
+  import { answers } from '$lib/stores/answers';
 
   import { mdiSend } from '@mdi/js';
-  import { createEventDispatcher } from 'svelte';
+  import { createEventDispatcher, onMount } from 'svelte';
   import { fade, fly } from 'svelte/transition';
 
   const dispatcher = createEventDispatcher();
 
   export let post;
-  export let groups;
+  export let tracking;
+
   let sendLoading = false;
 </script>
 
@@ -22,19 +23,41 @@
   }}
 >
   <div
-    class="absolute w-full bottom-0 overflow-y-auto bg-white h-11/12 border-t-2 border-l-2 border-r-2 p-2 rounded-t-md"
+    class="absolute w-full bottom-0 overflow-y-auto bg-white h-11/12 border-t-2 border-l-2 border-r-2 p-2 rounded-t-md mx-1"
+    style="width: calc(100% - 0.5rem);"
     in:fly={{ y: 200, duration: 200 }}
     out:fly={{ y: 200, duration: 200 }}
+    on:scroll={(event) => {
+      tracking.push({
+        t: Date.now(),
+        action: 'scroll',
+        pos: 'privacy_modal',
+        data: {
+          scrollHeight: event.target.scrollHeight,
+          scrollLeft: event.target.scrollLeft,
+          scrollLeftMax: event.target.scrollLeftMax,
+          scrollTop: event.target.scrollTop,
+          scrollTopMax: event.target.scrollTopMax,
+          scrollWidth: event.target.scrollWidth
+        }
+      });
+      console.log('scroll');
+    }}
   >
     <div class="flex flex-col h-full w-full">
       <div class="flex-initial border-4 rounded-lg mx-36 mb-2" />
-      <div class="flex-auto"><PrivacyGroupList {groups} /></div>
+      <div class="flex-auto"><slot /></div>
       <div class="flex mt-2 justify-end">
         <Button
           icon={mdiSend}
           loading={sendLoading}
           title="Senden"
           on:click={() => {
+            tracking.push({
+              t: Date.now(),
+              action: 'send',
+              pos: 'privacy_modal'
+            });
             sendLoading = true;
             setTimeout(() => {
               post = false;

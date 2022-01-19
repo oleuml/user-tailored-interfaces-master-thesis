@@ -10,16 +10,22 @@
     mdiChevronDown,
     mdiCircleOutline
   } from '@mdi/js';
-  import MemberBadge from './MemberBadge.svelte';
+  import MemberBadge from '../MemberBadge.svelte';
   import { slide, fade } from 'svelte/transition';
 
   export let title: string;
   export let members: any;
+  export let tracking: any;
 
   let expanded = false;
 
   function toggleExpanded() {
     expanded = !expanded;
+    tracking.push({
+      t: Date.now(),
+      action: `toggle-expansion-${expanded}`,
+      pos: `privacy-modal-group-list-${title}`
+    });
   }
 </script>
 
@@ -55,7 +61,16 @@
                 name={member.name}
                 color={member.color}
                 badged={member.checked}
-                on:click={() => (member.checked = !member.checked)}
+                on:click={() => {
+                  member.checked = !member.checked;
+                  tracking.push({
+                    t: Date.now(),
+                    action: `member-checked-${member.checked}`,
+                    pos: `privacy-modal-group-list-${title}`,
+                    expanded: expanded,
+                    member: member.name
+                  });
+                }}
               />
             {/each}
           </div>
@@ -69,7 +84,16 @@
                 class:bg-gray-200={!(i % 2)}
                 class:rounded-t-md={i === 0}
                 class:rounded-b-md={i === members.length - 1}
-                on:click|stopPropagation={() => (members[i].checked = !members[i].checked)}
+                on:click|stopPropagation={() => {
+                  members[i].checked = !members[i].checked;
+                  tracking.push({
+                    t: Date.now(),
+                    action: `member-checked-${members[i].checked}`,
+                    pos: `privacy-modal-group-list-${title}`,
+                    expanded: expanded,
+                    member: members[i].name
+                  });
+                }}
               >
                 <span class="flex flex-wrap items-center gap-2"
                   ><MemberBadge
@@ -112,13 +136,29 @@
           {/if}
           <button
             class="flex justify-center items-center h-8 w-10"
-            on:click|stopPropagation={() => members.forEach((_, i) => (members[i].checked = false))}
+            on:click|stopPropagation={() => {
+              members.forEach((_, i) => (members[i].checked = false));
+              tracking.push({
+                t: Date.now(),
+                action: `all-members-unchecked`,
+                pos: `privacy-modal-group-list-${title}`,
+                expanded: expanded
+              });
+            }}
           >
             <Icon path={mdiCheckboxMultipleBlankCircleOutline} />
           </button>
           <button
             class="flex justify-center items-center h-8 w-10"
-            on:click|stopPropagation={() => members.forEach((_, i) => (members[i].checked = true))}
+            on:click|stopPropagation={() => {
+              members.forEach((_, i) => (members[i].checked = true));
+              tracking.push({
+                t: Date.now(),
+                action: `all-members-checked`,
+                pos: `privacy-modal-group-list-${title}`,
+                expanded: expanded
+              });
+            }}
           >
             <Icon path={mdiCheckboxMultipleMarkedCircle} />
           </button>

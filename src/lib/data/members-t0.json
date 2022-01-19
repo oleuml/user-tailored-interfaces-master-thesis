@@ -3,7 +3,8 @@
     "name": "Sanjay Blaguna",
     "group": "Familie",
     "color": "#EF4444",
-    "checked": true
+    "checked": true,
+    "favorite": true
   },
   {
     "name": "Noémie Garbi",
@@ -201,7 +202,8 @@
     "name": "Rina Freja",
     "group": "Arbeitskollegen",
     "color": "#7f71e9",
-    "checked": false
+    "checked": false,
+    "favorite": true
   },
   {
     "name": "Robert Yancy",
