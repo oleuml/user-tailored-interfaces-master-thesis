@@ -25,7 +25,7 @@
     return true;
   }
 
-  export async function load({ page, session }) {
+  export async function load({ session, params }) {
     if (session.token === undefined) {
       return { status: 302, redirect: `/` };
     }
@@ -33,11 +33,11 @@
     let currentPage = Cookie.get('page');
     if (
       currentPage !== undefined &&
-      !checkPageAccessAllowed(parseInt(currentPage), parseInt(page.params.page), odd)
+      !checkPageAccessAllowed(parseInt(currentPage), parseInt(params.page), odd)
     ) {
       return { status: 302, redirect: `/survey/${currentPage}` };
     }
-    return { props: { ...page.params, odd: odd } };
+    return { props: { ...params, odd: odd } };
   }
 </script>
 
@@ -53,7 +53,6 @@
   import Button from '$lib/material/Button.svelte';
   import { marked } from 'marked';
   import Cookie from 'js-cookie';
-  import { onMount } from 'svelte';
   import { task0 } from '$lib/stores/task0';
   import { task1 } from '$lib/stores/task1';
   import { task2 } from '$lib/stores/task2';
@@ -86,30 +85,65 @@
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify($answers)
+      }).then((res) => {
+        if (res.ok) {
+          localStorage.removeItem('answers');
+        }
+        if (res.status === 400) {
+          localStorage.removeItem('answers');
+        }
       });
 
       fetch('/api/submit/tasks/0', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify($task0)
+      }).then((res) => {
+        if (res.ok) {
+          localStorage.removeItem('task0');
+        }
+        if (res.status === 400) {
+          localStorage.removeItem('task0');
+        }
       });
 
       fetch('/api/submit/tasks/1', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify($task1)
+      }).then((res) => {
+        if (res.ok) {
+          localStorage.removeItem('task1');
+        }
+        if (res.status === 400) {
+          localStorage.removeItem('task1');
+        }
       });
 
       fetch('/api/submit/tasks/2', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify($task2)
+      }).then((res) => {
+        if (res.ok) {
+          localStorage.removeItem('task2');
+        }
+        if (res.status === 400) {
+          localStorage.removeItem('task2');
+        }
       });
 
       fetch('/api/submit/tasks/3', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify($task3)
+      }).then((res) => {
+        if (res.ok) {
+          localStorage.removeItem('task3');
+        }
+        if (res.status === 400) {
+          localStorage.removeItem('task3');
+        }
       });
     }
   });
