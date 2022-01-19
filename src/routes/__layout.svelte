@@ -16,4 +16,5 @@
   import '../app.css';
 </script>
 
+<svelte:head><title>Studie</title></svelte:head>
 <slot />
