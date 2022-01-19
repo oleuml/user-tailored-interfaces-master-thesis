@@ -63,6 +63,10 @@
   export let page;
   export let odd;
 
+  let readCheck = false;
+
+  $: console.log(readCheck);
+
   // Initialize answers
   let pages = odd ? questionsA : questionsB;
   pages
@@ -169,8 +173,22 @@
         {#if pageDescription}
           {@html marked(pageDescription)}
         {/if}
+        <div class="flex mb-2">
+          <input
+            class="mr-2"
+            type="checkbox"
+            bind:checked={readCheck}
+            name="readCheck"
+            id="readCheck"
+          />
+          <label for="readCheck">Hast du die Aufgabestellung gelesen?</label>
+        </div>
         <div class="flex justify-center">
-          <Button title="Fortfahren" on:click={() => goto(`/tasks/${pageTask}`)} />
+          <Button
+            disabled={!readCheck}
+            title="Fortfahren"
+            on:click={() => goto(`/tasks/${pageTask}`)}
+          />
         </div>
       </div>
     {/if}
