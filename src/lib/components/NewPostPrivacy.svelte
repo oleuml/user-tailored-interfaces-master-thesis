@@ -1,9 +1,8 @@
 <script>
   import Button from '$lib/material/Button.svelte';
-  import { answers } from '$lib/stores/answers';
 
   import { mdiSend } from '@mdi/js';
-  import { createEventDispatcher, onMount } from 'svelte';
+  import { createEventDispatcher } from 'svelte';
   import { fade, fly } from 'svelte/transition';
 
   const dispatcher = createEventDispatcher();

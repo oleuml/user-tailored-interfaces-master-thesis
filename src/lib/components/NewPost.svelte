@@ -1,17 +1,17 @@
 <script>
-  import { fade } from "svelte/transition";
-  import { expoIn } from "svelte/easing";
-  import Icon from "mdi-svelte";
+  import { fade } from 'svelte/transition';
+  import { expoIn } from 'svelte/easing';
+  import Icon from 'mdi-svelte';
   import {
     mdiAccountGroup,
     mdiCheckCircleOutline,
     mdiImageArea,
     mdiImageEdit,
-    mdiSendLock,
-  } from "@mdi/js";
-  import TopBar from "$lib/material/TopBar.svelte";
-  import { goto } from "$app/navigation";
-  import { createEventDispatcher } from "svelte";
+    mdiSendLock
+  } from '@mdi/js';
+  import TopBar from '$lib/material/TopBar.svelte';
+  import { goto } from '$app/navigation';
+  import { createEventDispatcher } from 'svelte';
 
   export let post;
   export let loading;
@@ -44,7 +44,7 @@
           <div
             in:fade={{ easing: expoIn, duration: 200 }}
             on:introend={() => {
-              dispatch("send");
+              dispatch('send');
               setTimeout(() => {
                 goto(nextPath);
               }, 1000);
@@ -60,9 +60,7 @@
   </div>
   <div class="flex-auto justify-between">
     <div class="h-3/6">
-      <div
-        class="relative h-full flex flex-wrap p-6 content-center justify-center"
-      >
+      <div class="relative h-full flex flex-wrap p-6 content-center justify-center">
         {#if !imageSet}
           <div
             class="flex flex-wrap h-full w-full justify-center rounded-3xl content-center bg-gray-100 text-blue-100"
@@ -70,10 +68,9 @@
             <Icon size={6.0} path={mdiImageArea} />
           </div>
         {:else}
-          <img
-            class="h-full rounded-3xl bg-center object-cover"
-            src={imagePath}
-          />
+          <div class="h-full rounded-3xl  overflow-hidden">
+            <img class="h-full bg-center object-cover" src={imagePath} />
+          </div>
         {/if}
         <button
           class="absolute bottom-4 right-4 bg-opacity-90 shadow-md flex flex-wrap content-center justify-center rounded-2xl w-16 h-16 bg-blue-50"
