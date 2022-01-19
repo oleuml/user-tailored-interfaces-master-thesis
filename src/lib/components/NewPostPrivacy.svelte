@@ -15,11 +15,12 @@
 </script>
 
 <div
-  class="absolute w-screen h-screen overflow-hidden top-0 z-10 bg-opacity-50 bg-black"
+  class="absolute w-screen h-screen overflow-hidden top-0 bg-opacity-50 bg-black"
+  class:hidden={!post}
   transition:fade={{ duration: 100 }}
   on:click|self={() => {
+    post = false;
     dispatcher('background');
-    post = !post;
   }}
 >
   <div

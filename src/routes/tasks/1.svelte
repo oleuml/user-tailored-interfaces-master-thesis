@@ -54,21 +54,20 @@
 
 <!-- TODO: Change selected members -->
 
-<div class="z-0">
-  <NewPost
-    bind:post
-    bind:loading
-    title={'Aufgabe ' + (parseInt(Cookies.get('task')) + 1)}
-    nextPath="/survey/{parseInt(Cookies.get('page')) + 1}"
-    {imagePath}
-    on:send={() => {
-      if (!$task1['end']) {
-        $task1['end'] = Date.now();
-        Cookies.set('task', parseInt(Cookies.get('task')) + 1);
-      }
-    }}
-  />
-</div>
+<NewPost
+  bind:post
+  bind:loading
+  title={'Aufgabe ' + (parseInt(Cookies.get('task')) + 1)}
+  nextPath="/survey/{parseInt(Cookies.get('page')) + 1}"
+  {imagePath}
+  on:send={() => {
+    if (!$task1['end']) {
+      $task1['end'] = Date.now();
+      Cookies.set('task', parseInt(Cookies.get('task')) + 1);
+    }
+  }}
+/>
+
 {#if post}
   <NewPostPrivacy
     bind:post

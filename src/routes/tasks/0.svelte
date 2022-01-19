@@ -53,21 +53,20 @@
   });
 </script>
 
-<div class="z-0">
-  <NewPost
-    bind:post
-    bind:loading
-    title={'Aufgabe ' + (parseInt(Cookies.get('task')) + 1)}
-    nextPath="/survey/{parseInt(Cookies.get('page')) + 1}"
-    {imagePath}
-    on:send={() => {
-      if (!$task0['end']) {
-        $task0['end'] = Date.now();
-        Cookies.set('task', parseInt(Cookies.get('task')) + 1);
-      }
-    }}
-  />
-</div>
+<NewPost
+  bind:post
+  bind:loading
+  title={'Aufgabe ' + (parseInt(Cookies.get('task')) + 1)}
+  nextPath="/survey/{parseInt(Cookies.get('page')) + 1}"
+  {imagePath}
+  on:send={() => {
+    if (!$task0['end']) {
+      $task0['end'] = Date.now();
+      Cookies.set('task', parseInt(Cookies.get('task')) + 1);
+    }
+  }}
+/>
+
 {#if post}
   <NewPostPrivacy
     bind:tracking={$task0['tracking']}
