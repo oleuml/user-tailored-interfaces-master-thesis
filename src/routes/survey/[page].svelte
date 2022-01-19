@@ -35,7 +35,6 @@
       currentPage !== undefined &&
       !checkPageAccessAllowed(parseInt(currentPage), parseInt(page.params.page), odd)
     ) {
-      console.log('redirect');
       return { status: 302, redirect: `/survey/${currentPage}` };
     }
     return { props: { ...page.params, odd: odd } };
@@ -64,8 +63,6 @@
   export let odd;
 
   let readCheck = false;
-
-  $: console.log(readCheck);
 
   // Initialize answers
   let pages = odd ? questionsA : questionsB;
