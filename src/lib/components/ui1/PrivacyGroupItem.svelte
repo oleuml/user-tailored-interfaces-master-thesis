@@ -73,8 +73,7 @@
                     t: Date.now(),
                     action: `member-checked-${member.checked}`,
                     pos: `privacy-modal-group-list-${title}`,
-                    expanded: expanded,
-                    member: member.name
+                    data: { expanded: expanded, member: member.name }
                   });
                 }}
               />
@@ -96,8 +95,7 @@
                     t: Date.now(),
                     action: `member-checked-${members[i].checked}`,
                     pos: `privacy-modal-group-list-${title}`,
-                    expanded: expanded,
-                    member: members[i].name
+                    data: { expanded: expanded, member: members[i].name }
                   });
                 }}
               >
@@ -133,7 +131,15 @@
           {#if expanded}
             <button
               class="flex justify-center items-center h-8 w-10"
-              on:click|stopPropagation={() => reset()}
+              on:click|stopPropagation={() => {
+                reset();
+                tracking.push({
+                  t: Date.now(),
+                  action: `member-checked-reset`,
+                  pos: `privacy-modal-group-list-${title}`,
+                  data: { expanded: expanded }
+                });
+              }}
               in:fade={{ delay: 100, duration: 200 }}
               out:fade={{ duration: 200 }}
             >
@@ -148,7 +154,7 @@
                 t: Date.now(),
                 action: `all-members-unchecked`,
                 pos: `privacy-modal-group-list-${title}`,
-                expanded: expanded
+                data: { expanded: expanded }
               });
             }}
           >
@@ -162,7 +168,7 @@
                 t: Date.now(),
                 action: `all-members-checked`,
                 pos: `privacy-modal-group-list-${title}`,
-                expanded: expanded
+                data: { expanded: expanded }
               });
             }}
           >
