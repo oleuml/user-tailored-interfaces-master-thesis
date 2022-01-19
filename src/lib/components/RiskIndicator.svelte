@@ -19,12 +19,12 @@
       <span
         class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full"
         class:text-green-600={riskValue <= 0.2}
-        class:text-yellowgreen-600={riskValue > 0.2 && riskValue <= 0.4}
+        class:text-lime-600={riskValue > 0.2 && riskValue <= 0.4}
         class:text-yellow-600={riskValue > 0.4 && riskValue <= 0.6}
         class:text-orange-600={riskValue > 0.6 && riskValue <= 0.8}
         class:text-red-600={riskValue > 0.8}
         class:bg-green-200={riskValue <= 0.2}
-        class:bg-yellowgreen-200={riskValue > 0.2 && riskValue <= 0.4}
+        class:bg-lime-200={riskValue > 0.2 && riskValue <= 0.4}
         class:bg-yellow-200={riskValue > 0.4 && riskValue <= 0.6}
         class:bg-orange-200={riskValue > 0.6 && riskValue <= 0.8}
         class:bg-red-200={riskValue > 0.8}
@@ -36,7 +36,7 @@
       <span
         class="text-xs font-semibold inline-block"
         class:text-green-600={riskValue <= 0.2}
-        class:text-yellowgreen-500={riskValue > 0.2 && riskValue <= 0.4}
+        class:text-lime-600={riskValue > 0.2 && riskValue <= 0.4}
         class:text-yellow-600={riskValue > 0.4 && riskValue <= 0.6}
         class:text-orange-600={riskValue > 0.6 && riskValue <= 0.8}
         class:text-red-600={riskValue > 0.8}
@@ -62,7 +62,7 @@
     />
     <div
       style="width: 20%"
-      class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-yellowgreen-500"
+      class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-lime-500"
     />
     <div
       style="width: 20%"
@@ -79,7 +79,7 @@
     <div
       class="absolute w-4 h-4"
       class:text-green-800={riskValue <= 0.2}
-      class:text-yellowgreen-800={riskValue > 0.2 && riskValue <= 0.4}
+      class:text-lime-800={riskValue > 0.2 && riskValue <= 0.4}
       class:text-yellow-800={riskValue > 0.4 && riskValue <= 0.6}
       class:text-orange-800={riskValue > 0.6 && riskValue <= 0.8}
       class:text-red-800={riskValue > 0.8}
@@ -91,18 +91,3 @@
     </div>
   </div>
 </div>
-
-<style>
-  .bg-yellowgreen-800 {
-    background-color: #09af00;
-  }
-  .bg-yellowgreen-600 {
-    background-color: #61d800;
-  }
-  .bg-yellowgreen-500 {
-    background-color: #75e900;
-  }
-  .bg-yellowgreen-200 {
-    background-color: #c6f68d;
-  }
-</style>
