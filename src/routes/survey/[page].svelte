@@ -42,7 +42,7 @@
 </script>
 
 <script>
-  import { goto } from '$app/navigation';
+  import { afterNavigate, goto } from '$app/navigation';
   import Icon from 'mdi-svelte';
   import Page, { checkAllFulfilled } from '$lib/components/survey/Page.svelte';
   import TopBar from '$lib/material/TopBar.svelte';
@@ -58,6 +58,7 @@
   import { task1 } from '$lib/stores/task1';
   import { task2 } from '$lib/stores/task2';
   import { task3 } from '$lib/stores/task3';
+  import { tick } from 'svelte';
 
   export let page;
   export let odd;
@@ -78,7 +79,8 @@
       }
     });
 
-  onMount(() => {
+  afterNavigate(() => {
+    tick();
     if (explanationType && pages.length - 1 === active) {
       fetch('/api/submit/answers', {
         method: 'POST',
