@@ -69,7 +69,7 @@
           </div>
         {:else}
           <div class="h-full rounded-3xl  overflow-hidden">
-            <img class="h-full bg-center object-cover" src={imagePath} />
+            <img class="h-full w-full bg-center object-cover" src={imagePath} />
           </div>
         {/if}
         <button
