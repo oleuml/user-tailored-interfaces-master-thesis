@@ -2,8 +2,8 @@ import database from '$lib/utils/database';
 import type { RequestHandler } from '@sveltejs/kit';
 import * as cookie from 'cookie';
 
-export const post: RequestHandler = async (request) => {
-  const cookies = cookie.parse(request.headers.cookie);
+export const post: RequestHandler = async ({ request }) => {
+  const cookies = cookie.parse(request.headers.get('cookie'));
   const proband = (await database('proband_data')).find((x) => x.token === cookies.token);
   if (proband === undefined) return { status: 401, body: 'invalid token' };
 
@@ -12,7 +12,7 @@ export const post: RequestHandler = async (request) => {
     return { status: 400, body: 'already data submitted for this token' };
 
   // Save answers in database
-  const answers = request.body;
+  const answers = await request.json();
   const date = Date.now();
   Object.entries(answers).forEach(async (x) => {
     const key = x[0];

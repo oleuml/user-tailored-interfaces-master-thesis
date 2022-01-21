@@ -2,9 +2,9 @@ import database from '$lib/utils/database';
 import type { RequestHandler } from '@sveltejs/kit';
 import * as cookie from 'cookie';
 
-export const post: RequestHandler = async (request) => {
-  const cookies = cookie.parse(request.headers.cookie);
-  const taskid = parseInt(request.params.task);
+export const post: RequestHandler = async ({ request, params }) => {
+  const cookies = cookie.parse(request.headers.get('cookie'));
+  const taskid = parseInt(params.task);
   if (taskid < 0 || taskid > 3) return { status: 404, body: 'task not found' };
 
   const proband = (await database('proband_data')).find((x) => x.token === cookies.token);
@@ -17,16 +17,17 @@ export const post: RequestHandler = async (request) => {
       body: 'already data submitted for this token and task'
     };
 
+  const data = await request.json();
   // Save answers in database
   await database('tasks').insert({
     uid: uid,
     taskid: taskid,
-    members: JSON.stringify(request.body.members),
-    start: request.body.start,
-    end: request.body.end
+    members: JSON.stringify(data.members),
+    start: data.start,
+    end: data.end
   });
 
-  const tracking = request.body.tracking;
+  const tracking = data.tracking;
 
   tracking.forEach(async (x) => {
     let data;
