@@ -28,13 +28,13 @@
     "name": "Adilet Garbi",
     "group": "Familie",
     "color": "#6366F1",
-    "checked": false
+    "checked": true
   },
   {
     "name": "Vincent Blaguna",
     "group": "Familie",
     "color": "#8B5CF6",
-    "checked": true
+    "checked": false
   },
   {
     "name": "Cissy Blaguna",
@@ -82,13 +82,13 @@
     "name": "Gauti Yonah",
     "group": "Freunde",
     "color": "#bf1fa6",
-    "checked": false
+    "checked": true
   },
   {
     "name": "Albina Kāne",
     "group": "Freunde",
     "color": "#70a0d4",
-    "checked": false
+    "checked": true
   },
   {
     "name": "Fima Itzel",
@@ -130,7 +130,7 @@
     "name": "Petra Thaís",
     "group": "Freunde",
     "color": "#554995",
-    "checked": false
+    "checked": true
   },
   {
     "name": "Manish Dzhamal",
@@ -202,7 +202,7 @@
     "name": "Rina Freja",
     "group": "Arbeitskollegen",
     "color": "#7f71e9",
-    "checked": false,
+    "checked": true,
     "favorite": true
   },
   {
@@ -239,25 +239,25 @@
     "name": "Zlata Vina",
     "group": "Bekannte",
     "color": "#43686d",
-    "checked": false
+    "checked": true
   },
   {
     "name": "Thandi Ryuunosuke",
     "group": "Bekannte",
     "color": "#84eaee",
-    "checked": false
+    "checked": true
   },
   {
     "name": "Apoorva Domitian",
     "group": "Bekannte",
     "color": "#e54519",
-    "checked": false
+    "checked": true
   },
   {
     "name": "Ignatz Şehrazat",
     "group": "Bekannte",
     "color": "#9fc583",
-    "checked": false
+    "checked": true
   },
   {
     "name": "Abraam Waman",
@@ -275,7 +275,7 @@
     "name": "Błażej Valentin",
     "group": "Bekannte",
     "color": "#f08e74",
-    "checked": false
+    "checked": true
   },
   {
     "name": "Italia Gwillym",
@@ -293,7 +293,7 @@
     "name": "Piper Samir",
     "group": "Bekannte",
     "color": "#d67ea1",
-    "checked": false
+    "checked": true
   },
   {
     "name": "Morna Emigdio",
