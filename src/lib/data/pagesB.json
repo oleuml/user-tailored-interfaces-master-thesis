@@ -20,15 +20,7 @@
         "question": "Alter (in Jahren)",
         "questionPrefix": "Frage 1.2: ",
         "type": "likert",
-        "answers": [
-          "unter 18",
-          "18-24",
-          "25-34",
-          "35-44",
-          "45-54",
-          "55-64",
-          "über 65"
-        ],
+        "answers": ["unter 18", "18-24", "25-34", "35-44", "45-54", "55-64", "über 65"],
         "noStatement": false,
         "legendType": "top"
       },
@@ -51,20 +43,8 @@
       },
       {
         "qid": 103,
-        "question": "Internet Erfahrung (in Jahren)",
+        "question": ["Wie häufig nutze ich...", ["Facebook", "Instagram", "Snapchat", "TikTok"]],
         "questionPrefix": "Frage 1.4: ",
-        "type": "likert",
-        "answers": ["unter 1", "1-2", "2-4", "4-6", "6-8", "8-10", "über 10"],
-        "noStatement": true,
-        "legendType": "top"
-      },
-      {
-        "qid": 104,
-        "question": [
-          "Wie häufig nutze ich...",
-          ["Facebook", "Instagram", "Snapchat", "TikTok"]
-        ],
-        "questionPrefix": "Frage 1.5: ",
         "type": "group-likert",
         "answers": [
           ["nie", "selten", "manch-mal", "häufig", "sehr häufig"],
@@ -83,7 +63,7 @@
     "questions": [
       {
         "qid": 201,
-        "question": "Der Schutz der Privatsphäre der Verbraucher im Internet ist eine Frage des Rechts der Verbraucher, selbst zu entscheiden, wie ihre Daten gesammelt, verwendet und weitergegeben werden.",
+        "question": "Im Verbraucherdatenschutz geht es um die Rechte des Verbrauchers, zu kontrollieren, wie dessen Daten gesammelt, benutzt und weitergegeben werden.",
         "questionPrefix": "Frage 2.1: ",
         "type": "likert",
         "answers": ["1", "", "", "4", "", "", "7"],
@@ -92,7 +72,7 @@
       },
       {
         "qid": 202,
-        "question": "Die Kontrolle der Verbraucher über ihre persönlichen Daten ist das Herzstück der Privatsphäre der Verbraucher.",
+        "question": "Die Kontrolle des Verbrauchers über seine persönlichen Daten steht im Mittelpunkt des Verbraucherdatenschutzes.",
         "questionPrefix": "Frage 2.2: ",
         "type": "likert",
         "answers": ["1", "", "", "4", "", "", "7"],
@@ -101,7 +81,7 @@
       },
       {
         "qid": 203,
-        "question": "Ich glaube, dass die Online-Privatsphäre verletzt wird, wenn die Kontrolle durch eine kommerzielle Handlung ungewollt eingeschränkt wird.",
+        "question": "Ich glaube, dass der Datenschutz online beeinträchtigt wird, wenn die Kontrolle über die persönlichen Daten aufgrund einer Marketingentscheidung verloren geht oder reduziert wird.",
         "questionPrefix": "Frage 2.3: ",
         "type": "likert",
         "answers": ["1", "", "", "4", "", "", "7"],
@@ -116,7 +96,7 @@
     "questions": [
       {
         "qid": 301,
-        "question": "Unternehmen, die online Informationen einholen, sollten offenlegen, wie die Daten erhoben, verarbeitet und genutzt werden.",
+        "question": "Unternehmen, die online Daten sammeln, sollten öffentlich machen, wie sie diese Daten erheben, verarbeiten und benutzen.",
         "questionPrefix": "Frage 3.1: ",
         "type": "likert",
         "answers": ["1", "", "", "4", "", "", "7"],
@@ -125,7 +105,7 @@
       },
       {
         "qid": 302,
-        "question": "Eine gute Online-Datenschutzpolitik für Verbraucher sollte eine klare und unübersehbare Offenlegung enthalten.",
+        "question": "Eine gute Datenschutzerklärung sollte klar und unmissverständlich sein.",
         "questionPrefix": "Frage 3.2: ",
         "type": "likert",
         "answers": ["1", "", "", "4", "", "", "7"],
@@ -134,7 +114,7 @@
       },
       {
         "qid": 303,
-        "question": "Es ist mir sehr wichtig, dass ich über die Verwendung meiner persönlichen Daten Bescheid weiß und darüber informiert bin.",
+        "question": "Es ist mir sehr wichtig, dass ich darüber informiert bin, wie meine persönlichen Daten genutzt werden.",
         "questionPrefix": "Frage 3.3: ",
         "type": "likert",
         "answers": ["1", "", "", "4", "", "", "7"],
@@ -198,13 +178,7 @@
         "question": "Wie ist deine zeitliche Einschätzung zur Absolvierung der Aufgabe?",
         "questionPrefix": "Frage 1: ",
         "type": "likert",
-        "answers": [
-          "Sehr langsam",
-          "Langsam",
-          "Ordentlich",
-          "Schnell",
-          "Sehr schnell"
-        ],
+        "answers": ["Sehr langsam", "Langsam", "Ordentlich", "Schnell", "Sehr schnell"],
         "noStatement": false,
         "legendType": "top"
       },
@@ -231,13 +205,7 @@
         "question": "Wie ist deine zeitliche Einschätzung zur Absolvierung der Aufgabe?",
         "questionPrefix": "Frage 1: ",
         "type": "likert",
-        "answers": [
-          "Sehr langsam",
-          "Langsam",
-          "Ordentlich",
-          "Schnell",
-          "Sehr schnell"
-        ],
+        "answers": ["Sehr langsam", "Langsam", "Ordentlich", "Schnell", "Sehr schnell"],
         "noStatement": false,
         "legendType": "top"
       },
@@ -372,13 +340,7 @@
         "question": "Wie ist deine zeitliche Einschätzung zur Absolvierung der Aufgabe?",
         "questionPrefix": "Frage 1: ",
         "type": "likert",
-        "answers": [
-          "Sehr langsam",
-          "Langsam",
-          "Ordentlich",
-          "Schnell",
-          "Sehr schnell"
-        ],
+        "answers": ["Sehr langsam", "Langsam", "Ordentlich", "Schnell", "Sehr schnell"],
         "noStatement": false,
         "legendType": "top"
       },
@@ -405,13 +367,7 @@
         "question": "Wie ist deine zeitliche Einschätzung zur Absolvierung der Aufgabe?",
         "questionPrefix": "Frage 1: ",
         "type": "likert",
-        "answers": [
-          "Sehr langsam",
-          "Langsam",
-          "Ordentlich",
-          "Schnell",
-          "Sehr schnell"
-        ],
+        "answers": ["Sehr langsam", "Langsam", "Ordentlich", "Schnell", "Sehr schnell"],
         "noStatement": false,
         "legendType": "top"
       },
