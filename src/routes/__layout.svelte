@@ -1,5 +1,5 @@
 <script context="module">
-  export async function load({ session, page }) {
+  export async function load({ session }) {
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(session.userAgent)) {
       return {
         status: 200
