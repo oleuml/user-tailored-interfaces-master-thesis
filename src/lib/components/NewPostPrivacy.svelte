@@ -3,30 +3,24 @@
 
   import { mdiSend } from '@mdi/js';
   import { createEventDispatcher } from 'svelte';
-  import { fade, fly } from 'svelte/transition';
+  import Modal from './Modal.svelte';
 
   const dispatcher = createEventDispatcher();
 
-  export let post;
+  export let active;
   export let tracking;
 
   let sendLoading = false;
 </script>
 
-<div
-  class="absolute w-screen h-screen overflow-hidden top-0 bg-opacity-50 bg-black"
-  class:hidden={!post}
-  transition:fade={{ duration: 100 }}
-  on:click|self={() => {
-    post = false;
-    dispatcher('background');
+<Modal
+  bind:active
+  on:close={() => {
+    dispatcher('close');
   }}
 >
-  <div
-    class="absolute w-full bottom-0 overflow-y-auto bg-white h-11/12 border-t-2 border-l-2 border-r-2 p-2 rounded-t-md mx-1"
-    style="width: calc(100% - 0.5rem);"
-    in:fly={{ y: 200, duration: 200 }}
-    out:fly={{ y: 200, duration: 200 }}
+  <!-- <div
+    class="flex flex-col w-full overflow-y-auto"
     on:scroll={(event) => {
       tracking.push({
         t: Date.now(),
@@ -41,34 +35,26 @@
           scrollWidth: event.target.scrollWidth
         }
       });
-      console.log('scroll');
     }}
-  >
-    <div class="flex flex-col h-full w-full">
-      <div class="flex-initial border-4 rounded-lg mx-36 mb-2" />
-      <div class="flex-auto"><slot /></div>
-      <div class="flex justify-end">
-        <div class="w-full h-12" />
-      </div>
-    </div>
+  > -->
+  <slot />
+  <div slot="end" class="absolute bottom-1 right-1 px-2">
+    <Button
+      icon={mdiSend}
+      loading={sendLoading}
+      title="Senden"
+      on:click={() => {
+        tracking.push({
+          t: Date.now(),
+          action: 'send',
+          pos: 'privacy_modal'
+        });
+        sendLoading = true;
+        setTimeout(() => {
+          active = false;
+          sendLoading = false;
+        }, 400);
+      }}
+    />
   </div>
-</div>
-<div class="absolute bottom-1 right-1 px-2" class:hidden={!post}>
-  <Button
-    icon={mdiSend}
-    loading={sendLoading}
-    title="Senden"
-    on:click={() => {
-      tracking.push({
-        t: Date.now(),
-        action: 'send',
-        pos: 'privacy_modal'
-      });
-      sendLoading = true;
-      setTimeout(() => {
-        post = false;
-        sendLoading = false;
-      }, 400);
-    }}
-  />
-</div>
+</Modal>

@@ -57,7 +57,7 @@
   import { task1 } from '$lib/stores/task1';
   import { task2 } from '$lib/stores/task2';
   import { task3 } from '$lib/stores/task3';
-  import { tick } from 'svelte';
+  import { onMount, tick } from 'svelte';
 
   export let page;
   export let odd;
@@ -146,6 +146,10 @@
         }
       });
     }
+  });
+
+  onMount(() => {
+    document.body.style.background = 'white';
   });
 
   $: active = parseInt(page);

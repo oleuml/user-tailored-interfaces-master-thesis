@@ -20,7 +20,6 @@
   export let imagePath;
 
   let imageSet = false;
-
   const dispatch = createEventDispatcher();
 
   function handleSend() {
@@ -29,8 +28,14 @@
   }
 </script>
 
-<div class="flex flex-col h-screen bg-white  text-blue-900">
-  <div class="flex-initial">
+<div
+  class:rounded-t-xl={post}
+  class:duration-100={!post}
+  class:duration-200={post}
+  class:overflow-hidden={post}
+  class="flex flex-col bg-white transition:rounded-t-xl h-full text-blue-900"
+>
+  <div class="w-full flex-initial">
     <TopBar {title}>
       <button
         slot="end"
@@ -58,33 +63,29 @@
       </button>
     </TopBar>
   </div>
-  <div class="flex-auto justify-between">
-    <div class="h-3/6">
-      <div class="relative h-full flex flex-wrap p-6 content-center justify-center">
-        {#if !imageSet}
-          <div
-            class="flex flex-wrap h-full w-full justify-center rounded-3xl content-center bg-gray-100 text-blue-100"
-          >
-            <Icon size={6.0} path={mdiImageArea} />
-          </div>
-        {:else}
-          <div class="h-full rounded-3xl  overflow-hidden">
-            <img class="h-full w-full bg-center object-cover" src={imagePath} />
-          </div>
-        {/if}
-        <button
-          class="absolute bottom-4 right-4 bg-opacity-90 shadow-md flex flex-wrap content-center justify-center rounded-2xl w-16 h-16 bg-blue-50"
-          on:click={() => (imageSet = true)}
-        >
-          <Icon path={mdiImageEdit} />
-        </button>
+  <div class="flex-auto relative p-6">
+    {#if !imageSet}
+      <div
+        class="flex flex-wrap h-full w-full justify-center rounded-3xl content-center bg-gray-100 text-blue-100"
+      >
+        <Icon size={6.0} path={mdiImageArea} />
       </div>
-    </div>
-    <div class="flex flex-col h-3/6 px-6 pb-6 pt-3">
-      <textarea
-        class="flex-auto w-full bg-white border-2 p-2 rounded-3xl shadow-md resize-none text-sm text-gray-900"
-        placeholder="Beschreibung..."
-      />
-    </div>
+    {:else}
+      <div class="h-full rounded-3xl  overflow-hidden">
+        <img class="h-full w-full bg-center object-cover" src={imagePath} />
+      </div>
+    {/if}
+    <button
+      class="absolute bottom-4 right-4 bg-opacity-90 shadow-md flex flex-wrap content-center justify-center rounded-2xl w-16 h-16 bg-blue-50"
+      on:click={() => (imageSet = true)}
+    >
+      <Icon path={mdiImageEdit} />
+    </button>
+  </div>
+  <div class="flex-auto px-6 pb-6 pt-3">
+    <textarea
+      class="w-full h-full bg-white border-2 p-2 rounded-xl shadow-md resize-none text-sm text-gray-900"
+      placeholder="Beschreibung..."
+    />
   </div>
 </div>

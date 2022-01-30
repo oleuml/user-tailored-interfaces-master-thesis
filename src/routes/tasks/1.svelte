@@ -59,25 +59,31 @@
 
 <!-- TODO: Change selected members -->
 
-<NewPost
-  bind:post
-  bind:loading
-  title={'Aufgabe ' + (parseInt(Cookies.get('task')) + 1)}
-  nextPath="/survey/{parseInt(Cookies.get('page')) + 1}"
-  {imagePath}
-  on:send={() => {
-    if (!$task1['end']) {
-      $task1['end'] = Date.now();
-      Cookies.set('task', parseInt(Cookies.get('task')) + 1);
-    }
-  }}
-/>
-
+<div
+  class:scale-95={post}
+  class:duration-100={!post}
+  class:duration-200={post}
+  class="fixed box-border transition:padding h-full w-full"
+>
+  <NewPost
+    bind:post
+    bind:loading
+    title={'Aufgabe ' + (parseInt(Cookies.get('task')) + 1)}
+    nextPath="/survey/{parseInt(Cookies.get('page')) + 1}"
+    {imagePath}
+    on:send={() => {
+      if (!$task1['end']) {
+        $task1['end'] = Date.now();
+        Cookies.set('task', parseInt(Cookies.get('task')) + 1);
+      }
+    }}
+  />
+</div>
 {#if post}
   <NewPostPrivacy
-    bind:post
+    bind:active={post}
     bind:tracking={$task1['tracking']}
-    on:background={() => (loading = false)}
+    on:close={() => (loading = false)}
   >
     <RiskIndicator riskValue={0.35} bind:tracking={$task1['tracking']} />
     <PrivacyGroupList

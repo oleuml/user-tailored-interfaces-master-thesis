@@ -21,29 +21,33 @@
   });
 </script>
 
-<NewPost
-  bind:post
-  bind:loading
-  title={'Aufgabe ' + (parseInt(Cookies.get('task')) + 1)}
-  nextPath="/survey/{parseInt(Cookies.get('page')) + 1}"
-  {imagePath}
-  on:send={() => {
-    if (!$task2['end']) {
-      $task2['end'] = Date.now();
-      Cookies.set('task', parseInt(Cookies.get('task')) + 1);
-    }
-  }}
-/>
-
-{#if post}
-  <NewPostPrivacy
-    bind:tracking={$task2['tracking']}
+<div
+  class:scale-95={post}
+  class:duration-100={!post}
+  class:duration-200={post}
+  class="fixed box-border transition:padding h-full w-full"
+>
+  <NewPost
     bind:post
-    on:background={() => (loading = false)}
-  >
-    <div class="mx-6">
-      <RiskIndicator riskValue={0.9} bind:tracking={$task2['tracking']} />
-    </div>
-    <PrivacyList bind:tracking={$task2['tracking']} bind:members={$task2.members} />
-  </NewPostPrivacy>
-{/if}
+    bind:loading
+    title={'Aufgabe ' + (parseInt(Cookies.get('task')) + 1)}
+    nextPath="/survey/{parseInt(Cookies.get('page')) + 1}"
+    {imagePath}
+    on:send={() => {
+      if (!$task2['end']) {
+        $task2['end'] = Date.now();
+        Cookies.set('task', parseInt(Cookies.get('task')) + 1);
+      }
+    }}
+  />
+</div>
+<NewPostPrivacy
+  bind:tracking={$task2['tracking']}
+  bind:active={post}
+  on:close={() => (loading = false)}
+>
+  <div class="mx-6">
+    <RiskIndicator riskValue={0.9} bind:tracking={$task2['tracking']} />
+  </div>
+  <PrivacyList bind:tracking={$task2['tracking']} bind:members={$task2.members} />
+</NewPostPrivacy>
