@@ -5,6 +5,7 @@
 
 * {
   touch-action: manipulation;
+  @apply select-none;
 }
 
 body {
