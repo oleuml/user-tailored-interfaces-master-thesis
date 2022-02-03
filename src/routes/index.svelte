@@ -4,7 +4,7 @@
       let page = session.page;
       return {
         status: 302,
-        redirect: `/survey/${page !== undefined ? page : "0"}`,
+        redirect: `/survey/${page !== undefined ? page : '0'}`
       };
     } else {
       return { status: 200 };
@@ -13,10 +13,10 @@
 </script>
 
 <script>
-  import Button from "$lib/material/Button.svelte";
-  import TopBar from "$lib/material/TopBar.svelte";
-  import { mdiAlert, mdiOpenInNew } from "@mdi/js";
-  import Icon from "mdi-svelte";
+  import Button from '$lib/material/Button.svelte';
+  import TopBar from '$lib/material/TopBar.svelte';
+  import { mdiAlert, mdiOpenInNew } from '@mdi/js';
+  import Icon from 'mdi-svelte';
 
   let height;
   let width;
@@ -24,12 +24,12 @@
   let scrollY;
 
   async function start() {
-    return await fetch("/api/start", {
-      redirect: "follow",
-      credentials: "same-origin",
-      method: "POST",
+    return await fetch('/api/start', {
+      redirect: 'follow',
+      credentials: 'same-origin',
+      method: 'POST',
       body: `{"screenSize": {"w": ${width}, "h": ${height}}}`,
-      headers: new Headers([["Content-Type", "application/json"]]),
+      headers: new Headers([['Content-Type', 'application/json']])
     }).then((res) => {
       if (res.redirected) {
         window.location.href = res.url;
@@ -40,12 +40,7 @@
   let checked = false;
 </script>
 
-<svelte:window
-  bind:innerHeight={height}
-  bind:innerWidth={width}
-  bind:scrollX
-  bind:scrollY
-/>
+<svelte:window bind:innerHeight={height} bind:innerWidth={width} bind:scrollX bind:scrollY />
 
 <div class="flex flex-col h-screen">
   <div class="flex-initial">
