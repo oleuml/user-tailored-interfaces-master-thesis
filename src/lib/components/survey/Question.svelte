@@ -44,7 +44,7 @@
 >
   <div class="font-medium text-md">
     {questionPrefix}
-    <i>{type === 'group-likert' ? question[0] : question}</i>
+    <i class="hyphens-manual">{@html type === 'group-likert' ? question[0] : question}</i>
   </div>
   {#if type === 'likert'}
     <div class="flex w-full justify-center pt-2">
@@ -82,3 +82,9 @@
     </div>
   {/if}
 </div>
+
+<style>
+  .hyphens-manual {
+    hyphens: manual;
+  }
+</style>
