@@ -1,18 +1,23 @@
-<script>
+<script lang="ts">
   import { drawFill, drawStroke, textUpper } from './PrivacyCake.svelte';
   import Color from 'color';
   import { checked } from './Slider.svelte';
+  import type { Action } from '$lib/stores/taskTracking';
+  import { createEventDispatcher } from 'svelte';
 
-  export let maxRadius;
-  export let minRadius;
-  export let startAngle;
-  export let endAngle;
-  export let members;
-  export let color;
-  export let strokeWidth;
-  export let toggled;
+  const dispatcher = createEventDispatcher();
 
-  export let id;
+  export let maxRadius: number;
+  export let minRadius: number;
+  export let startAngle: number;
+  export let endAngle: number;
+  export let members: any;
+  export let color: any;
+  export let strokeWidth: number;
+  export let toggled: boolean;
+  export let threshold: number;
+
+  export let id: any;
 
   const center = { x: 0, y: 0 };
 
@@ -46,7 +51,12 @@
       members.forEach((m) => {
         m.checked = m.riskScore <= threshold;
       });
+      track('change-threshold-group', { groupId: id, threshold: threshold, position: position });
     }
+  };
+
+  const track = (action: Action, data?: any) => {
+    dispatcher('track', { action: action, data: data });
   };
 </script>
 
