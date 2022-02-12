@@ -10,7 +10,7 @@
     .split(' ')
     .map((x) => x[0])
     .join('');
-  export let color;
+  export let color: any;
   $: color =
     color !== undefined && color !== null
       ? color
