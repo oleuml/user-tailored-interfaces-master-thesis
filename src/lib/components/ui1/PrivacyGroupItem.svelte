@@ -12,21 +12,22 @@
   } from '@mdi/js';
   import MemberBadge from '../MemberBadge.svelte';
   import { slide, fade } from 'svelte/transition';
+  import type { Action } from '$lib/stores/taskTracking';
+  import { createEventDispatcher } from 'svelte';
+
+  const dispatcher = createEventDispatcher();
 
   export let title: string;
   export let members: any;
-  export let tracking: any;
+  // export let tracking: any;
   export let defaultMembers: any;
 
   let expanded = false;
 
   function toggleExpanded() {
     expanded = !expanded;
-    tracking.push({
-      t: Date.now(),
-      action: `toggle-expansion-${expanded}`,
-      pos: `privacy-modal-group-list-${title}`
-    });
+    let action: Action = expanded ? 'open-group' : 'close-group';
+    track(action);
   }
 
   function reset() {
@@ -36,6 +37,10 @@
     });
     members = [...members];
   }
+
+  const track = (action: Action, data?: any) => {
+    dispatcher('track', { action: action, data: data });
+  };
 </script>
 
 <div class="w-full">
@@ -64,6 +69,15 @@
             class="flex flex-wrap content-start min-h-20 max-h-20 gap-1 overflow-auto px-1 rounded-md bg-white m-1 p-1.5"
             out:fade={{ duration: 100 }}
             in:fade={{ delay: 100, duration: 100 }}
+            on:scroll={(event) => {
+              let data = {
+                scrollHeight: event.target['scrollHeight'],
+                scrollTop: event.target['scrollTop'],
+                scrollTopMax: event.target['scrollTopMax'],
+                expanded: expanded
+              };
+              track('scroll', data);
+            }}
           >
             {#each members as member}
               <MemberBadge
@@ -72,18 +86,30 @@
                 badged={member.checked}
                 on:click={() => {
                   member.checked = !member.checked;
-                  tracking.push({
-                    t: Date.now(),
-                    action: `member-checked-${member.checked}`,
-                    pos: `privacy-modal-group-list-${title}`,
-                    data: { expanded: expanded, member: member.name }
-                  });
+                  if (member.checked) {
+                    track('select', { member: member.name, expanded: expanded });
+                  } else {
+                    track('deselect', { member: member.name, expanded: expanded });
+                  }
                 }}
               />
             {/each}
           </div>
         {:else}
-          <div class="overflow-auto m-1 max-h-52" in:slide out:slide={{ duration: 200 }}>
+          <div
+            class="overflow-auto m-1 max-h-52"
+            in:slide
+            out:slide={{ duration: 200 }}
+            on:scroll={(event) => {
+              let data = {
+                scrollHeight: event.target['scrollHeight'],
+                scrollTop: event.target['scrollTop'],
+                scrollTopMax: event.target['scrollTopMax'],
+                expanded: expanded
+              };
+              track('scroll', data);
+            }}
+          >
             {#each members as member, i}
               <div
                 class="flex flex-wrap items-center justify-between p-1 space-x-2 text-gray-500"
@@ -94,12 +120,11 @@
                 class:rounded-b-md={i === members.length - 1}
                 on:click|stopPropagation={() => {
                   members[i].checked = !members[i].checked;
-                  tracking.push({
-                    t: Date.now(),
-                    action: `member-checked-${members[i].checked}`,
-                    pos: `privacy-modal-group-list-${title}`,
-                    data: { expanded: expanded, member: members[i].name }
-                  });
+                  if (members[i].checked) {
+                    track('select', { member: members[i].name, expanded: expanded });
+                  } else {
+                    track('deselect', { member: members[i].name, expanded: expanded });
+                  }
                 }}
               >
                 <span class="flex flex-wrap items-center gap-2"
@@ -136,12 +161,7 @@
               class="flex justify-center items-center h-8 w-10"
               on:click|stopPropagation={() => {
                 reset();
-                tracking.push({
-                  t: Date.now(),
-                  action: `member-checked-reset`,
-                  pos: `privacy-modal-group-list-${title}`,
-                  data: { expanded: expanded }
-                });
+                track('select-defaults');
               }}
               in:fade={{ delay: 100, duration: 200 }}
               out:fade={{ duration: 200 }}
@@ -153,12 +173,7 @@
             class="flex justify-center items-center h-8 w-10"
             on:click|stopPropagation={() => {
               members.forEach((_, i) => (members[i].checked = false));
-              tracking.push({
-                t: Date.now(),
-                action: `all-members-unchecked`,
-                pos: `privacy-modal-group-list-${title}`,
-                data: { expanded: expanded }
-              });
+              track('deselect-group', { expanded: expanded });
             }}
           >
             <Icon path={mdiCheckboxMultipleBlankCircleOutline} />
@@ -167,12 +182,7 @@
             class="flex justify-center items-center h-8 w-10"
             on:click|stopPropagation={() => {
               members.forEach((_, i) => (members[i].checked = true));
-              tracking.push({
-                t: Date.now(),
-                action: `all-members-checked`,
-                pos: `privacy-modal-group-list-${title}`,
-                data: { expanded: expanded }
-              });
+              track('select-group', { expanded: expanded });
             }}
           >
             <Icon path={mdiCheckboxMultipleMarkedCircle} />
