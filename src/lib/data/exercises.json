@@ -1,0 +1,47 @@
+[
+  {
+    "id": 0,
+    "title": "Wähle alle Kontakte",
+    "description": "In dieser Aufgabe sollst du alle Kontakte auswählen. Jeder Kontakt soll den Post bekommen. Beim Senden bekommst du dann die Information, ob die Aufgabe erfüllt ist.",
+    "condition": "all",
+    "postImagePath": "/images/party_image.png",
+    "postDescription": "",
+    "riskValue": 0.91
+  },
+  {
+    "id": 1,
+    "title": "Abwähle alle Kontakte",
+    "description": "",
+    "condition": "nobody",
+    "postImagePath": "/images/pet_image.png",
+    "postDescription": "",
+    "riskValue": 0.24
+  },
+  {
+    "id": 2,
+    "title": "Wähle eine bestimmte Person",
+    "description": "",
+    "condition": "select-one",
+    "postImagePath": "/images/party_image.png",
+    "postDescription": "",
+    "riskValue": 1.0
+  },
+  {
+    "id": 3,
+    "title": "Abwähle eine bestimmte Person",
+    "description": "",
+    "condition": "deselect-one",
+    "postImagePath": "/images/party_image.png",
+    "postDescription": "",
+    "riskValue": 1.0
+  },
+  {
+    "id": 4,
+    "title": "TODO",
+    "description": "",
+    "condition": "selection-of-choice",
+    "postImagePath": "/images/party_image.png",
+    "postDescription": "",
+    "riskValue": 1.0
+  }
+]
