@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { fade } from 'svelte/transition';
   import { expoIn } from 'svelte/easing';
   import Icon from 'mdi-svelte';
@@ -10,51 +10,36 @@
     mdiSendLock
   } from '@mdi/js';
   import TopBar from '$lib/material/TopBar.svelte';
-  import { goto } from '$app/navigation';
   import { createEventDispatcher } from 'svelte';
 
-  export let post;
-  export let loading;
-  export let nextPath;
-  export let title;
-  export let imagePath;
+  const dispatcher = createEventDispatcher();
+
+  export let title: string;
+  export let imagePath: string;
+  export let taskFulfilled: boolean;
+  export let isOpen: boolean = false;
 
   let imageSet = false;
-  const dispatch = createEventDispatcher();
 
-  function handleSend() {
-    post = true;
-    loading = true;
-  }
+  const onOpen = () => {
+    isOpen = true;
+    dispatcher('open');
+  };
 </script>
 
-<div
-  class:rounded-t-xl={post}
-  class:duration-100={!post}
-  class:duration-200={post}
-  class:overflow-hidden={post}
-  class="flex flex-col bg-white transition:rounded-t-xl h-full text-blue-900"
->
+<div class="flex flex-col bg-white h-full text-blue-900">
   <div class="w-full flex-initial">
     <TopBar {title}>
       <button
         slot="end"
         class="flex flex-wrap content-center justify-center w-12 h-12 text-blue-900 disabled:text-opacity-50"
         disabled={!imageSet}
-        on:click={handleSend}
+        on:click={onOpen}
       >
-        {#if !loading && !post}
+        {#if !taskFulfilled && !isOpen}
           <Icon path={mdiSendLock} />
-        {:else if loading && !post}
-          <div
-            in:fade={{ easing: expoIn, duration: 200 }}
-            on:introend={() => {
-              dispatch('send');
-              setTimeout(() => {
-                goto(nextPath);
-              }, 1000);
-            }}
-          >
+        {:else if taskFulfilled}
+          <div in:fade={{ easing: expoIn, duration: 200 }}>
             <Icon path={mdiCheckCircleOutline} />
           </div>
         {:else}
@@ -72,7 +57,7 @@
       </div>
     {:else}
       <div class="h-full rounded-3xl  overflow-hidden">
-        <img class="h-full w-full bg-center object-cover" src={imagePath} />
+        <img class="h-full w-full bg-center object-cover" src={imagePath} alt="" />
       </div>
     {/if}
     <button
