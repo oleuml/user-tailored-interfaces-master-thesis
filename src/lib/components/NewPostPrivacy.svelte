@@ -1,16 +1,23 @@
-<script>
+<script lang="ts">
   import Button from '$lib/material/Button.svelte';
-
   import { mdiSend } from '@mdi/js';
   import { createEventDispatcher } from 'svelte';
   import Modal from './Modal.svelte';
+  import type { Action } from '$lib/stores/taskTracking';
 
   const dispatcher = createEventDispatcher();
 
   export let active;
-  export let tracking;
 
   let sendLoading = false;
+
+  $: if (active) {
+    dispatcher('open');
+  }
+
+  const track = (action: Action, data?: any) => {
+    dispatcher('track', { action: action, data: data });
+  };
 </script>
 
 <Modal
@@ -18,25 +25,15 @@
   on:close={() => {
     dispatcher('close');
   }}
+  on:scroll={(event) => {
+    let data = {
+      scrollHeight: event.target['scrollHeight'],
+      scrollTop: event.target['scrollTop'],
+      scrollTopMax: event.target['scrollTopMax']
+    };
+    track('scroll', data);
+  }}
 >
-  <!-- <div
-    class="flex flex-col w-full overflow-y-auto"
-    on:scroll={(event) => {
-      tracking.push({
-        t: Date.now(),
-        action: 'scroll',
-        pos: 'privacy_modal',
-        data: {
-          scrollHeight: event.target.scrollHeight,
-          scrollLeft: event.target.scrollLeft,
-          scrollLeftMax: event.target.scrollLeftMax,
-          scrollTop: event.target.scrollTop,
-          scrollTopMax: event.target.scrollTopMax,
-          scrollWidth: event.target.scrollWidth
-        }
-      });
-    }}
-  > -->
   <slot />
   <div slot="end" class="absolute bottom-1 right-1 px-2">
     <Button
@@ -44,15 +41,11 @@
       loading={sendLoading}
       title="Senden"
       on:click={() => {
-        tracking.push({
-          t: Date.now(),
-          action: 'send',
-          pos: 'privacy_modal'
-        });
         sendLoading = true;
         setTimeout(() => {
           active = false;
           sendLoading = false;
+          dispatcher('send');
         }, 400);
       }}
     />
