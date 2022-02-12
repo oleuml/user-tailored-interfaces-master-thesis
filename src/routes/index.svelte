@@ -54,11 +54,17 @@
       <div class="box text-blue-900 bg-blue-100">
         <article class="p-2">
           <p class="font-bold pb-1">Hallo und herzlich willkommen!</p>
-          <p>
-            Vielen Dank erstmal, dass Du den Weg hierher gefunden hast. Im
-            Rahmen meiner Masterarbeit führe ich diese Studie durch. Die Studie
-            dauert durchschnittlich ca. 15 min.
+          <p class="text-sm">
+            Vielen Dank erstmal, dass Du den Weg hierher gefunden hast. Ich, Ole Umlauft, führe im
+            Rahmen meiner Masterarbeit diese Studie durch. In dieser Studie geht es um die
+            Abwicklung mehrerer Bildveröffentlichungen innerhalb fiktiver Szenarien. Jede Abwicklung
+            ist eine Aufgabe, welche im Vorhinein beschrieben wird. Ziel dabei ist es schlussendlich
+            herauszufinden, ob es für verschiedene Situationen oder Personengruppen mit ähnlichen
+            Eigenschaften zugeschnittene Benutzeroberflächen benötigt. Zusätzlich wird auch
+            evaluiert, ob die Hinweise und Darstellungsweisen dem Nutzer dabei helfen, die
+            "richtigen" Entscheidungen zu treffen und das in einer angemessenen Zeit.
           </p>
+          <p class="text-sm">Die Durchführung der Studie dauert ca. 30 min.</p>
         </article>
       </div>
       <div class="box text-red-700 bg-red-200">
@@ -67,31 +73,29 @@
             <span class="pr-2"><Icon path={mdiAlert} /></span>
             <span>WICHTIG!</span>
           </p>
-          Durchführung der Studie...
-          <ul class="list-disc list-inside">
-            <li><b>alleine,</b></li>
-            <li><b>an einem Stück,</b></li>
-            <li><b>auf dem Smartphone</b></li>
-            <li>und <b>nur einmal.</b></li>
+          <ul class="list-disc list-inside text-sm">
+            <li><b>Du musst mindestens 18 Jahre alt sein.</b></li>
+            <li><b>Du musst diese Studie an einem Smartphone durchführen.</b></li>
+            <li><b>Du darfst an dieser Studie nur einmal teilnehmen.</b></li>
           </ul>
         </article>
       </div>
       <div class="box text-blue-900 bg-blue-100">
         <article class="p-2">
-          <p class="font-bold pb-1">Hallo und herzlich willkommen!</p>
-          <p>Vielen Dank und viel Spaß.</p>
+          <p class="font-bold pb-1">Vielen Dank und viel Spaß.</p>
+          <p class="text-sm">
+            Gerne kannst Du den Link an Freunde und Bekannte weiterleiten. Dies würde mir sehr
+            helfen.
+          </p>
         </article>
         <div class="flex px-2 pb-2">
           <input type="checkbox" bind:checked />
           <span on:click={() => (checked = !checked)} class="pl-2"
-            >Ich bin mit den <a
+            >Du bist <a
               on:click|stopPropagation
               class="text-blue-900 text-opacity-80 flex flex-wrap "
               href="#"
-              ><span>Datenschutzbestimmungen</span><Icon
-                path={mdiOpenInNew}
-                size={0.7}
-              /></a
+              ><span>Datenschutzbestimmungen</span><Icon path={mdiOpenInNew} size={0.7} /></a
             > einverstanden</span
           >
         </div>
