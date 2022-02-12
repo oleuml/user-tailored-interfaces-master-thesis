@@ -1,6 +1,7 @@
 <script>
   import { drawFill, drawStroke, textUpper } from './PrivacyCake.svelte';
   import Color from 'color';
+  import { checked } from './Slider.svelte';
 
   export let maxRadius;
   export let minRadius;
@@ -18,7 +19,10 @@
   let strokeColor = Color(color);
   let fillColor = Color(color).alpha(0.4);
   let textColor = Color(color).darken(0.2);
-  let radius = maxRadius;
+  let radius =
+    Math.max(Math.max(...members.filter((m) => m.checked).map((m) => m.riskScore)), 0.001) *
+      (maxRadius - minRadius) +
+    minRadius;
 
   $: fill = drawFill(center.x, center.y, radius, startAngle, endAngle);
   $: stroke = drawStroke(center.x, center.y, radius, startAngle, endAngle);
@@ -38,6 +42,10 @@
         minRadius,
         Math.min(maxRadius, Math.sqrt(position.x ** 2 + position.y ** 2))
       );
+      threshold = (radius - minRadius) / (maxRadius - minRadius);
+      members.forEach((m) => {
+        m.checked = m.riskScore <= threshold;
+      });
     }
   };
 </script>
@@ -68,7 +76,7 @@
     font-family="Arial, Helvetica, sans-serif"
   >
     <textPath href="#{id}-stroke" startOffset="50%" text-anchor="middle">
-      {members.filter((x) => x < (radius - minRadius) / (maxRadius - minRadius))
+      {members.filter((x) => checked((radius - minRadius) / (maxRadius - minRadius), x.riskScore))
         .length}/{members.length}
     </textPath>
   </text>
