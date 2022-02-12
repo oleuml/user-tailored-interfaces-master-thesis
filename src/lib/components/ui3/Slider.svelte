@@ -4,12 +4,21 @@
   };
 </script>
 
-<script>
-  export let score;
-  export let threshold;
+<script lang="ts">
+  import type { Action } from '$lib/stores/taskTracking';
+  import { createEventDispatcher } from 'svelte';
 
-  let slider;
+  const dispatcher = createEventDispatcher();
+
+  export let score: number;
+  export let threshold: number;
+
+  let slider: any;
   let touched = false;
+
+  const track = (action: Action, data?: any) => {
+    dispatcher('track', { action: action, data: data });
+  };
 </script>
 
 <div bind:this={slider} class="relative w-full bg-gray-200 overflow-hidden">
@@ -46,6 +55,7 @@
         let { left, width } = slider.getBoundingClientRect();
         let touch = event.changedTouches[0].clientX - left;
         score = 1 - Math.min(Math.max(touch / width, 0), 1);
+        track('change-score', { score: score });
       }}
       on:touchend|preventDefault={() => {
         touched = false;
