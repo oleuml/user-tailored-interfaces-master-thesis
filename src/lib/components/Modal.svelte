@@ -1,12 +1,12 @@
-<script>
+<script lang="ts">
   import { createEventDispatcher } from 'svelte';
   import { fade, fly } from 'svelte/transition';
 
   const dispatcher = createEventDispatcher();
 
-  export let active;
+  export let active: boolean;
 
-  let offsetY;
+  let offsetY: number;
 </script>
 
 {#if active}
@@ -23,6 +23,7 @@
     style="height: calc(100% - 40px);"
     in:fly={{ y: 200, duration: 200 }}
     out:fly={{ y: 200, duration: 200 }}
+    on:scroll
   >
     <div class="flex flex-col h-full w-full">
       <div
