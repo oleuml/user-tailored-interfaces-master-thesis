@@ -64,9 +64,13 @@
   };
 </script>
 
-<script>
+<script lang="ts">
   import CakePart from './CakePart.svelte';
   import CakePartSeparator from './CakePartSeparator.svelte';
+  import type { Action } from '$lib/stores/taskTracking';
+  import { createEventDispatcher } from 'svelte';
+
+  const dispatcher = createEventDispatcher();
 
   export let width = 360;
   export let height = 360;
@@ -77,6 +81,10 @@
   export let toggled = false;
   export let selected = null;
   let svg;
+
+  const track = (action: Action, data?: any) => {
+    dispatcher('track', { action: action, data: data });
+  };
 </script>
 
 <svg bind:this={svg} {width} {height} xmlns="http://www.w3.org/2000/svg">
@@ -98,17 +106,34 @@
           let parsedSelected = parseInt(document.elementFromPoint(x, y).id.split('-')[0]);
           if (Number.isInteger(parsedSelected)) {
             selected = parsedSelected;
+            track('open-group', { group: groups[selected].title });
           } else {
+            track('touchevent', { memo: 'out-of-circle' });
             selected = null;
           }
         }
       }
+      track('touchevent', { memo: 'pointer-up' });
       toggled = false;
     }}
   >
     <g>
       {#each groups as part, id}
-        <CakePart {id} {...part} {strokeWidth} {maxRadius} {minRadius} {toggled} />
+        <CakePart
+          bind:threshold={part.threshold}
+          {id}
+          startAngle={part.startAngle}
+          endAngle={part.endAngle}
+          color={part.color}
+          bind:members={part.members}
+          {strokeWidth}
+          {maxRadius}
+          {minRadius}
+          {toggled}
+          on:track={({ detail: { action, data } }) => {
+            track(action, data);
+          }}
+        />
       {/each}
     </g>
     <g>
@@ -124,7 +149,10 @@
     <g>
       <g
         on:touchmove|preventDefault
-        on:pointerdown|preventDefault={() => (toggled = true)}
+        on:pointerdown|preventDefault={() => {
+          toggled = true;
+          track('touchevent', { memo: 'pointer-down' });
+        }}
         id="select"
       >
         <circle r="30" fill="#888" stroke="#666" stroke-width="5" />
