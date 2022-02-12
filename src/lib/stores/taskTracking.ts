@@ -4,6 +4,7 @@ import type { Member } from '$lib/members';
 import { writable } from 'svelte/store';
 
 export type Action =
+  | 'alert'
   | 'start'
   | 'end'
   | 'fulfilled'

@@ -1,16 +1,22 @@
-<script>
-  export let riskValue; // between 0 and 1
-  export let tracking;
-  function showInfo() {
+<script lang="ts">
+  import type { Action } from '$lib/stores/taskTracking';
+
+  import { createEventDispatcher } from 'svelte';
+
+  const dispatcher = createEventDispatcher();
+
+  export let riskValue: number; // between 0 and 1
+
+  const showInfo = () => {
+    track('alert');
     alert(
       'Dieser Indikator zeigt dir das Risiko deines Post an. Risiko bedeutet wie sensibel dein Post ist.'
     );
-    tracking.push({
-      t: Date.now(),
-      action: 'alert-show-info',
-      pos: 'privacy-modal-risk-indicator'
-    });
-  }
+  };
+
+  const track = (action: Action, data?: any) => {
+    dispatcher('track', { action: action, data: data });
+  };
 </script>
 
 <div class="relative pt-1 overflow-hidden">
