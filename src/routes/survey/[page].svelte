@@ -53,10 +53,6 @@
   import Button from '$lib/material/Button.svelte';
   import { marked } from 'marked';
   import Cookie from 'js-cookie';
-  import { task0 } from '$lib/stores/task0';
-  import { task1 } from '$lib/stores/task1';
-  import { task2 } from '$lib/stores/task2';
-  import { task3 } from '$lib/stores/task3';
   import { onMount, tick } from 'svelte';
 
   export let page;
@@ -94,57 +90,57 @@
         }
       });
 
-      fetch('/api/submit/tasks/0', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify($task0)
-      }).then((res) => {
-        if (res.ok) {
-          localStorage.removeItem('task0');
-        }
-        if (res.status === 400) {
-          localStorage.removeItem('task0');
-        }
-      });
+      // fetch('/api/submit/tasks/0', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify($task0)
+      // }).then((res) => {
+      //   if (res.ok) {
+      //     localStorage.removeItem('task0');
+      //   }
+      //   if (res.status === 400) {
+      //     localStorage.removeItem('task0');
+      //   }
+      // });
 
-      fetch('/api/submit/tasks/1', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify($task1)
-      }).then((res) => {
-        if (res.ok) {
-          localStorage.removeItem('task1');
-        }
-        if (res.status === 400) {
-          localStorage.removeItem('task1');
-        }
-      });
+      // fetch('/api/submit/tasks/1', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify($task1)
+      // }).then((res) => {
+      //   if (res.ok) {
+      //     localStorage.removeItem('task1');
+      //   }
+      //   if (res.status === 400) {
+      //     localStorage.removeItem('task1');
+      //   }
+      // });
 
-      fetch('/api/submit/tasks/2', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify($task2)
-      }).then((res) => {
-        if (res.ok) {
-          localStorage.removeItem('task2');
-        }
-        if (res.status === 400) {
-          localStorage.removeItem('task2');
-        }
-      });
+      // fetch('/api/submit/tasks/2', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify($task2)
+      // }).then((res) => {
+      //   if (res.ok) {
+      //     localStorage.removeItem('task2');
+      //   }
+      //   if (res.status === 400) {
+      //     localStorage.removeItem('task2');
+      //   }
+      // });
 
-      fetch('/api/submit/tasks/3', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify($task3)
-      }).then((res) => {
-        if (res.ok) {
-          localStorage.removeItem('task3');
-        }
-        if (res.status === 400) {
-          localStorage.removeItem('task3');
-        }
-      });
+      // fetch('/api/submit/tasks/3', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify($task3)
+      // }).then((res) => {
+      //   if (res.ok) {
+      //     localStorage.removeItem('task3');
+      //   }
+      //   if (res.status === 400) {
+      //     localStorage.removeItem('task3');
+      //   }
+      // });
     }
   });
 
@@ -160,7 +156,7 @@
   $: pageQuestions = pages[active].questions;
   $: pageTitle = pages[active].title;
   $: pageDescription = pages[active].description;
-  $: pageTask = pages[active].task;
+  $: pageUI = pages[active].ui;
   $: questionType = pages[active].questions !== undefined && pages[active].task === undefined;
   $: taskType = pages[active].task !== undefined && pages[active].questions === undefined;
   $: explanationType = pages[active].task === undefined && pages[active].questions === undefined;
@@ -221,11 +217,7 @@
           <label for="readCheck">Hast du die Aufgabestellung gelesen?</label>
         </div>
         <div class="flex justify-center">
-          <Button
-            disabled={!readCheck}
-            title="Fortfahren"
-            on:click={() => goto(`/tasks/${pageTask}`)}
-          />
+          <Button disabled={!readCheck} title="Fortfahren" on:click={() => goto(`/ui/${pageUI}`)} />
         </div>
       </div>
     {/if}
