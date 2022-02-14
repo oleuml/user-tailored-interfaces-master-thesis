@@ -52,7 +52,7 @@
         } else if (typeof data !== 'object') {
           data = { data: data };
         }
-        data.group = group;
+        data.group = group.title;
         track(action, data);
       }}
       title={group.title}
