@@ -1,9 +1,5 @@
 <script lang="ts" context="module">
-  export type QuestionType =
-    | 'likert'
-    | 'text'
-    | 'group-likert'
-    | 'single-choice';
+  export type QuestionType = 'likert' | 'text' | 'group-likert' | 'single-choice';
 
   export function questionAnswered(type: QuestionType, answer: string | Array<string>) {
     switch (type) {
