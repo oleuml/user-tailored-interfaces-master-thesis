@@ -62,7 +62,7 @@
       <div class="w-full h-0.25 bg-gray-100 mb-0.5" />
       {#each members.filter((x) => x.favorite) as member}
         <li
-          class="flex flex-column justify-between items-center py2-0.5"
+          class="flex flex-column justify-between items-center py-0.5"
           on:click={() => {
             member.checked = !member.checked;
             if (member.checked) {
