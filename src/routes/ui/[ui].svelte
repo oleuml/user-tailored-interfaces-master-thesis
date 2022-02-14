@@ -65,6 +65,8 @@
   const openModal = () => {
     modalsOpen += 1;
   };
+
+  let imageSet: boolean;
 </script>
 
 <Scaled
@@ -77,6 +79,7 @@
       imagePath={exercises[$activeExercise].postImagePath}
       taskFulfilled={$fulfilled}
       isOpen={modalsOpen > 0}
+      bind:imageSet
       on:open={() => (modalsOpen = 1)}
     />
   </Rounded>
@@ -119,6 +122,7 @@
   fulfilled={$fulfilled}
   started={$started}
   sent={$sent}
+  on:next-exercise={() => (imageSet = false)}
   on:start={() => taskStore.start()}
   on:restart={() => taskStore.restart()}
 />

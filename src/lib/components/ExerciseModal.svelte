@@ -78,6 +78,7 @@
             <Button
               on:click={() => {
                 activeExercise.set($activeExercise + 1);
+                dispatch('next-exercise');
               }}
               title="Nächsten Aufgabe"
             />

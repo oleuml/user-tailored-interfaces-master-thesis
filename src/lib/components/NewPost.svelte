@@ -19,7 +19,7 @@
   export let taskFulfilled: boolean;
   export let isOpen: boolean = false;
 
-  let imageSet = false;
+  export let imageSet = false;
 
   const onOpen = () => {
     isOpen = true;
