@@ -57,9 +57,8 @@
     if (i === 0) {
       group['startAngle'] = startAngle;
     } else {
-      group['startAngle'] = groups[i - 1].endAngle;
+      group['startAngle'] = groups[i - 1]['endAngle'];
     }
-
     group['endAngle'] = (group.members.length / members.length) * 360 + group['startAngle'];
   });
 
