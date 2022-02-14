@@ -92,9 +92,11 @@
           <input type="checkbox" bind:checked />
           <span on:click={() => (checked = !checked)} class="pl-2"
             >Du bist <a
+              target="_blank"
+              rel="noopener noreferrer"
               on:click|stopPropagation
-              class="text-blue-900 text-opacity-80 flex flex-wrap "
-              href="#"
+              class="text-blue-900 text-opacity-80 flex flex-wrap"
+              href="/privacy-policy.pdf"
               ><span>Datenschutzbestimmungen</span><Icon path={mdiOpenInNew} size={0.7} /></a
             > einverstanden</span
           >
