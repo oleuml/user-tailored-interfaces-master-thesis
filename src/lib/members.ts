@@ -4,7 +4,7 @@ export type Member = {
   name: string;
   group: string;
   color: Color | string;
-  checked: boolean;
+  checked?: boolean;
   favorite?: boolean;
   riskScore?: number;
 };

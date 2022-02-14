@@ -3,302 +3,302 @@
     "name": "Sanjay Blaguna",
     "group": "Familie",
     "color": "#EF4444",
-    "checked": true,
-    "favorite": true
+    "favorite": true,
+    "riskScore": 0.05
   },
   {
     "name": "Noémie Garbi",
     "group": "Familie",
     "color": "#F59E0B",
-    "checked": true
+    "riskScore": 0.1
   },
   {
     "name": "Kornélia Garbi",
     "group": "Familie",
     "color": "#10B981",
-    "checked": true
+    "riskScore": 0.28
   },
   {
     "name": "Victor Garbi",
     "group": "Familie",
     "color": "#3B82F6",
-    "checked": true
+    "riskScore": 0.25
   },
   {
     "name": "Adilet Garbi",
     "group": "Familie",
     "color": "#6366F1",
-    "checked": false
+    "riskScore": 0.5
   },
   {
     "name": "Vincent Blaguna",
     "group": "Familie",
     "color": "#8B5CF6",
-    "checked": true
+    "riskScore": 0.8
   },
   {
     "name": "Cissy Blaguna",
     "group": "Familie",
     "color": "#EC4899",
-    "checked": true
+    "riskScore": 0.3
   },
   {
     "name": "Tuulikki Blaguna",
     "group": "Familie",
     "color": "#6ea717",
-    "checked": true
+    "riskScore": 0.1
   },
   {
     "name": "Þórveig Mathias",
     "group": "Freunde",
     "color": "#144ef4",
-    "checked": true
+    "riskScore": 0.5
   },
   {
     "name": "Avhust Aneta",
     "group": "Freunde",
     "color": "#df6b21",
-    "checked": true
+    "riskScore": 0.3
   },
   {
     "name": "Aberash Gheorghe",
     "group": "Freunde",
     "color": "#7c47ea",
-    "checked": true
+    "riskScore": 0.2
   },
   {
     "name": "Hildur Guenièvre",
     "group": "Freunde",
     "color": "#c3ca0e",
-    "checked": true
+    "riskScore": 0.94
   },
   {
     "name": "Apoorva Hema",
     "group": "Freunde",
     "color": "#981324",
-    "checked": true
+    "riskScore": 0.52
   },
   {
     "name": "Gauti Yonah",
     "group": "Freunde",
     "color": "#bf1fa6",
-    "checked": false
+    "riskScore": 0.24
   },
   {
     "name": "Albina Kāne",
     "group": "Freunde",
     "color": "#70a0d4",
-    "checked": false
+    "riskScore": 0.51
   },
   {
     "name": "Fima Itzel",
     "group": "Freunde",
     "color": "#3a8637",
-    "checked": true
+    "riskScore": 0.97
   },
   {
     "name": "Gretel Rob",
     "group": "Freunde",
     "color": "#038f87",
-    "checked": false
+    "riskScore": 0.1
   },
   {
     "name": "Tsila Petro",
     "group": "Freunde",
     "color": "#6c1d0c",
-    "checked": true
+    "riskScore": 0.87
   },
   {
     "name": "India Aeliana",
     "group": "Freunde",
     "color": "#a12800",
-    "checked": true
+    "riskScore": 0.67
   },
   {
     "name": "Martí Zoe",
     "group": "Freunde",
     "color": "#21bd22",
-    "checked": true
+    "riskScore": 0.61
   },
   {
     "name": "Patsy Athenais",
     "group": "Freunde",
     "color": "#b46ce3",
-    "checked": true
+    "riskScore": 0.88
   },
   {
     "name": "Petra Thaís",
     "group": "Freunde",
     "color": "#554995",
-    "checked": false
+    "riskScore": 0.09
   },
   {
     "name": "Manish Dzhamal",
     "group": "Freunde",
     "color": "#c68f1d",
-    "checked": true
+    "riskScore": 0.44
   },
   {
     "name": "Justas Shukriyya",
     "group": "Freunde",
     "color": "#a4d897",
-    "checked": false
+    "riskScore": 0.62
   },
   {
     "name": "Aivars Zdeňka",
     "group": "Freunde",
     "color": "#d433ab",
-    "checked": false
+    "riskScore": 0.83
   },
   {
     "name": "Līna Chike",
-    "group": "Arbeitskollegen",
+    "group": "Kollegen",
     "color": "#3c3ba7",
-    "checked": true
+    "riskScore": 0.07
   },
   {
     "name": "Melanthios Leszek",
-    "group": "Arbeitskollegen",
+    "group": "Kollegen",
     "color": "#44db90",
-    "checked": false
+    "riskScore": 0.76
   },
   {
     "name": "Topsy Junia",
-    "group": "Arbeitskollegen",
+    "group": "Kollegen",
     "color": "#b55fe6",
-    "checked": false
+    "riskScore": 0.98
   },
   {
     "name": "Shaheen Gojko",
-    "group": "Arbeitskollegen",
+    "group": "Kollegen",
     "color": "#ea3359",
-    "checked": false
+    "riskScore": 0.76
   },
   {
     "name": "Vítek Lisbeth",
-    "group": "Arbeitskollegen",
+    "group": "Kollegen",
     "color": "#edd22c",
-    "checked": false
+    "riskScore": 0.43
   },
   {
     "name": "Edmund Madhu",
-    "group": "Arbeitskollegen",
+    "group": "Kollegen",
     "color": "#46a3a7",
-    "checked": false
+    "riskScore": 0.53
   },
   {
     "name": "Hardwin Arati",
-    "group": "Arbeitskollegen",
+    "group": "Kollegen",
     "color": "#a41e07",
-    "checked": true
+    "riskScore": 0.54
   },
   {
     "name": "Gwallter Careen",
-    "group": "Arbeitskollegen",
+    "group": "Kollegen",
     "color": "#088e68",
-    "checked": true
+    "riskScore": 0.55
   },
   {
     "name": "Rina Freja",
-    "group": "Arbeitskollegen",
+    "group": "Kollegen",
     "color": "#7f71e9",
-    "checked": false,
-    "favorite": true
+    "favorite": true,
+    "riskScore": 0.19
   },
   {
     "name": "Robert Yancy",
-    "group": "Arbeitskollegen",
+    "group": "Kollegen",
     "color": "#98cb8e",
-    "checked": false
+    "riskScore": 0.53
   },
   {
     "name": "Jiahao Kalea",
-    "group": "Arbeitskollegen",
+    "group": "Kollegen",
     "color": "#845508",
-    "checked": false
+    "riskScore": 0.84
   },
   {
     "name": "Ceferino Narcisse",
     "group": "Bekannte",
     "color": "#1af5f4",
-    "checked": false
+    "riskScore": 0.67
   },
   {
     "name": "Zekharyah Maurizia",
     "group": "Bekannte",
     "color": "#9c79bd",
-    "checked": false
+    "riskScore": 0.43
   },
   {
     "name": "Elias Izolda",
     "group": "Bekannte",
     "color": "#f03771",
-    "checked": false
+    "riskScore": 0.1
   },
   {
     "name": "Zlata Vina",
     "group": "Bekannte",
     "color": "#43686d",
-    "checked": false
+    "riskScore": 0.3
   },
   {
     "name": "Thandi Ryuunosuke",
     "group": "Bekannte",
     "color": "#84eaee",
-    "checked": false
+    "riskScore": 0.13
   },
   {
     "name": "Apoorva Domitian",
     "group": "Bekannte",
     "color": "#e54519",
-    "checked": false
+    "riskScore": 0.98
   },
   {
     "name": "Ignatz Sehrazat",
     "group": "Bekannte",
     "color": "#9fc583",
-    "checked": false
+    "riskScore": 0.78
   },
   {
     "name": "Abraam Waman",
     "group": "Bekannte",
     "color": "#f86525",
-    "checked": true
+    "riskScore": 0.34
   },
   {
     "name": "Maja Stefánia",
     "group": "Bekannte",
     "color": "#721ff5",
-    "checked": false
+    "riskScore": 0.38
   },
   {
     "name": "Błażej Valentin",
     "group": "Bekannte",
     "color": "#f08e74",
-    "checked": false
+    "riskScore": 0.84
   },
   {
     "name": "Italia Gwillym",
     "group": "Bekannte",
     "color": "#ba6597",
-    "checked": false
+    "riskScore": 0.63
   },
   {
     "name": "Preethi Benigno",
     "group": "Bekannte",
     "color": "#579d29",
-    "checked": false
+    "riskScore": 0.97
   },
   {
     "name": "Piper Samir",
     "group": "Bekannte",
     "color": "#d67ea1",
-    "checked": false
+    "riskScore": 0.75
   },
   {
     "name": "Morna Emigdio",
     "group": "Bekannte",
     "color": "#4893d4",
-    "checked": false
+    "riskScore": 0.33
   }
 ]

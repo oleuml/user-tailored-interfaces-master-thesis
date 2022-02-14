@@ -10,7 +10,7 @@
 </script>
 
 <script lang="ts">
-  import defaultMembers from '$lib/data/members-t4.json';
+  import defaultMembersJSON from '$lib/data/members.json';
   import NewPost from '$lib/components/NewPost.svelte';
   import ExerciseModal from '$lib/components/ExerciseModal.svelte';
   import exercisesJSON from '$lib/data/exercises.json';
@@ -33,12 +33,20 @@
   // value 0
   $: activeExercise = activeExerciseStore(ui, 0);
 
+  $: defaultMembers = defaultMembersJSON.map<Member>(
+    (m: Member) =>
+      ({ ...m, checked: m.riskScore < 1 - exercises[$activeExercise].riskValue } as Member)
+  );
+
   // Setup task store which saves tracking data on localStorage
   // and creates new storages on ui or task change
   $: taskStore = taskTrackingStore(
     ui,
     exercises[$activeExercise],
-    defaultMembers.map<Member>((m: Member) => ({ ...m } as Member)), // copies the original member sets
+    defaultMembers.map<Member>(
+      (m: Member) =>
+        ({ ...m, checked: m.riskScore < 1 - exercises[$activeExercise].riskValue } as Member)
+    ), // copies the original member sets
     (condition, members, conditionBody) => {
       return checkCondition(condition, members, conditionBody);
     }
