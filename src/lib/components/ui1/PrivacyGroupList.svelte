@@ -33,11 +33,7 @@
   groups.map((group) => {
     group.members.map((member) => {
       if (member.color === undefined) {
-        member['color'] = Color.rgb(
-          getRandomInt(0, 255),
-          getRandomInt(0, 255),
-          getRandomInt(0, 255)
-        );
+        member.color = Color.rgb(getRandomInt(0, 255), getRandomInt(0, 255), getRandomInt(0, 255));
       }
     });
   });
