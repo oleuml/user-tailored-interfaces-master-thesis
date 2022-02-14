@@ -162,8 +162,8 @@
   $: explanationType = pages[active].task === undefined && pages[active].questions === undefined;
 </script>
 
-<div class="flex flex-col h-screen">
-  <div class="flex-initial">
+<div class="flex flex-col">
+  <div class="flex-initial sticky top-0">
     <TopBar title={pageTitle}>
       <button
         slot="start"
@@ -196,7 +196,7 @@
       </button>
     </TopBar>
   </div>
-  <div class="grid grid-flow-row grid-cols-1 gap-2 p-2 select-none overflow-y-auto">
+  <div class="grid grid-flow-row grid-cols-1 gap-2 p-2 select-none">
     {#if pageDescription && (questionType || explanationType)}
       <div class="box bg-blue-100 border-2 text-blue-900 border-blue-100 text-sm">
         {@html marked(pageDescription)}
