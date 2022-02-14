@@ -1,27 +1,24 @@
 import { browser } from '$app/env';
 import { writable } from 'svelte/store';
 
-
-let answersStored
+let answersStored: string;
 if (browser) {
   answersStored = localStorage.getItem('answers');
+} else {
+  answersStored = null;
 }
-else {
-  answersStored = null
-}
-let initialValue;
+
+let initialValue: object;
 if (answersStored === null) {
   initialValue = {};
-}
-else {
+} else {
   try {
     initialValue = JSON.parse(answersStored);
   } catch (e) {
     initialValue = {};
   }
 }
-if (initialValue === null)
-  initialValue = {};
+if (initialValue === null) initialValue = {};
 
 export const answers = writable(initialValue);
 if (browser) {
