@@ -1,4 +1,4 @@
-<script context="module">
+<script lang="ts" context="module">
   export async function load({ session }) {
     if (session.token !== undefined) {
       let page = session.page;
@@ -12,30 +12,30 @@
   }
 </script>
 
-<script>
+<script lang="ts">
   import Button from '$lib/material/Button.svelte';
   import TopBar from '$lib/material/TopBar.svelte';
   import { mdiAlert, mdiOpenInNew } from '@mdi/js';
   import Icon from 'mdi-svelte';
 
-  let height;
-  let width;
-  let scrollX;
-  let scrollY;
+  let height: number;
+  let width: number;
+  let scrollX: number;
+  let scrollY: number;
 
-  async function start() {
+  const start = async () => {
     return await fetch('/api/start', {
       redirect: 'follow',
       credentials: 'same-origin',
       method: 'POST',
-      body: `{"screenSize": {"w": ${width}, "h": ${height}}}`,
+      body: JSON.stringify({ screenSize: { w: width, h: height } }),
       headers: new Headers([['Content-Type', 'application/json']])
     }).then((res) => {
       if (res.redirected) {
         window.location.href = res.url;
       }
     });
-  }
+  };
 
   let checked = false;
 </script>
