@@ -26,7 +26,7 @@
     transition:fade={{ duration: 100 }}
   >
     <div class="bg-white p-3 rounded-lg w-3/4" in:fly={{ duration: 150, delay: 50, y: 200 }}>
-      {#if !started}
+      {#if !started && !fulfilled}
         <article>
           <p class="font-semibold">
             Aufgabe {$activeExercise + 1}/{exercises.length}: {exercises[$activeExercise].title}

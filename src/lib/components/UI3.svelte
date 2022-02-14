@@ -80,9 +80,9 @@
   <Scaled position={selected === null ? 0 : -8} scale={selected === null ? 1.0 : 0.95}>
     <NewPostPrivacy
       bind:active
-      on:send={() => {
+      on:send={async () => {
         dispatcher('close');
-        taskStore.send();
+        await taskStore.send();
       }}
       on:open={() => {
         taskStore.add('open-modal');

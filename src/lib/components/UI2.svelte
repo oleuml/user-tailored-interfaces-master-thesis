@@ -16,9 +16,9 @@
 
 <NewPostPrivacy
   bind:active
-  on:send={() => {
+  on:send={async () => {
     dispatcher('close');
-    taskStore.send();
+    await taskStore.send();
   }}
   on:open={() => {
     taskStore.add('open-modal');

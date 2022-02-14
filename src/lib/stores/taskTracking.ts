@@ -45,82 +45,87 @@ export const taskTrackingStore = (
     conditionBody?: object
   ) => boolean
 ) => {
-  let localStored: null | string;
+  let localStoredTracking: null | string;
   let localStoredStarted: boolean = false;
   let localStoredSent: boolean = false;
   let localStoredFulfilled: boolean = false;
   let localStoredMembers: Array<Member> = [];
+
+  const lsTrackingID = `U${ui}-T${task.id}-tracking`;
+  const lsStartedID = `U${ui}-T${task.id}-started`;
+  const lsSentID = `U${ui}-T${task.id}-sent`;
+  const lsFulfilledID = `U${ui}-T${task.id}-fulfilled`;
+  const lsMembersID = `U${ui}-T${task.id}-members`;
+
   if (browser) {
-    localStored = localStorage.getItem(`U${ui}-T${task.id}`);
-    localStoredStarted = JSON.parse(localStorage.getItem(`U${ui}-T${task.id}-started`));
-    localStoredSent = JSON.parse(localStorage.getItem(`U${ui}-T${task.id}-sent`));
-    localStoredFulfilled = JSON.parse(localStorage.getItem(`U${ui}-T${task.id}-fulfilled`));
-    localStoredMembers = JSON.parse(localStorage.getItem(`U${ui}-T${task.id}-members`));
+    localStoredTracking = localStorage.getItem(lsTrackingID);
+    localStoredStarted = JSON.parse(localStorage.getItem(lsStartedID));
+    localStoredSent = JSON.parse(localStorage.getItem(lsSentID));
+    localStoredFulfilled = JSON.parse(localStorage.getItem(lsFulfilledID));
+    localStoredMembers = JSON.parse(localStorage.getItem(lsMembersID));
     if (typeof localStoredStarted !== 'boolean') {
       localStoredStarted = false;
-      localStorage.setItem(`U${ui}-T${task.id}-started`, `${localStoredStarted}`);
+      localStorage.setItem(lsStartedID, `${localStoredStarted}`);
     }
     if (typeof localStoredSent !== 'boolean') {
       localStoredSent = false;
-      localStorage.setItem(`U${ui}-T${task.id}-sent`, `${localStoredSent}`);
+      localStorage.setItem(lsSentID, `${localStoredSent}`);
     }
     if (typeof localStoredFulfilled !== 'boolean') {
       localStoredFulfilled = false;
-      localStorage.setItem(`U${ui}-T${task.id}-fulfilled`, `${localStoredFulfilled}`);
+      localStorage.setItem(lsFulfilledID, `${localStoredFulfilled}`);
     }
     if (localStoredMembers === undefined || localStoredMembers === null) {
       localStoredMembers = members;
     }
   } else {
-    localStored = null;
+    localStoredTracking = null;
   }
   let initialValue: object;
-  if (localStored === null) {
+  if (localStoredTracking === null) {
     initialValue = [];
   } else {
     try {
-      initialValue = JSON.parse(localStored);
+      initialValue = JSON.parse(localStoredTracking);
     } catch (e) {
       initialValue = [];
     }
   }
   if (initialValue === null) initialValue = [];
 
-  const { update: updateWritable, subscribe: subscribeWritable } = writable(
-    initialValue as TrackingData[]
-  );
+  const trackingStore = writable(initialValue as TrackingData[]);
   const startedStore = writable(localStoredStarted);
   const sentStore = writable(localStoredSent);
   const fulfilledStore = writable(localStoredFulfilled);
   const memberStore = writable(localStoredMembers);
 
-  subscribeWritable((value) => {
+  const unsubscribeTrackingStore = trackingStore.subscribe((value) => {
     if (browser) {
-      localStorage.setItem(`U${ui}-T${task.id}`, JSON.stringify(value));
+      localStorage.setItem(lsTrackingID, JSON.stringify(value));
     }
   });
 
-  startedStore.subscribe((value) => {
+  const unsubscribeStartedStore = startedStore.subscribe((value) => {
     if (browser) {
-      localStorage.setItem(`U${ui}-T${task.id}-started`, JSON.stringify(value));
+      localStorage.setItem(lsStartedID, JSON.stringify(value));
     }
   });
 
   sentStore.subscribe((value) => {
     if (browser) {
-      localStorage.setItem(`U${ui}-T${task.id}-sent`, JSON.stringify(value));
+      localStorage.setItem(lsSentID, JSON.stringify(value));
     }
   });
 
   fulfilledStore.subscribe((value) => {
     if (browser) {
-      localStorage.setItem(`U${ui}-T${task.id}-fulfilled`, JSON.stringify(value));
+      localStorage.setItem(lsFulfilledID, JSON.stringify(value));
     }
   });
 
-  memberStore.subscribe((value) => {
+  const unsubscribeMemberStore = memberStore.subscribe((value) => {
     if (browser) {
-      localStorage.setItem(`U${ui}-T${task.id}-members`, JSON.stringify(value));
+      localStorage.setItem(lsMembersID, JSON.stringify(value));
     }
   });
 
@@ -134,7 +139,7 @@ export const taskTrackingStore = (
         timestamp: Date.now()
       };
 
-      updateWritable((table) => {
+      trackingStore.update((table) => {
         table.push(value);
         return table;
       });
@@ -146,7 +151,7 @@ export const taskTrackingStore = (
         throw new Error(`Task ${task.id} in user interface ${ui} already started!`);
       }
       startedStore.set(true);
-      updateWritable((table) => {
+      trackingStore.update((table) => {
         let value: TrackingData = {
           ui: ui,
           taskid: task.id,
@@ -160,7 +165,7 @@ export const taskTrackingStore = (
     restart: () => {
       startedStore.set(true);
       sentStore.set(false);
-      updateWritable((table) => {
+      trackingStore.update((table) => {
         let value: TrackingData = {
           ui: ui,
           taskid: task.id,
@@ -171,12 +176,9 @@ export const taskTrackingStore = (
         return table;
       });
     },
-    send: () => {
+    send: async () => {
       sentStore.set(true);
-      if (browser) {
-        localStorage.setItem(`U${ui}-T${task.id}-sent`, `true`);
-      }
-      updateWritable((table) => {
+      trackingStore.update((table) => {
         let value: TrackingData = {
           ui: ui,
           taskid: task.id,
@@ -191,7 +193,7 @@ export const taskTrackingStore = (
       memberStore.subscribe((value) => (members = value))();
       if (conditionChecker(task.condition, members, task.conditionBody)) {
         fulfilledStore.set(true);
-        updateWritable((table) => {
+        trackingStore.update((table) => {
           let value: TrackingData = {
             ui: ui,
             taskid: task.id,
@@ -201,7 +203,34 @@ export const taskTrackingStore = (
           table.push(value);
           return table;
         });
-        // TODO: Probably push data directly and clear localStorage and store.
+
+        let trackingData: TrackingData[];
+        trackingStore.subscribe((value) => (trackingData = value))();
+        let data = {
+          members: members,
+          tracking: trackingData
+        };
+        let response = await fetch(`/api/submit/tasks/${ui}/${task.id}`, {
+          method: 'POST',
+          body: JSON.stringify(data),
+          headers: { 'Content-Type': 'application/json' }
+        });
+
+        // Clear localStorage and store if response ok.
+        if (response.ok) {
+          unsubscribeMemberStore();
+          unsubscribeStartedStore();
+          unsubscribeTrackingStore();
+
+          trackingStore.set(undefined);
+          startedStore.set(undefined);
+          memberStore.set(undefined);
+
+          localStorage.removeItem(lsMembersID);
+          localStorage.removeItem(lsStartedID);
+          localStorage.removeItem(lsTrackingID);
+        }
+        // TODO: if (!response.ok) retry() // when to start retry?
       }
     },
     started: startedStore,
