@@ -77,6 +77,7 @@
     <NewPost
       title={'Aufgabe ' + ($activeExercise + 1)}
       imagePath={exercises[$activeExercise].postImagePath}
+      postDescription={exercises[$activeExercise].postDescription}
       taskFulfilled={$fulfilled}
       isOpen={modalsOpen > 0}
       bind:imageSet

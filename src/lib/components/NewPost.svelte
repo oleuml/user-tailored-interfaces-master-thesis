@@ -18,7 +18,7 @@
   export let imagePath: string;
   export let taskFulfilled: boolean;
   export let isOpen: boolean = false;
-
+  export let postDescription: string;
   export let imageSet = false;
 
   const onOpen = () => {
@@ -48,7 +48,7 @@
       </button>
     </TopBar>
   </div>
-  <div class="flex-auto relative p-6">
+  <div class="flex-auto min-h-1/2 relative p-6">
     {#if !imageSet}
       <div
         class="flex flex-wrap h-full w-full justify-center rounded-3xl content-center bg-gray-100 text-blue-100"
@@ -67,10 +67,21 @@
       <Icon path={mdiImageEdit} />
     </button>
   </div>
-  <div class="flex-auto px-6 pb-6 pt-3">
-    <textarea
-      class="w-full h-full bg-white border-2 p-2 rounded-xl shadow-md resize-none text-sm text-gray-900"
-      placeholder="Beschreibung..."
-    />
+  <div
+    class="flex-auto relative mx-6 mb-6 mt-3 bg-white overflow-y-auto border-2 rounded-xl shadow-md resize-none text-sm text-gray-900"
+  >
+    <p class="p-2">
+      {#if imageSet}
+        {@html postDescription}
+      {/if}
+    </p>
+    <div class="absolute bottom-0 bg-gray-100 w-full px-2 flex justify-between">
+      <span class="font-semibold text-xs">Beschreibung</span>
+      {#if imageSet === true}
+        <span class="text-xs">
+          {postDescription.length}/1000
+        </span>
+      {/if}
+    </div>
   </div>
 </div>

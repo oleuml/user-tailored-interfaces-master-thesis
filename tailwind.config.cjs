@@ -6,7 +6,8 @@ const config = {
     extend: {
       minHeight: {
         '20': '5rem',
-        '24': '6rem'
+        '24': '6rem',
+        '1/2': '50%'
       },
       height: {
         '13': '3.25rem',
