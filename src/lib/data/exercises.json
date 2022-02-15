@@ -4,9 +4,9 @@
     "title": "Wähle alle Kontakte",
     "description": "In dieser Aufgabe sollst du alle Kontakte auswählen. Jeder Kontakt soll den Post bekommen. Beim Senden bekommst du dann die Information, ob die Aufgabe erfüllt ist.",
     "condition": "all",
-    "postImagePath": "/images/party_image.png",
-    "postDescription": "",
-    "riskValue": 0.91
+    "postImagePath": "/images/cat_image.jpg",
+    "postDescription": "Unser neuer Mitbewohner. Kater \"Roland\" ist uns gestern zugelaufen und geht seitdem nicht mehr weg. 😍 🐈",
+    "riskValue": 0.24
   },
   {
     "id": 1,
