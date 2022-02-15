@@ -38,18 +38,14 @@ export type TrackingData = {
 export const taskTrackingStore = (
   ui: number,
   task: Exercise,
-  members: Array<Member>,
-  conditionChecker: (
-    condition: Condition,
-    members: Array<Member>,
-    conditionBody?: object
-  ) => boolean
+  members: Member[],
+  conditionChecker: (condition: Condition, members: Member[], conditionBody?: object) => boolean
 ) => {
   let localStoredTracking: null | string;
   let localStoredStarted: boolean = false;
   let localStoredSent: boolean = false;
   let localStoredFulfilled: boolean = false;
-  let localStoredMembers: Array<Member> = [];
+  let localStoredMembers: Member[] = [];
 
   const lsTrackingID = `U${ui}-T${task.id}-tracking`;
   const lsStartedID = `U${ui}-T${task.id}-started`;
@@ -189,7 +185,7 @@ export const taskTrackingStore = (
         return table;
       });
       // Check task finished (task condition fulfilled)
-      let members: Array<Member>;
+      let members: Member[];
       memberStore.subscribe((value) => (members = value))();
       if (conditionChecker(task.condition, members, task.conditionBody)) {
         fulfilledStore.set(true);
