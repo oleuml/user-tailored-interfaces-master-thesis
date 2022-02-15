@@ -2,14 +2,16 @@
   import type { Member } from '$lib/members';
   import type { Action } from '$lib/stores/taskTracking';
 
-  import { mdiCheckCircle } from '@mdi/js';
+  import { mdiCheckCircle, mdiBackupRestore } from '@mdi/js';
   import Icon from 'mdi-svelte';
+  import { stringify } from 'postcss';
   import { createEventDispatcher } from 'svelte';
   import MemberBadge from '../MemberBadge.svelte';
 
   const dispatcher = createEventDispatcher();
 
   export let members: Array<Member>;
+  export let defaultMembers: Array<Member>;
   const alphabet = [
     'A',
     'B',
@@ -57,6 +59,56 @@
   }}
 >
   <div class="w-full">
+    <div class="flex flex-column justify-between items-center py-0.5">
+      <button
+        class="flex items-center text-gray-500 gap-2"
+        on:click={() => {
+          members = JSON.parse(JSON.stringify(defaultMembers));
+          track('select-defaults');
+        }}
+      >
+        <div><Icon path={mdiBackupRestore} /></div>
+        <div class="text-xs">Zurücksetzen</div>
+      </button>
+      <button
+        class="flex items-center gap-2"
+        on:click={() => {
+          if (members.filter((m) => !m.checked).length === 0) {
+            members.forEach((m) => (m.checked = false));
+            track('deselect-all');
+          } else {
+            members.forEach((m) => (m.checked = true));
+            track('select-all');
+          }
+          members = [...members];
+        }}
+      >
+        <div class="text-xs text-gray-500">
+          {#if members.filter((m) => !m.checked).length === 0}
+            Alle abwählen
+          {:else}
+            Alle auswählen
+          {/if}
+        </div>
+        <div
+          class="pr-2"
+          class:text-green-500={members.filter((m) => !m.checked).length === 0}
+          class:text-gray-400={members.filter((m) => !m.checked).length !== 0}
+        >
+          {#if members.filter((m) => !m.checked).length === 0}
+            <Icon path={mdiCheckCircle} size={1.0} />
+          {:else}
+            <svg
+              viewBox="0 0 24 24"
+              style=" width:1.5rem; height:1.5rem"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="12" cy="12" r="10" stroke="gray" stroke-width="1.2" fill="transparent" />
+            </svg>
+          {/if}
+        </div>
+      </button>
+    </div>
     <div class="pt-3">
       <span class="text-xs text-gray-400">#☆</span>
       <div class="w-full h-0.25 bg-gray-100 mb-0.5" />

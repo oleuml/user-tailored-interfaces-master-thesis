@@ -40,6 +40,7 @@
         taskStore.add(action, data);
       }}
       bind:members
+      {defaultMembers}
     />
   </div>
 </NewPostPrivacy>
