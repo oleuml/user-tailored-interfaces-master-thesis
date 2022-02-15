@@ -19,12 +19,29 @@
   },
   {
     "id": 2,
-    "title": "Wähle eine bestimmte Person",
-    "description": "",
-    "condition": "select-one",
+    "title": "Wähle eine bestimmte Person ab",
+    "description": "In dieser Aufgabe sollst du deinen Chef Hardwin Arati als Empfänger ausschließen. Beim Senden bekommst du dann die Information, ob die Aufgabe erfüllt ist.",
+    "condition": "deselect-one",
+    "conditionBody": {
+      "member": "Hardwin Arati"
+    },
     "postImagePath": "/images/party_image.png",
     "postDescription": "",
-    "riskValue": 1.0
+    "riskValue": 0.85,
+    "preloadMembers": [
+      {
+        "name": "Hardwin Arati",
+        "riskScore": 0.12
+      },
+      {
+        "name": "Piper Samir",
+        "riskScore": 0.15
+      },
+      {
+        "name": "Robert Yancy",
+        "riskScore": 0.18
+      }
+    ]
   },
   {
     "id": 3,
