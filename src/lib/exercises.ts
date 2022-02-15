@@ -9,6 +9,7 @@ export type Exercise = {
   postImagePath: string;
   postDescription: string;
   riskValue: number;
+  preloadMembers?: any;
 };
 
 export const checkCondition = (condition: Condition, members: any, conditionBody?: object) => {

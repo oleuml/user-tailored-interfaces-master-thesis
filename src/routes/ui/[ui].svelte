@@ -33,10 +33,19 @@
   // value 0
   $: activeExercise = activeExerciseStore(ui, 0);
 
-  $: defaultMembers = defaultMembersJSON.map<Member>(
-    (m: Member) =>
-      ({ ...m, checked: m.riskScore < 1 - exercises[$activeExercise].riskValue } as Member)
-  );
+  $: defaultMembers = defaultMembersJSON.map<Member>((m: Member) => {
+    const exercise = exercises[$activeExercise];
+    if (exercise.preloadMembers) {
+      let preload = exercise.preloadMembers.find((pm) => pm.name === m.name);
+      if (preload)
+        return {
+          ...m,
+          riskScore: preload.riskScore,
+          checked: preload.riskScore < 1 - exercise.riskValue
+        };
+    }
+    return { ...m, checked: m.riskScore < 1 - exercise.riskValue } as Member;
+  });
 
   // Setup task store which saves tracking data on localStorage
   // and creates new storages on ui or task change
