@@ -10,12 +10,12 @@
   },
   {
     "id": 1,
-    "title": "Abwähle alle Kontakte",
-    "description": "",
+    "title": "Wähle alle Kontakte ab",
+    "description": "In dieser Aufgabe sollst du alle Kontakte abwählen. Kein Kontakt soll den Post bekommen. Beim Senden bekommst du dann die Information, ob die Aufgabe erfüllt ist.",
     "condition": "nobody",
-    "postImagePath": "/images/pet_image.png",
-    "postDescription": "",
-    "riskValue": 0.24
+    "postImagePath": "/images/party_image.png",
+    "postDescription": "Beste Party ever.... 🍻 <br/>Morgen auf Arbeit bestimmt mit Kater 😅",
+    "riskValue": 0.85
   },
   {
     "id": 2,
