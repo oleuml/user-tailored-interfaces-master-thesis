@@ -1,3 +1,5 @@
+import type { Member } from './members';
+
 export type Condition = 'all' | 'nobody' | 'select-one' | 'deselect-one' | 'selection-of-choice';
 
 export type Exercise = {
@@ -5,14 +7,14 @@ export type Exercise = {
   title: string;
   description: string;
   condition: Condition;
-  conditionBody?: object;
+  conditionBody?: any;
   postImagePath: string;
   postDescription: string;
   riskValue: number;
   preloadMembers?: any;
 };
 
-export const checkCondition = (condition: Condition, members: any, conditionBody?: object) => {
+export const checkCondition = (condition: Condition, members: Member[], conditionBody?: any) => {
   switch (condition) {
     case 'all':
       return members.filter((m) => !m.checked).length === 0;
@@ -21,7 +23,7 @@ export const checkCondition = (condition: Condition, members: any, conditionBody
     case 'select-one':
       throw new Error(`Unimplemented condition check: ${condition}`);
     case 'deselect-one':
-      throw new Error(`Unimplemented condition check: ${condition}`);
+      return !members.find((m) => m.name === conditionBody.member).checked;
     case 'selection-of-choice':
       throw new Error(`Unimplemented condition check: ${condition}`);
     default:
