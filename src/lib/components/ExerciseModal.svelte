@@ -40,14 +40,14 @@
         </div>
       {:else if started && sent && !fulfilled}
         {#if !showTaskDescription}
-          <article>Aufgabe nicht erfüllt!</article>
+          <article>Aufgabe nicht korrekt erfüllt. Versuche es noch einmal.</article>
 
           <div class="flex justify-center scale-90">
             <Button
               on:click={() => {
                 showTaskDescription = true;
               }}
-              title="Zur Aufgabe"
+              title="Zur Aufgabenstellung"
             />
           </div>
         {:else}
@@ -80,7 +80,7 @@
                 activeExercise.set($activeExercise + 1);
                 dispatch('next-exercise');
               }}
-              title="Nächsten Aufgabe"
+              title="Nächste Aufgabe"
             />
           {:else}
             <Button
