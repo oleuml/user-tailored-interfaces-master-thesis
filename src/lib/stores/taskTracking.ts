@@ -1,7 +1,7 @@
 import { browser } from '$app/env';
 import type { Condition, Exercise } from '$lib/exercises';
 import type { Member } from '$lib/members';
-import { writable } from 'svelte/store';
+import { Writable, writable } from 'svelte/store';
 
 export type Action =
   | 'alert'
@@ -27,6 +27,16 @@ export type Action =
   | 'open-modal'
   | 'close-modal';
 
+export type TaskTrackingStore = {
+  add: (action: Action, data?: any) => void;
+  start: () => void;
+  restart: () => void;
+  send: () => Promise<void>;
+  started: Writable<boolean>;
+  fulfilled: Writable<boolean>;
+  sent: Writable<boolean>;
+  members: Writable<Member[]>;
+};
 export type TrackingData = {
   ui: number;
   taskid: number;
@@ -40,7 +50,7 @@ export const taskTrackingStore = (
   task: Exercise,
   members: Member[],
   conditionChecker: (condition: Condition, members: Member[], conditionBody?: object) => boolean
-) => {
+): TaskTrackingStore => {
   let localStoredTracking: null | string;
   let localStoredStarted: boolean = false;
   let localStoredSent: boolean = false;

@@ -4,10 +4,11 @@
   import RiskIndicator from './RiskIndicator.svelte';
   import PrivacyGroupList from './ui1/PrivacyGroupList.svelte';
   import { createEventDispatcher } from 'svelte';
+  import type { TaskTrackingStore } from '$lib/stores/taskTracking';
 
   const dispatcher = createEventDispatcher();
 
-  export let taskStore: any;
+  export let taskStore: TaskTrackingStore;
   export let active: boolean;
   export let defaultMembers: Array<Member>;
   export let members: Array<Member>;

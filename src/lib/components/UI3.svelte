@@ -10,10 +10,11 @@
   import { createEventDispatcher } from 'svelte';
   import Scaled from './Scaled.svelte';
   import { checked } from './ui3/Slider.svelte';
+  import type { TaskTrackingStore } from '$lib/stores/taskTracking';
 
   const dispatcher = createEventDispatcher();
 
-  export let taskStore: any;
+  export let taskStore: TaskTrackingStore;
   export let active: boolean;
   export let defaultMembers: Array<Member>;
   export let members: Array<Member>;
