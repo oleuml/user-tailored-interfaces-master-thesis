@@ -73,6 +73,14 @@
   const track = ({ detail: { action, data } }) => {
     taskStore.add(action, data);
   };
+
+  const updateMembers = (groups) => {
+    let newMembers = groups.map((g) => g.members);
+    members = newMembers.reduce((previous: Member[], current: Member[]) =>
+      previous.concat(current)
+    );
+  };
+  $: updateMembers(groups);
 </script>
 
 {#if active}

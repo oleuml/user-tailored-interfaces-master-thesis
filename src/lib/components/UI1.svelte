@@ -12,6 +12,33 @@
   export let defaultMembers: Array<Member>;
   export let members: Array<Member>;
   export let riskValue: number;
+
+  let groups = [
+    {
+      title: 'Familie',
+      members: members.filter((m) => m.group === 'Familie')
+    },
+    {
+      title: 'Freunde',
+      members: members.filter((m) => m.group === 'Freunde')
+    },
+    {
+      title: 'Kollegen',
+      members: members.filter((m) => m.group === 'Kollegen')
+    },
+    {
+      title: 'Bekannte',
+      members: members.filter((m) => m.group === 'Bekannte')
+    }
+  ];
+
+  const updateMembers = (groups) => {
+    let newMembers = groups.map((g) => g.members);
+    members = newMembers.reduce((previous: Member[], current: Member[]) =>
+      previous.concat(current)
+    );
+  };
+  $: updateMembers(groups);
 </script>
 
 <NewPostPrivacy
@@ -40,7 +67,7 @@
         taskStore.add(action, data);
       }}
       {defaultMembers}
-      bind:members
+      bind:groups
     />
   </div>
 </NewPostPrivacy>
