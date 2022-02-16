@@ -3,7 +3,6 @@
   import type { Action } from '$lib/stores/taskTracking';
   import { createEventDispatcher } from 'svelte';
   import MemberSlider from './MemberSlider.svelte';
-  import { checked } from './Slider.svelte';
 
   const dispatcher = createEventDispatcher();
 
@@ -75,6 +74,7 @@
           >
             <MemberSlider
               bind:score={member.riskScore}
+              bind:checked={member.checked}
               proposedScore={member['proposedScore']}
               title={member.name}
               {threshold}
@@ -82,9 +82,6 @@
               on:track={({ detail: { action, data } }) => {
                 data.position = 'member-slider';
                 track(action, data);
-              }}
-              on:change={() => {
-                member.checked = checked(threshold, member.riskScore);
               }}
             />
           </div>

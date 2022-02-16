@@ -1,6 +1,6 @@
 <script context="module">
   export const checked = (threshold, score) => {
-    return !(score === 0 ? false : score >= threshold);
+    return score === 1.0 ? false : score <= threshold;
   };
 </script>
 

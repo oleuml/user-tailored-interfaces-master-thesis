@@ -66,7 +66,7 @@
   // Set initial checked
   groups.forEach((group) => {
     group.members.forEach((x) => {
-      x.checked = x.riskScore <= group.threshold;
+      x.checked = checked(group.threshold, x.riskScore);
       x['proposedScore'] = x.riskScore;
     });
   });
