@@ -41,6 +41,9 @@
       data.member = title;
       track(action, data);
     }}
+    on:change={() => {
+      dispatcher('change');
+    }}
   >
     <div class="flex flex-wrap h-full items-center gap-2 ml-2">
       <MemberBadge name={title} {color} badged={null} />
@@ -57,6 +60,7 @@
       } else {
         score = 1.0;
       }
+      dispatcher('change');
       track('change-score', { score: score, member: title, memo: 'button-clicked' });
     }}
   >

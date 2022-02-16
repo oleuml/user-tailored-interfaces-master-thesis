@@ -1,6 +1,10 @@
-<script>
+<script lang="ts">
+  import type { Action } from '$lib/stores/taskTracking';
+
   import Color from 'color';
-  import { onMount } from 'svelte';
+  import { createEventDispatcher, onMount } from 'svelte';
+
+  const dispatcher = createEventDispatcher();
 
   export let selected = null;
   export let groups;
@@ -23,6 +27,10 @@
     posX = (1 - threshold) * scalaEntry.contentRect.width;
     scalaWidth = scalaEntry.contentRect.width;
   });
+
+  const track = (action: Action, data?: any) => {
+    dispatcher('track', { action: action, data: data });
+  };
 </script>
 
 <div
@@ -47,6 +55,11 @@
         let { clientX } = event.changedTouches[0] || event.targetTouches[0] || event.touches[0];
         posX = Math.min(Math.max(clientX - left, 0), width);
         threshold = 1 - posX / width;
+        dispatcher('change');
+        track('change-threshold-group', {
+          threshold: threshold,
+          position: 'privacy-member-list-title'
+        });
       }}
       style="left: calc(-8px + {posX}px);"
       viewBox="-8 0 16 16"

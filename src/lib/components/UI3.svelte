@@ -9,6 +9,7 @@
   import PrivacyMemberListTitle from './ui3/PrivacyMemberListTitle.svelte';
   import { createEventDispatcher } from 'svelte';
   import Scaled from './Scaled.svelte';
+  import { checked } from './ui3/Slider.svelte';
 
   const dispatcher = createEventDispatcher();
 
@@ -122,9 +123,17 @@
 >
   {#if selected !== null}
     <div class="mx-4">
-      <PrivacyMemberListTitle {groups} bind:threshold={groups[selected].threshold} bind:selected />
+      <PrivacyMemberListTitle
+        {groups}
+        bind:threshold={groups[selected].threshold}
+        bind:selected
+        on:change={() => {
+          members.forEach((m) => (m.checked = checked(groups[selected].threshold, m.riskScore)));
+        }}
+        on:track={track}
+      />
       <PrivacyMemberList
-        threshold={groups[selected].threshold}
+        bind:threshold={groups[selected].threshold}
         bind:members={groups[selected].members}
         on:track={track}
       />

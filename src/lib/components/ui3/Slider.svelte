@@ -55,6 +55,7 @@
         let { left, width } = slider.getBoundingClientRect();
         let touch = event.changedTouches[0].clientX - left;
         score = 1 - Math.min(Math.max(touch / width, 0), 1);
+        dispatcher('change');
         track('change-score', { score: score });
       }}
       on:touchend|preventDefault={() => {
