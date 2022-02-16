@@ -5,6 +5,7 @@
   import PrivacyGroupList from './ui1/PrivacyGroupList.svelte';
   import { createEventDispatcher } from 'svelte';
   import type { TaskTrackingStore } from '$lib/stores/taskTracking';
+  import _ from 'lodash';
 
   const dispatcher = createEventDispatcher();
 
@@ -14,29 +15,13 @@
   export let members: Array<Member>;
   export let riskValue: number;
 
-  let groups = [
-    {
-      title: 'Familie',
-      members: members.filter((m) => m.group === 'Familie')
-    },
-    {
-      title: 'Freunde',
-      members: members.filter((m) => m.group === 'Freunde')
-    },
-    {
-      title: 'Kollegen',
-      members: members.filter((m) => m.group === 'Kollegen')
-    },
-    {
-      title: 'Bekannte',
-      members: members.filter((m) => m.group === 'Bekannte')
-    }
-  ];
+  $: groups = _.groupBy(members, (m) => m.group);
 
   const updateMembers = (groups) => {
-    let newMembers = groups.map((g) => g.members);
-    members = newMembers.reduce((previous: Member[], current: Member[]) =>
-      previous.concat(current)
+    let newMembers = Object.keys(groups).map((g) => groups[g]);
+    members = newMembers.reduce(
+      (previous: Member[], current: Member[]) => previous.concat(current),
+      []
     );
   };
   $: updateMembers(groups);

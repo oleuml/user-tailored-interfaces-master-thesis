@@ -3,10 +3,11 @@
   import PrivacyGroupItem from './PrivacyGroupItem.svelte';
   import { createEventDispatcher } from 'svelte';
   import type { Member } from '$lib/members';
+  import type { Dictionary } from 'lodash';
 
   const dispatcher = createEventDispatcher();
 
-  export let groups: any;
+  export let groups: Dictionary<Member[]>;
   export let defaultMembers: Member[];
 
   const track = (action: Action, data?: any) => {
@@ -15,7 +16,7 @@
 </script>
 
 <div class="w-full space-y-2.5">
-  {#each groups as group}
+  {#each Object.keys(groups) as groupName}
     <PrivacyGroupItem
       on:track={({ detail: { action, data } }) => {
         if (data === undefined || data === null) {
@@ -23,12 +24,12 @@
         } else if (typeof data !== 'object') {
           data = { data: data };
         }
-        data.group = group.title;
+        data.group = groupName;
         track(action, data);
       }}
-      title={group.title}
+      title={groupName}
       {defaultMembers}
-      bind:members={group.members}
+      bind:members={groups[groupName]}
     />
   {/each}
 </div>
