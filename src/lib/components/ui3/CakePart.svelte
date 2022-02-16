@@ -1,9 +1,16 @@
+<script lang="ts" context="module">
+  export const getRadius = (minRadius: number, maxRadius: number, threshold: number): number => {
+    return threshold * (maxRadius - minRadius) + minRadius;
+  };
+</script>
+
 <script lang="ts">
   import { drawFill, drawStroke, textUpper } from './PrivacyCake.svelte';
   import Color from 'color';
   import { checked } from './Slider.svelte';
   import type { Action } from '$lib/stores/taskTracking';
   import { createEventDispatcher } from 'svelte';
+  import type { Member } from '$lib/members';
 
   const dispatcher = createEventDispatcher();
 
@@ -11,7 +18,7 @@
   export let minRadius: number;
   export let startAngle: number;
   export let endAngle: number;
-  export let members: any;
+  export let members: Member[];
   export let color: any;
   export let strokeWidth: number;
   export let toggled: boolean;
@@ -24,15 +31,12 @@
   let strokeColor = Color(color);
   let fillColor = Color(color).alpha(0.4);
   let textColor = Color(color).darken(0.2);
-  let radius =
-    Math.max(Math.max(...members.filter((m) => m.checked).map((m) => m.riskScore)), 0.001) *
-      (maxRadius - minRadius) +
-    minRadius;
+  $: radius = getRadius(minRadius, maxRadius, threshold);
 
   $: fill = drawFill(center.x, center.y, radius, startAngle, endAngle);
   $: stroke = drawStroke(center.x, center.y, radius, startAngle, endAngle);
 
-  const onResize = (event) => {
+  const onResize = (event: TouchEvent) => {
     let boudings = event.srcElement.ownerSVGElement.getBoundingClientRect();
     let clientOffsetX = boudings.left + boudings.width / 2;
     let clientOffsetY = boudings.top + boudings.height / 2;
@@ -43,14 +47,15 @@
         x: touch.clientX - clientOffsetX,
         y: touch.clientY - clientOffsetY
       };
-      radius = Math.max(
+      let newRadius = Math.max(
         minRadius,
         Math.min(maxRadius, Math.sqrt(position.x ** 2 + position.y ** 2))
       );
-      threshold = (radius - minRadius) / (maxRadius - minRadius);
+      threshold = (newRadius - minRadius) / (maxRadius - minRadius);
       members.forEach((m) => {
-        m.checked = m.riskScore <= threshold;
+        m.checked = checked(threshold, m.riskScore);
       });
+      members = [...members];
       track('change-threshold-group', { groupId: id, threshold: threshold, position: position });
     }
   };
@@ -68,18 +73,23 @@
     on:touchmove|preventDefault
   />
 
-  <path id="{id}-fill" d={fill} fill={fillColor} on:touchmove|preventDefault={onResize} />
+  <path
+    id="{id}-fill"
+    d={fill}
+    fill={fillColor.toString()}
+    on:touchmove|preventDefault={onResize}
+  />
   <path
     id="{id}-stroke"
     d={stroke}
     fill="none"
-    stroke={strokeColor}
+    stroke={strokeColor.toString()}
     stroke-width={strokeWidth}
     on:touchmove|preventDefault={onResize}
   />
   <text
     on:touchmove|preventDefault={onResize}
-    fill={textColor}
+    fill={textColor.toString()}
     font-size="1.2em"
     dy={textUpper(startAngle, endAngle) ? '-10px' : '25px'}
     font-weight="bold"

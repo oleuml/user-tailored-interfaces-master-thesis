@@ -14,13 +14,13 @@
   import { slide, fade } from 'svelte/transition';
   import type { Action } from '$lib/stores/taskTracking';
   import { createEventDispatcher } from 'svelte';
+  import type { Member } from '$lib/members';
 
   const dispatcher = createEventDispatcher();
 
   export let title: string;
-  export let members: any;
-  // export let tracking: any;
-  export let defaultMembers: any;
+  export let members: Member[];
+  export let defaultMembers: Member[];
 
   let expanded = false;
 
