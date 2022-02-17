@@ -8,9 +8,10 @@
   import PrivacyMemberList from './ui3/PrivacyMemberList.svelte';
   import PrivacyMemberListTitle from './ui3/PrivacyMemberListTitle.svelte';
   import { createEventDispatcher } from 'svelte';
-  import Scaled from './Scaled.svelte';
-  import { checked } from './ui3/Slider.svelte';
   import type { TaskTrackingStore } from '$lib/stores/taskTracking';
+  import _, { Dictionary } from 'lodash';
+  import { writable } from 'svelte/store';
+  import { checker } from './ui3/Slider.svelte';
 
   const dispatcher = createEventDispatcher();
 
@@ -19,100 +20,105 @@
   export let defaultMembers: Array<Member>;
   export let members: Array<Member>;
   export let riskValue: number;
+  export let activeTask: number;
 
   let selected = null;
+  let nextTask = activeTask;
+  $: groups = _.groupBy(members, (m) => m.group);
+  let groupThresholds = writable<Dictionary<number>>({});
+  let groupsMetaData: Dictionary<{
+    title: string;
+    color: string;
+    startAngle: number;
+    endAngle: number;
+  }> = {};
 
   $: if (selected !== null) {
     dispatcher('open');
   }
 
-  let groups = [
-    {
-      title: 'Familie',
-      members: members.filter((m) => m.group === 'Familie'),
-      color: '#446688',
-      threshold: 1.0
-    },
-    {
-      title: 'Freunde',
-      members: members.filter((m) => m.group === 'Freunde'),
-      color: '#881144',
-      threshold: 0.8
-    },
-    {
-      title: 'Kollegen',
-      members: members.filter((m) => m.group === 'Kollegen'),
-      color: '#993322',
-      threshold: 0.6
-    },
-    {
-      title: 'Bekannte',
-      members: members.filter((m) => m.group === 'Bekannte'),
-      color: '#AAAA88',
-      threshold: 0.6
-    }
-  ];
+  $: if (activeTask === nextTask) {
+    initGroupMetaData();
+    initGroupThresholds();
+    nextTask += 1;
+  }
 
-  let startAngle = 0;
-  // Calc angles
-  groups.forEach((group, i) => {
-    if (i === 0) {
-      group['startAngle'] = startAngle;
-    } else {
-      group['startAngle'] = groups[i - 1]['endAngle'];
-    }
-    group['endAngle'] = (group.members.length / members.length) * 360 + group['startAngle'];
-  });
-
-  // Set initial checked
-  groups.forEach((group) => {
-    group.members.forEach((x) => {
-      x.checked = checked(group.threshold, x.riskScore);
-      x['proposedScore'] = x.riskScore;
+  const initGroupThresholds = () => {
+    Object.keys(groups).forEach((group) => {
+      let memberScores = groups[group].map((m) => m.riskScore).sort((a, b) => a - b);
+      let threshold = memberScores[Math.floor(memberScores.length * (1 - riskValue))];
+      $groupThresholds[group] = threshold;
     });
-  });
+  };
+
+  const initGroupMetaData = () => {
+    const colors = ['#446688', '#881144', '#993322', '#AAAA88'];
+    let initGroups = _.groupBy(members, (m) => m.group);
+    let lastKey = null;
+    Object.keys(initGroups).forEach((key, i) => {
+      let startAngle: number;
+      if (lastKey === null) {
+        startAngle = 0;
+      } else {
+        startAngle = groupsMetaData[lastKey]['endAngle'];
+      }
+      let endAngle = (initGroups[key].length / members.length) * 360 + startAngle;
+      lastKey = key;
+
+      groupsMetaData[key] = {
+        title: key,
+        color: colors[i],
+        startAngle: startAngle,
+        endAngle: endAngle
+      };
+    });
+  };
 
   const track = ({ detail: { action, data } }) => {
     taskStore.add(action, data);
   };
 
   const updateMembers = (groups) => {
-    let newMembers = groups.map((g) => g.members);
-    members = newMembers.reduce((previous: Member[], current: Member[]) =>
-      previous.concat(current)
+    let newMembers = Object.keys(groups).map((g) => groups[g]);
+    members = newMembers.reduce(
+      (previous: Member[], current: Member[]) => previous.concat(current),
+      []
     );
   };
   $: updateMembers(groups);
 </script>
 
-{#if active}
-  <Scaled position={selected === null ? 0 : -8} scale={selected === null ? 1.0 : 0.95}>
-    <NewPostPrivacy
-      bind:active
-      on:send={async () => {
-        dispatcher('close');
-        await taskStore.send();
-      }}
-      on:open={() => {
-        taskStore.add('open-modal');
-      }}
-      on:close={() => {
-        dispatcher('close');
-        taskStore.add('close-modal');
-      }}
-    >
-      <div class="mx-4">
-        <RiskIndicator {riskValue} on:track={track} />
-      </div>
-      <div class="flex justify-center w-full">
-        <PrivacyCake bind:groups bind:selected on:track={track} />
-      </div>
-      <div class="mx-4">
-        <PrivacyCakeLegend {groups} bind:selected on:track={track} />
-      </div>
-    </NewPostPrivacy>
-  </Scaled>
-{/if}
+<NewPostPrivacy
+  {selected}
+  bind:active
+  on:send={async () => {
+    dispatcher('close');
+    await taskStore.send();
+  }}
+  on:open={() => {
+    taskStore.add('open-modal');
+  }}
+  on:close={() => {
+    dispatcher('close');
+    taskStore.add('close-modal');
+  }}
+>
+  <div class="mx-4">
+    <RiskIndicator {riskValue} on:track={track} />
+  </div>
+  <div class="flex justify-center w-full">
+    <PrivacyCake
+      bind:groups
+      {groupsMetaData}
+      bind:thresholds={$groupThresholds}
+      bind:selected
+      on:track={track}
+    />
+  </div>
+  <div class="mx-4">
+    <PrivacyCakeLegend {groupsMetaData} bind:selected on:track={track} />
+  </div>
+</NewPostPrivacy>
 
 <Modal
   active={selected !== null}
@@ -125,17 +131,20 @@
   {#if selected !== null}
     <div class="mx-4">
       <PrivacyMemberListTitle
-        {groups}
-        bind:threshold={groups[selected].threshold}
-        bind:selected
-        on:change={() => {
-          members.forEach((m) => (m.checked = checked(groups[selected].threshold, m.riskScore)));
-        }}
+        color={groupsMetaData[selected].color}
+        title={groupsMetaData[selected].title}
+        bind:threshold={$groupThresholds[selected]}
         on:track={track}
+        on:change={() => {
+          groups[selected].forEach(
+            (m) => (m.checked = checker($groupThresholds[selected], m.riskScore))
+          );
+          console.log(groups);
+        }}
       />
       <PrivacyMemberList
-        bind:threshold={groups[selected].threshold}
-        bind:members={groups[selected].members}
+        bind:threshold={$groupThresholds[selected]}
+        bind:members={groups[selected]}
         on:track={track}
       />
     </div>

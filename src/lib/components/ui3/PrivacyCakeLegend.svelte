@@ -2,11 +2,17 @@
   import Color from 'color';
   import type { Action } from '$lib/stores/taskTracking';
   import { createEventDispatcher } from 'svelte';
+  import type { Dictionary } from 'lodash';
 
   const dispatcher = createEventDispatcher();
 
   export let selected = null;
-  export let groups;
+  export let groupsMetaData: Dictionary<{
+    title: string;
+    color: string;
+    startAngle: number;
+    endAngle: number;
+  }>;
 
   const track = (action: Action, data?: any) => {
     dispatcher('track', { action: action, data: data });
@@ -14,20 +20,20 @@
 </script>
 
 <div class="grid grid-cols-2 gap-1 text-sm gap-x-10">
-  {#each groups as group, i}
+  {#each Object.entries(groupsMetaData) as [_, { title, color }], i}
     <button
       on:click={() => {
         selected = i;
-        track('open-group', { memo: 'over-legend', group: groups[selected].title });
+        track('open-group', { memo: 'over-legend', group: title });
       }}
       class="flex justify-between items-center pl-3 rounded-3xl p-1"
       class:font-normal={selected !== i}
       class:font-bold={selected === i}
       style={selected === i
-        ? `color: ${Color('#FFF').alpha(0.9)}; background: ${Color(group.color)};`
-        : `color: ${Color(group.color).darken(0.5)}; background: ${Color(group.color).alpha(0.4)};`}
+        ? `color: ${Color('#FFF').alpha(0.9)}; background: ${Color(color)};`
+        : `color: ${Color(color).darken(0.5)}; background: ${Color(color).alpha(0.4)};`}
     >
-      <span>{group.title}</span>
+      <span>{title}</span>
       <span class="flex justify-center items-center {selected === i ? ' pr-1.5 ' : ' pr-2'}"
         ><div
           class="rounded-full"
@@ -37,7 +43,7 @@
           class:w-3={selected !== i}
           style={selected === i
             ? `background: ${Color('#e8e8e8').alpha(0.602)};`
-            : `background: ${group.color};`}
+            : `background: ${color};`}
         />
       </span>
     </button>

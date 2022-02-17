@@ -7,7 +7,7 @@
 <script lang="ts">
   import { drawFill, drawStroke, textUpper } from './PrivacyCake.svelte';
   import Color from 'color';
-  import { checked } from './Slider.svelte';
+  import { checker } from './Slider.svelte';
   import type { Action } from '$lib/stores/taskTracking';
   import { createEventDispatcher } from 'svelte';
   import type { Member } from '$lib/members';
@@ -37,9 +37,9 @@
   $: stroke = drawStroke(center.x, center.y, radius, startAngle, endAngle);
 
   const onResize = (event: TouchEvent) => {
-    let boudings = event.srcElement.ownerSVGElement.getBoundingClientRect();
-    let clientOffsetX = boudings.left + boudings.width / 2;
-    let clientOffsetY = boudings.top + boudings.height / 2;
+    let boundings = event.srcElement.ownerSVGElement.getBoundingClientRect();
+    let clientOffsetX = boundings.left + boundings.width / 2;
+    let clientOffsetY = boundings.top + boundings.height / 2;
 
     let touch = event.touches[0];
     if (!toggled) {
@@ -53,7 +53,7 @@
       );
       threshold = (newRadius - minRadius) / (maxRadius - minRadius);
       members.forEach((m) => {
-        m.checked = checked(threshold, m.riskScore);
+        m.checked = checker(threshold, m.riskScore);
       });
       members = [...members];
       track('change-threshold-group', { groupId: id, threshold: threshold, position: position });
@@ -96,7 +96,7 @@
     font-family="Arial, Helvetica, sans-serif"
   >
     <textPath href="#{id}-stroke" startOffset="50%" text-anchor="middle">
-      {members.filter((x) => checked((radius - minRadius) / (maxRadius - minRadius), x.riskScore))
+      {members.filter((x) => checker((radius - minRadius) / (maxRadius - minRadius), x.riskScore))
         .length}/{members.length}
     </textPath>
   </text>

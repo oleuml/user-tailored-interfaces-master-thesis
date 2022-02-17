@@ -69,6 +69,8 @@
   import CakePartSeparator from './CakePartSeparator.svelte';
   import type { Action } from '$lib/stores/taskTracking';
   import { createEventDispatcher } from 'svelte';
+  import type { Dictionary } from 'lodash';
+  import type { Member } from '$lib/members';
 
   const dispatcher = createEventDispatcher();
 
@@ -77,7 +79,14 @@
   export let maxRadius = Math.min(width, height) / 2 - 30;
   export let minRadius = 40;
   export let strokeWidth = 10;
-  export let groups;
+  export let groups: Dictionary<Member[]>;
+  export let groupsMetaData: Dictionary<{
+    title: string;
+    color: string;
+    startAngle: number;
+    endAngle: number;
+  }>;
+  export let thresholds: Dictionary<number>;
   export let toggled = false;
   export let selected = null;
   let svg;
@@ -103,10 +112,10 @@
         if (distance < minRadius) {
           selected = null;
         } else if (distance < maxRadius) {
-          let parsedSelected = parseInt(document.elementFromPoint(x, y).id.split('-')[0]);
-          if (Number.isInteger(parsedSelected)) {
+          let parsedSelected = document.elementFromPoint(x, y).id.split('-')[1];
+          if (parsedSelected) {
             selected = parsedSelected;
-            track('open-group', { group: groups[selected].title });
+            track('open-group', { group: selected });
           } else {
             track('touchevent', { memo: 'out-of-circle' });
             selected = null;
@@ -118,14 +127,14 @@
     }}
   >
     <g>
-      {#each groups as part, id}
+      {#each Object.entries(groupsMetaData) as [_, { title, color, startAngle, endAngle }], id}
         <CakePart
-          bind:threshold={part.threshold}
-          {id}
-          startAngle={part.startAngle}
-          endAngle={part.endAngle}
-          color={part.color}
-          bind:members={part.members}
+          bind:threshold={thresholds[title]}
+          id="{id}-{title}"
+          {startAngle}
+          {endAngle}
+          {color}
+          bind:members={groups[title]}
           {strokeWidth}
           {maxRadius}
           {minRadius}
@@ -137,9 +146,9 @@
       {/each}
     </g>
     <g>
-      {#each groups as part}
+      {#each Object.entries(groupsMetaData) as [_, { startAngle }]}
         <CakePartSeparator
-          {...part}
+          {startAngle}
           strokeColor="white"
           strokeWidth={2}
           radius={maxRadius + strokeWidth / 2}

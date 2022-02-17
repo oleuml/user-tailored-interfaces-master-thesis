@@ -60,28 +60,17 @@
       <div class="w-full h-0.25 bg-gray-100 mb-0.5" />
       <div class="w-full">
         {#each members.filter((x) => x.name.split(' ')[1][0] === char) as member}
-          <div
-            class="w-full h-10 first:rounded-t-xl last:rounded-b-xl last overflow-hidden"
-            on:click={() => {
-              member.checked = !member.checked;
-              members = [...members];
-              if (member.checked) {
-                track('select', { member: member.name });
-              } else {
-                track('deselect', { member: member.name });
-              }
-            }}
-          >
+          <div class="w-full h-10 first:rounded-t-xl last:rounded-b-xl last overflow-hidden">
             <MemberSlider
               bind:score={member.riskScore}
               bind:checked={member.checked}
-              proposedScore={member['proposedScore']}
               title={member.name}
               {threshold}
               color={member.color.toString()}
               on:track={({ detail: { action, data } }) => {
                 data.position = 'member-slider';
                 track(action, data);
+                [];
               }}
             />
           </div>

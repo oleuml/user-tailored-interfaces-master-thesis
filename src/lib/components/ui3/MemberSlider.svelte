@@ -1,7 +1,7 @@
 <script lang="ts">
   import Icon from 'mdi-svelte';
   import MemberBadge from '$lib/components/MemberBadge.svelte';
-  import Slider, { checked as checker } from '$lib/components/ui3/Slider.svelte';
+  import Slider, { checker } from '$lib/components/ui3/Slider.svelte';
   import { mdiCheckboxBlankCircle, mdiCheckCircle } from '@mdi/js';
   import { createEventDispatcher } from 'svelte';
   import type { Action } from '$lib/stores/taskTracking';
@@ -13,14 +13,7 @@
   export let checked: boolean;
   export let threshold: number;
   export let color: string;
-  export let proposedScore: number;
 
-  if (isNaN(proposedScore)) {
-    throw new Error(`proposedScore must be a number: ${proposedScore}`);
-  }
-  if (proposedScore < 0 || proposedScore > 1) {
-    throw new Error(`proposedScore must be between or equals 0.0 and 1.0: ${proposedScore}`);
-  }
   if (threshold < 0 || threshold > 1) {
     throw new Error(`threshold must be between or equals 0.0 and 1.0: ${threshold}`);
   }
@@ -37,13 +30,11 @@
   <Slider
     bind:score
     bind:threshold
+    bind:checked
     on:track={({ detail: { action, data } }) => {
       data.position = 'slider';
       data.member = title;
       track(action, data);
-    }}
-    on:change={() => {
-      checked = checker(threshold, score);
     }}
   >
     <div class="flex flex-wrap h-full items-center gap-2 ml-2">
@@ -58,10 +49,10 @@
     on:click={() => {
       if (!checker(threshold, score)) {
         score = 0.0;
-        checked = false;
+        checked = checker(threshold, score);
       } else {
         score = 1.0;
-        checked = true;
+        checked = checker(threshold, score);
       }
       track('change-score', { score: score, member: title, memo: 'button-clicked' });
     }}

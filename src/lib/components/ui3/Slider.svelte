@@ -1,5 +1,5 @@
 <script context="module">
-  export const checked = (threshold, score) => {
+  export const checker = (threshold, score) => {
     return score === 1.0 ? false : score <= threshold;
   };
 </script>
@@ -12,6 +12,7 @@
 
   export let score: number;
   export let threshold: number;
+  export let checked: boolean;
 
   let slider: any;
   let touched = false;
@@ -23,8 +24,8 @@
 
 <div bind:this={slider} class="relative w-full bg-gray-200 overflow-hidden">
   <div
-    class:bg-green-400={checked(threshold, score)}
-    class:bg-green-300={!checked(threshold, score)}
+    class:bg-green-400={checker(threshold, score)}
+    class:bg-green-300={!checker(threshold, score)}
     class="absolute h-full transition duration-200"
     style="width: {100 - score * 100}%"
   />
@@ -55,7 +56,7 @@
         let { left, width } = slider.getBoundingClientRect();
         let touch = event.changedTouches[0].clientX - left;
         score = 1 - Math.min(Math.max(touch / width, 0), 1);
-        dispatcher('change');
+        checked = checker(threshold, score);
         track('change-score', { score: score });
       }}
       on:touchend|preventDefault={() => {

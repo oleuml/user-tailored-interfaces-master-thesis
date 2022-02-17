@@ -24,6 +24,8 @@
   import UI3 from '$lib/components/UI3.svelte';
   import Scaled from '$lib/components/Scaled.svelte';
   import Rounded from '$lib/components/Rounded.svelte';
+  import _ from 'lodash';
+  import { checker } from '$lib/components/ui3/Slider.svelte';
 
   export let ui: number;
 
@@ -33,18 +35,23 @@
   // value 0
   $: activeExercise = activeExerciseStore(ui, 0);
 
+  const groupedMembers = _.groupBy(defaultMembersJSON, (m) => m.group);
+
   $: defaultMembers = defaultMembersJSON.map<Member>((m: Member) => {
     const exercise = exercises[$activeExercise];
+    let memberScores = groupedMembers[m.group].map((m) => m.riskScore).sort((a, b) => a - b);
+    let threshold = memberScores[Math.floor(memberScores.length * (1 - exercise.riskValue))];
+
     if (exercise.preloadMembers) {
       let preload = exercise.preloadMembers.find((pm) => pm.name === m.name);
       if (preload)
         return {
           ...m,
           riskScore: preload.riskScore,
-          checked: preload.riskScore < 1 - exercise.riskValue
+          checked: checker(threshold, preload.riskScore)
         };
     }
-    return { ...m, checked: m.riskScore < 1 - exercise.riskValue } as Member;
+    return { ...m, checked: checker(threshold, m.riskScore) } as Member;
   });
 
   // Setup task store which saves tracking data on localStorage
@@ -52,10 +59,13 @@
   $: taskStore = taskTrackingStore(
     ui,
     exercises[$activeExercise],
-    defaultMembers.map<Member>(
-      (m: Member) =>
-        ({ ...m, checked: m.riskScore < 1 - exercises[$activeExercise].riskValue } as Member)
-    ), // copies the original member sets
+    defaultMembers.map<Member>((m: Member) => {
+      let memberScores = groupedMembers[m.group].map((m) => m.riskScore).sort((a, b) => a - b);
+      let threshold =
+        memberScores[Math.floor(memberScores.length * (1 - exercises[$activeExercise].riskValue))];
+
+      return { ...m, checked: checker(threshold, m.riskScore) } as Member;
+    }), // copies the original member sets
     (condition, members, conditionBody) => {
       return checkCondition(condition, members, conditionBody);
     }
@@ -128,6 +138,7 @@
     bind:members={$members}
     {taskStore}
     riskValue={exercises[$activeExercise].riskValue}
+    activeTask={$activeExercise}
     on:close={closeModal}
     on:open={openModal}
   />

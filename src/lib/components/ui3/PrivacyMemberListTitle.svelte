@@ -6,9 +6,9 @@
 
   const dispatcher = createEventDispatcher();
 
-  export let selected = null;
-  export let groups;
-  export let threshold;
+  export let color: string;
+  export let title: string;
+  export let threshold: number;
 
   let scala;
   let posX;
@@ -35,9 +35,9 @@
 
 <div
   class="flex justify-between items-center pl-3 rounded-xl py-2 p-1 font-bold"
-  style="color: {Color('#FFF').alpha(0.9)}; background: {Color(groups[selected].color)};"
+  style="color: {Color('#FFF').alpha(0.9)}; background: {Color(color)};"
 >
-  <span>{groups[selected].title}</span>
+  <span>{title}</span>
   <span class="flex justify-center items-center pr-1.5"
     ><div class="rounded-full h-4 w-4" style="background: {Color('#e8e8e8').alpha(0.602)};" />
   </span>
