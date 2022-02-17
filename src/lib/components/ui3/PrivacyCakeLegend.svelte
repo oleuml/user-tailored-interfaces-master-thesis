@@ -23,25 +23,25 @@
   {#each Object.entries(groupsMetaData) as [_, { title, color }], i}
     <button
       on:click={() => {
-        selected = i;
+        selected = title;
         track('open-group', { memo: 'over-legend', group: title });
       }}
       class="flex justify-between items-center pl-3 rounded-3xl p-1"
-      class:font-normal={selected !== i}
-      class:font-bold={selected === i}
-      style={selected === i
+      class:font-normal={selected !== title}
+      class:font-bold={selected === title}
+      style={selected === title
         ? `color: ${Color('#FFF').alpha(0.9)}; background: ${Color(color)};`
         : `color: ${Color(color).darken(0.5)}; background: ${Color(color).alpha(0.4)};`}
     >
       <span>{title}</span>
-      <span class="flex justify-center items-center {selected === i ? ' pr-1.5 ' : ' pr-2'}"
+      <span class="flex justify-center items-center {selected === title ? ' pr-1.5 ' : ' pr-2'}"
         ><div
           class="rounded-full"
-          class:h-4={selected === i}
-          class:w-4={selected === i}
-          class:h-3={selected !== i}
-          class:w-3={selected !== i}
-          style={selected === i
+          class:h-4={selected === title}
+          class:w-4={selected === title}
+          class:h-3={selected !== title}
+          class:w-3={selected !== title}
+          style={selected === title
             ? `background: ${Color('#e8e8e8').alpha(0.602)};`
             : `background: ${color};`}
         />
