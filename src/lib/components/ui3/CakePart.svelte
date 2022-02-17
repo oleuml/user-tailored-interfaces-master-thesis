@@ -37,7 +37,8 @@
   $: stroke = drawStroke(center.x, center.y, radius, startAngle, endAngle);
 
   const onResize = (event: TouchEvent) => {
-    let boundings = event.srcElement.ownerSVGElement.getBoundingClientRect();
+    let svgElement = event.target as SVGElement;
+    let boundings = svgElement.ownerSVGElement.getBoundingClientRect();
     let clientOffsetX = boundings.left + boundings.width / 2;
     let clientOffsetY = boundings.top + boundings.height / 2;
 
