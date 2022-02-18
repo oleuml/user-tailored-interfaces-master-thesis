@@ -1,10 +1,9 @@
 <script lang="ts" context="module">
   export async function load({ session }) {
     if (session.token !== undefined) {
-      let page = session.page;
       return {
         status: 302,
-        redirect: `/survey/${page !== undefined ? page : '0'}`
+        redirect: `/survey`
       };
     } else {
       return { status: 200 };

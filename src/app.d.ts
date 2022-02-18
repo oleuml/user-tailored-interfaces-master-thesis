@@ -9,9 +9,7 @@ declare global {
 
     interface Platform {}
 
-    interface Session {
-      page: number;
-    }
+    interface Session {}
 
     interface Stuff {}
   }

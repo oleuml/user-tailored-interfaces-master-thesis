@@ -11,8 +11,7 @@ export const getSession: GetSession = ({ request }) => {
   }
   return {
     userAgent: request.headers.get('user-agent'),
-    token: c ? c.token : undefined,
-    page: c ? c.page : undefined
+    token: c ? c.token : undefined
   };
 };
 
