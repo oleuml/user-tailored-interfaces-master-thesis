@@ -9,7 +9,9 @@ declare global {
 
     interface Platform {}
 
-    interface Session {}
+    interface Session {
+      token: string;
+    }
 
     interface Stuff {}
   }
