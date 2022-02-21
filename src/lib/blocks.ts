@@ -135,7 +135,7 @@ export class Block implements BlockInterface {
   };
 
   private push = (block: BlockInterface) => {
-    if (this.type === 'permutation' && this.random() < 0.6) this.blocks.unshift(block);
+    if (this.type === 'permutation' && this.random() < 0.5) this.blocks.unshift(block);
     else this.blocks.push(block);
   };
 
