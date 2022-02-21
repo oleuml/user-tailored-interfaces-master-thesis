@@ -23,13 +23,16 @@
     class="fixed w-screen h-screen top-0 bg-opacity-80 bg-black flex justify-center items-center"
     transition:fade={{ duration: 100 }}
   >
-    <div class="bg-white p-3 rounded-lg w-3/4" in:fly={{ duration: 150, delay: 50, y: 200 }}>
+    <div
+      class="bg-white p-3 max-h-full overflow-y-auto rounded-lg w-4/5"
+      in:fly={{ duration: 150, delay: 50, y: 200 }}
+    >
       {#if !started && !fulfilled}
         <article>
           <p class="font-semibold">
             Aufgabe {$activeExercise + 1}/{exercises.length}: {exercises[$activeExercise].title}
           </p>
-          <p>
+          <p class="text-sm">
             {@html exercises[$activeExercise].description}
           </p>
         </article>
@@ -53,7 +56,7 @@
             <p class="font-semibold">
               Aufgabe {$activeExercise + 1}/{exercises.length}: {exercises[$activeExercise].title}
             </p>
-            <p>
+            <p class="text-sm">
               {@html exercises[$activeExercise].description}
             </p>
           </article>
