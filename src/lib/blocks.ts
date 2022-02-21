@@ -15,6 +15,7 @@ export type QuestionType = 'likert' | 'text' | 'group-likert' | 'single-choice';
 export type LegendType = 'none' | 'top' | 'top-rotated' | 'bottom' | 'bottom-rotated' | 'start-end';
 
 export type Question = {
+  id: string | number;
   question: string | [string, Array<string>];
   questionPrefix: string;
   type: QuestionType;
