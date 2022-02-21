@@ -3,11 +3,21 @@ import seed from 'seed-random';
 
 export type BlockType = 'normal' | 'permutation' | 'page' | 'jump';
 
+export type BlockData = {
+  type: BlockType;
+  title?: string;
+  description?: string;
+  questions?: Question[];
+  path?: string;
+  blocks?: BlockData[];
+};
+
 export interface BlockInterface {
   parent: BlockInterface | null;
   readonly type: BlockType;
   next: () => BlockInterface;
   previous: () => BlockInterface;
+  json: () => BlockData;
   length: () => number;
 }
 

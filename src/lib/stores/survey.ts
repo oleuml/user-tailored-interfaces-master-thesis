@@ -1,5 +1,5 @@
 import { browser } from '$app/env';
-import { Block, BlockInterface } from '$lib/blocks';
+import { Block, BlockData, BlockInterface } from '$lib/blocks';
 import { get, writable } from 'svelte/store';
 import structure from '$lib/data/structure.json';
 
@@ -18,11 +18,11 @@ export const blockStore = (permutationSeed: string) => {
     }
   }
 
-  const json = writable<object>();
+  const json = writable<BlockData>();
   const current = writable<BlockInterface>(blocks.next());
 
   current.subscribe((value: BlockInterface) => {
-    if (browser) json.set(value.json());
+    json.set(value.json());
   });
 
   let nextBlock: BlockInterface = get(current);
