@@ -21,7 +21,7 @@ export const post: RequestHandler = async ({ request, locals }) => {
     status: 302,
     headers: {
       'set-cookie': [`token=${token}; path=/;`, `task=0; path=/`],
-      Location: '/survey/0',
+      Location: '/survey',
       'Content-Type': 'application/x-www-form-urlencoded'
     }
   };
