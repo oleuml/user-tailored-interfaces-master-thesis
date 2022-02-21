@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Button from '$lib/material/Button.svelte';
+  import Button from '$lib/components/material/Button.svelte';
   import { mdiSend } from '@mdi/js';
   import { createEventDispatcher } from 'svelte';
   import Modal from './Modal.svelte';

@@ -9,7 +9,7 @@
     mdiImageEdit,
     mdiSendLock
   } from '@mdi/js';
-  import TopBar from '$lib/material/TopBar.svelte';
+  import TopBar from '$lib/components/material/TopBar.svelte';
   import { createEventDispatcher } from 'svelte';
 
   const dispatcher = createEventDispatcher();

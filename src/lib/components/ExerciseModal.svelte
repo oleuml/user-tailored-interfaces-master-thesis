@@ -1,11 +1,9 @@
 <script lang="ts">
   import { goto } from '$app/navigation';
-
   import type { Exercise } from '$lib/exercises';
-  import Button from '$lib/material/Button.svelte';
+  import Button from '$lib/components/material/Button.svelte';
   import { createEventDispatcher } from 'svelte';
   import type { Writable } from 'svelte/store';
-
   import { fade, fly } from 'svelte/transition';
 
   export let visible: boolean;

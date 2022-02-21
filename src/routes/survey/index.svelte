@@ -9,8 +9,8 @@
 
 <script lang="ts">
   import Page from '$lib/components/survey/Page.svelte';
-  import Button from '$lib/material/Button.svelte';
-  import TopBar from '$lib/material/TopBar.svelte';
+  import Button from '$lib/components/material/Button.svelte';
+  import TopBar from '$lib/components/material/TopBar.svelte';
   import { answerStore } from '$lib/stores/answers';
   import { blockStore } from '$lib/stores/survey';
   import { mdiChevronRight } from '@mdi/js';

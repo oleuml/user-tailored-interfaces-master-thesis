@@ -12,8 +12,8 @@
 </script>
 
 <script lang="ts">
-  import Button from '$lib/material/Button.svelte';
-  import TopBar from '$lib/material/TopBar.svelte';
+  import Button from '$lib/components/material/Button.svelte';
+  import TopBar from '$lib/components/material/TopBar.svelte';
   import { mdiAlert, mdiOpenInNew } from '@mdi/js';
   import Icon from 'mdi-svelte';
 
