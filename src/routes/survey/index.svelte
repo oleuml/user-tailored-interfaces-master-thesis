@@ -52,6 +52,7 @@
           checkQuestionsAnswered = !(await answers.send($blocks.questions));
           if (!checkQuestionsAnswered) {
             blocks.next();
+            document.body.scrollIntoView();
           }
         } else {
           blocks.next();
