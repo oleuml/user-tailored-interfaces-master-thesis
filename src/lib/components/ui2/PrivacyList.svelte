@@ -4,7 +4,6 @@
 
   import { mdiCheckCircle, mdiBackupRestore } from '@mdi/js';
   import Icon from 'mdi-svelte';
-  import { stringify } from 'postcss';
   import { createEventDispatcher } from 'svelte';
   import MemberBadge from '../MemberBadge.svelte';
 
