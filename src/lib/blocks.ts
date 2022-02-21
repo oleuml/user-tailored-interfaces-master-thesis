@@ -8,7 +8,7 @@ export interface BlockInterface {
   readonly type: BlockType;
   next: () => BlockInterface;
   previous: () => BlockInterface;
-  json: () => object;
+  length: () => number;
 }
 
 export type QuestionType = 'likert' | 'text' | 'group-likert' | 'single-choice';
@@ -55,6 +55,7 @@ export class Page implements BlockInterface {
       questions: this.questions
     };
   };
+  length = () => 1;
 }
 
 export class Block implements BlockInterface {
@@ -138,6 +139,12 @@ export class Block implements BlockInterface {
     else this.blocks.push(block);
   };
 
+  length = (): number => {
+    let left = this.blocksVisited.map((b) => b.length()).reduceRight((a, b) => a + b, 0);
+    let right = this.blocks.map((b) => b.length()).reduceRight((a, b) => a + b, 0);
+    return left + right;
+  };
+
   previous = () => {
     if (this.blocksVisited.length === 0) {
       if (this.parent === null) return null;
@@ -207,4 +214,5 @@ export class Jump implements BlockInterface {
       path: this.path
     };
   };
+  length = () => 1;
 }
