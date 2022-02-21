@@ -139,7 +139,6 @@
           groups[selected].forEach(
             (m) => (m.checked = checker($groupThresholds[selected], m.riskScore))
           );
-          console.log(groups);
         }}
       />
       <PrivacyMemberList
