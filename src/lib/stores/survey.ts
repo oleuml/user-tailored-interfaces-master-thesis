@@ -72,6 +72,7 @@ export const blockStore = (permutationSeed: string) => {
       lastAction = 'previous';
     },
     subscribe: json.subscribe,
+    length: blocks.length(),
     page: getPage
   };
 };
