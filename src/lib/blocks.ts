@@ -21,8 +21,6 @@ export type Question = {
   type: QuestionType;
   answers: Array<string | Array<string>>;
   legendType: LegendType;
-  answer: string | Array<string>;
-  unfulfilledAlert: boolean;
   noStatement: boolean;
 };
 
@@ -64,7 +62,6 @@ export class Block implements BlockInterface {
   readonly type: BlockType;
   private blocks: BlockInterface[];
   private blocksVisited: BlockInterface[];
-  private current: BlockInterface;
   private random: () => number;
 
   constructor(
@@ -76,7 +73,6 @@ export class Block implements BlockInterface {
     this.parent = parent;
     this.blocks = [];
     this.blocksVisited = [];
-    this.current = this;
     this.random = random;
 
     if (this.type !== 'normal' && this.type !== 'permutation') {
