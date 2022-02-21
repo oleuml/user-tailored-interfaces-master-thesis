@@ -1,7 +1,7 @@
 [
   {
     "id": 0,
-    "title": "Wähle alle Kontakte",
+    "title": "Wähle alle Kontakte aus",
     "description": "In dieser Aufgabe sollst du alle Kontakte auswählen. Jeder Kontakt soll den Post bekommen. Beim Senden bekommst du dann die Information, ob die Aufgabe erfüllt ist.",
     "condition": "all",
     "postImagePath": "/images/cat_image.jpg",
@@ -26,7 +26,7 @@
       "member": "Hardwin Arati"
     },
     "postImagePath": "/images/party_image.png",
-    "postDescription": "",
+    "postDescription": "Beste Party ever.... 🍻 <br/>Morgen auf Arbeit bestimmt mit Kater 😅",
     "riskValue": 0.85,
     "preloadMembers": [
       {
@@ -45,20 +45,62 @@
   },
   {
     "id": 3,
-    "title": "Abwähle eine bestimmte Person",
-    "description": "",
-    "condition": "deselect-one",
-    "postImagePath": "/images/party_image.png",
-    "postDescription": "",
-    "riskValue": 1.0
+    "title": "Wähle eine bestimmte Person aus",
+    "description": "Stelle dir vor du warst heute an einem wunderschönen Tag im Park mit deiner Arbeitskollegin <i>Līna Chike</i>. Und erstellst nun ein Post mit Bild vom Park und dir online.<br/>Deine Aufgabe ist nun, dass deine Arbeitskollegin Līna Chike den Post auf jeden Fall bekommen soll und stelle dabei sicher, dass kein ein anderer Kollege wiederum diesen Post sehen kann. Beim Senden bekommst du dann die Information, ob die Aufgabe erfüllt ist.",
+    "condition": "select-only-one-of-group",
+    "conditionBody": {
+      "member": "Līna Chike",
+      "group": "Kollegen"
+    },
+    "postImagePath": "/images/park_image.png",
+    "postDescription": "Der Sommer ist endlich da. Mit Līna Chike im schönsten Park der Stadt! 🏞️ 🌳 ☀️",
+    "riskValue": 0.45,
+    "preloadMembers": [
+      {
+        "name": "Līna Chike",
+        "riskScore": 0.82
+      },
+      {
+        "name": "Gauti Yonah",
+        "riskScore": 0.71
+      },
+      {
+        "name": "Robert Yancy",
+        "riskScore": 0.88
+      }
+    ]
   },
   {
     "id": 4,
-    "title": "TODO",
-    "description": "",
+    "title": "Die Einladung",
+    "description": "Demnächst ist ein Fest mit Familie und Freunden geplant. Mit deinem Post möchstest du all diese Einladen. Ausgenommen ist aber alle Familienmitglieder mit Nachnamen <i>Garbi</i>. Stelle auch sicher das alle Freunde die Einladung erhalten, aber keiner der Kollegen oder Bekannten.",
     "condition": "selection-of-choice",
-    "postImagePath": "/images/party_image.png",
-    "postDescription": "",
-    "riskValue": 1.0
+    "conditionBody": {
+      "Familie": {
+        "selectedMembers": [
+          "Sanjay Blaguna",
+          "Vincent Blaguna",
+          "Cissy Blaguna",
+          "Tuulikki Blaguna"
+        ],
+        "deselectedMembers": ["Noémie Garbi", "Kornélia Garbi", "Victor Garbi", "Adilet Garbi"]
+      },
+      "Freunde": "all",
+      "Bekannte": "nobody",
+      "Kollegen": "nobody"
+    },
+    "postImagePath": "/images/party_invitation_image.png",
+    "postDescription": "Wir laden ein! Am 1. April 2022 wollen wir mit euch eine Party feiern. 🎉 🥳 🕺🏽 💃🏽 19 Uhr geht es los. Wo? Bei uns zu Hause! Für Essen und Getränke wird gesorgt. 🍻 <br/>Meldet euch bitte kurz bei uns, ob ihr teilnehmt. ✉️",
+    "riskValue": 0.65,
+    "preloadMembers": [
+      { "name": "Sanjay Blaguna", "riskScore": 0.05 },
+      { "name": "Vincent Blaguna", "riskScore": 0.84 },
+      { "name": "Cissy Blaguna", "riskScore": 0.15 },
+      { "name": "Tuulikki Blaguna", "riskScore": 0.09 },
+      { "name": "Noémie Garbi", "riskScore": 0.75 },
+      { "name": "Kornélia Garbi", "riskScore": 0.32 },
+      { "name": "Victor Garbi", "riskScore": 0.87 },
+      { "name": "Adilet Garbi", "riskScore": 0.1 }
+    ]
   }
 ]
