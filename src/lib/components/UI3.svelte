@@ -17,7 +17,6 @@
 
   export let taskStore: TaskTrackingStore;
   export let active: boolean;
-  export let defaultMembers: Array<Member>;
   export let members: Array<Member>;
   export let riskValue: number;
   export let activeTask: number;
