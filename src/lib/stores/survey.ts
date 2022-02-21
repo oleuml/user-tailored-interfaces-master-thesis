@@ -49,8 +49,8 @@ export const blockStore = (permutationSeed: string) => {
       if (next === null) return null;
       current.set(next);
 
-      let count: number = get(position);
-      position.set(count + 1);
+      let count: number = get(position) + 1;
+      if (0 <= count && count < blocks.length()) position.set(count);
       lastAction = 'next';
     },
     previous: () => {
@@ -61,8 +61,8 @@ export const blockStore = (permutationSeed: string) => {
       if (previous === null) return null;
       current.set(previous);
 
-      let count: number = get(position);
-      position.set(count - 1);
+      let count: number = get(position) - 1;
+      if (0 <= count && count < blocks.length()) position.set(count);
       lastAction = 'previous';
     },
     subscribe: json.subscribe
