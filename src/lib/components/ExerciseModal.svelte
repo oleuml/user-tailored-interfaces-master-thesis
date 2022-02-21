@@ -86,6 +86,7 @@
           {:else}
             <Button
               on:click={() => {
+                document.body.style.background = 'white';
                 goto('/survey');
               }}
               title="Zum Fragebogen"
