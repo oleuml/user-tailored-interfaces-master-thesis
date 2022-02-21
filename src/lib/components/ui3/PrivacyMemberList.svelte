@@ -55,7 +55,7 @@
   }}
 >
   {#each alphabet as char}
-    {#if members.filter((x) => x.name.split(' ')[1][0] === char && !x.favorite).length !== 0}
+    {#if members.filter((x) => x.name.split(' ')[1][0] === char).length !== 0}
       <span class="text-xs text-gray-400">#{char}</span>
       <div class="w-full h-0.25 bg-gray-100 mb-0.5" />
       <div class="w-full">
