@@ -1,5 +1,8 @@
 <script lang="ts" context="module">
-  export const load: Load = ({ params }) => {
+  export const load: Load = ({ session, params }) => {
+    if (session.token === undefined) {
+      return { status: 302, redirect: `/` };
+    }
     let { ui } = params;
     if (isNaN(parseInt(ui))) {
       return { error: `UI ${ui} not exists` };
