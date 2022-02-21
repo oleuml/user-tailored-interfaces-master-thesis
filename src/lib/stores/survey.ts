@@ -40,6 +40,12 @@ export const blockStore = (permutationSeed: string) => {
 
   let lastAction = 'next';
 
+  const getPage = () => {
+    let page: number;
+    position.subscribe((value) => (page = value))();
+    return page;
+  };
+
   return {
     next: () => {
       if (lastAction === 'previous') current.set(get(current).next());
@@ -65,6 +71,7 @@ export const blockStore = (permutationSeed: string) => {
       if (0 <= count && count < blocks.length()) position.set(count);
       lastAction = 'previous';
     },
-    subscribe: json.subscribe
+    subscribe: json.subscribe,
+    page: getPage
   };
 };
