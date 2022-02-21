@@ -1,34 +1,15 @@
-<script lang="ts" context="module">
-  export type QuestionType = 'likert' | 'text' | 'group-likert' | 'single-choice';
-
-  export function questionAnswered(type: QuestionType, answer: string | Array<string>) {
-    switch (type) {
-      case 'group-likert':
-        if (Array.isArray(answer)) {
-          return answer.reduce((prev, curr) => curr !== null && prev, true);
-        } else {
-          throw new Error('group-likert questions need string[] as answers');
-        }
-      case 'likert':
-        return answer !== null;
-      case 'single-choice':
-        return answer !== null;
-      default:
-        return true;
-    }
-  }
-</script>
-
 <script lang="ts">
+  import type { QuestionType } from '$lib/blocks';
+
   import LikertScala, { LegendType } from '$lib/components/survey/types/LikertScala.svelte';
   import SingleChoice from './types/SingleChoice.svelte';
 
-  export let question: string | [string, Array<string>];
+  export let question: string | [string, string[]];
   export let questionPrefix: string;
   export let type: QuestionType;
-  export let answers: Array<string | Array<string>>;
+  export let answers: [string | string[]];
   export let legendType: LegendType;
-  export let answer: string | Array<string>;
+  export let answer: string | string[];
   export let unfulfilledAlert: boolean;
   export let noStatement: boolean;
 </script>
