@@ -137,7 +137,6 @@
 {:else if ui === 2}
   <UI3
     active={modalsOpen > 0}
-    {defaultMembers}
     bind:members={$members}
     {taskStore}
     riskValue={exercises[$activeExercise].riskValue}
