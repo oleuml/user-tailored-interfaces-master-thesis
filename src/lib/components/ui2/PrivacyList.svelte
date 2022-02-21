@@ -124,12 +124,12 @@
           }}
         >
           <span class="flex flex-wrap items-center gap-2"
-            ><MemberBadge
-              name={member.name}
-              color={member.color}
-              badged={null}
-            />{member.name}</span
-          >
+            ><MemberBadge name={member.name} color={member.color} badged={null} />
+            <div>
+              <p>{member.name}</p>
+              <p class="text-xs text-gray-500">{member.group}</p>
+            </div>
+          </span>
           <span
             class="pr-2"
             class:text-green-500={member.checked}
@@ -176,12 +176,12 @@
               }}
             >
               <span class="flex flex-wrap items-center gap-2"
-                ><MemberBadge
-                  name={member.name}
-                  color={member.color}
-                  badged={null}
-                />{member.name}</span
-              >
+                ><MemberBadge name={member.name} color={member.color} badged={null} />
+                <div>
+                  <p>{member.name}</p>
+                  <p class="text-xs text-gray-500">{member.group}</p>
+                </div>
+              </span>
               <span
                 class="pr-2"
                 class:text-green-500={member.checked}
