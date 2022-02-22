@@ -2,7 +2,7 @@
   import type { Member } from '$lib/members';
   import type { Action } from '$lib/stores/taskTracking';
 
-  import { mdiCheckCircle, mdiBackupRestore } from '@mdi/js';
+  import { mdiCheckCircle, mdiBackupRestore, mdiMagnify } from '@mdi/js';
   import Icon from 'mdi-svelte';
   import { createEventDispatcher } from 'svelte';
   import MemberBadge from '../MemberBadge.svelte';
@@ -44,6 +44,11 @@
   const track = (action: Action, data?: any) => {
     dispatcher('track', { action: action, data: data });
   };
+
+  let searchFilter = '';
+  $: filteredMembers = members.filter(
+    (m) => m.name.includes(searchFilter) || m.group.includes(searchFilter)
+  );
 </script>
 
 <div
@@ -57,6 +62,19 @@
     track('scroll', data);
   }}
 >
+  <div class="relative flex w-full flex-wrap items-center mb-3">
+    <span
+      class="z-10 h-full leading-snug font-normal absolute text-center text-gray-500 bg-transparent text-base items-center justify-center w-8 pl-3 py-3"
+    >
+      <Icon path={mdiMagnify} scale="1" />
+    </span>
+    <input
+      type="text"
+      bind:value={searchFilter}
+      placeholder="Suche"
+      class="px-3 py-3 placeholder-gray-500 text-gray-600 relative bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full pl-10"
+    />
+  </div>
   <div class="w-full">
     <div class="flex flex-column justify-between items-center py-0.5">
       <button
@@ -72,18 +90,18 @@
       <button
         class="flex items-center gap-2"
         on:click={() => {
-          if (members.filter((m) => !m.checked).length === 0) {
-            members.forEach((m) => (m.checked = false));
+          if (filteredMembers.filter((m) => !m.checked).length === 0) {
+            filteredMembers.forEach((m) => (m.checked = false));
             track('deselect-all');
           } else {
-            members.forEach((m) => (m.checked = true));
+            filteredMembers.forEach((m) => (m.checked = true));
             track('select-all');
           }
           members = [...members];
         }}
       >
         <div class="text-xs text-gray-500">
-          {#if members.filter((m) => !m.checked).length === 0}
+          {#if filteredMembers.filter((m) => !m.checked).length === 0}
             Alle abwählen
           {:else}
             Alle auswählen
@@ -91,10 +109,10 @@
         </div>
         <div
           class="pr-2"
-          class:text-green-500={members.filter((m) => !m.checked).length === 0}
-          class:text-gray-400={members.filter((m) => !m.checked).length !== 0}
+          class:text-green-500={filteredMembers.filter((m) => !m.checked).length === 0}
+          class:text-gray-400={filteredMembers.filter((m) => !m.checked).length !== 0}
         >
-          {#if members.filter((m) => !m.checked).length === 0}
+          {#if filteredMembers.filter((m) => !m.checked).length === 0}
             <Icon path={mdiCheckCircle} size={1.0} />
           {:else}
             <svg
@@ -111,7 +129,7 @@
     <div class="pt-3">
       <span class="text-xs text-gray-400">#☆</span>
       <div class="w-full h-0.25 bg-gray-100 mb-0.5" />
-      {#each members.filter((x) => x.favorite) as member}
+      {#each filteredMembers.filter((x) => x.favorite) as member}
         <li
           class="flex flex-column justify-between items-center py-0.5"
           on:click={() => {
@@ -159,11 +177,11 @@
     </div>
 
     {#each alphabet as char}
-      {#if members.filter((x) => x.name.split(' ')[1][0] === char && !x.favorite).length !== 0}
+      {#if filteredMembers.filter((x) => x.name.split(' ')[1][0] === char && !x.favorite).length !== 0}
         <div class="pt-3">
           <span class="text-xs text-gray-400">#{char}</span>
           <div class="w-full h-0.25 bg-gray-100 mb-0.5" />
-          {#each members.filter((x) => x.name.split(' ')[1][0] === char && !x.favorite) as member}
+          {#each filteredMembers.filter((x) => x.name.split(' ')[1][0] === char && !x.favorite) as member}
             <li
               class="flex flex-column justify-between items-center py-0.5"
               on:click={() => {
