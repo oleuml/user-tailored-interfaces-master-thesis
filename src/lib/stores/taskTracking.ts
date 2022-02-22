@@ -25,7 +25,8 @@ export type Action =
   | 'select-all'
   | 'deselect-all'
   | 'open-modal'
-  | 'close-modal';
+  | 'close-modal'
+  | 'search-filter';
 
 export type TaskTrackingStore = {
   add: (action: Action, data?: any) => void;
