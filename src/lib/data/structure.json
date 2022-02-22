@@ -540,11 +540,10 @@
                 "Twitter",
                 "Flickr",
                 "Reddit",
-                "TikTok",
-                "Sonstiges"
+                "TikTok"
               ],
               "others": true,
-              "noStatement": false,
+              "noStatement": true,
               "legendType": "top"
             },
             {
@@ -577,11 +576,10 @@
                 "Twitter",
                 "Flickr",
                 "Reddit",
-                "TikTok",
-                "Sonstiges"
+                "TikTok"
               ],
               "others": true,
-              "noStatement": false,
+              "noStatement": true,
               "legendType": "top"
             }
           ]
