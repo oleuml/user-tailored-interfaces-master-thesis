@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { QuestionType } from '$lib/blocks';
 
+  import LikertScala, { LegendType } from '$lib/components/survey/likert/LikertScala.svelte';
   import MultipleChoice from './choices/MultipleChoice.svelte';
 
   export let question: string | [string, string[]];
