@@ -106,7 +106,7 @@
   {/if}
 </div>
 
-<style lang="scss">
+<style lang="postcss">
   .start-end {
     @apply flex flex-wrap flex-grow-0 justify-center text-center w-14 text-sm px-1;
   }
