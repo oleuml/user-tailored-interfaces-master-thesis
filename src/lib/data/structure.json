@@ -4,73 +4,16 @@
     {
       "type": "normal",
       "blocks": [
+        { "type": "page", "title": "Startseite", "description": "TODO", "questions": [] },
         {
           "type": "page",
-          "title": "Fragen Seite 1/4",
-          "questions": [
-            {
-              "id": 100,
-              "question": "Geschlecht",
-              "questionPrefix": "Frage 1.1: ",
-              "type": "likert",
-              "answers": ["divers", "männlich", "weiblich"],
-              "noStatement": false,
-              "legendType": "bottom"
-            },
-            {
-              "id": 101,
-              "question": "Alter (in Jahren)",
-              "questionPrefix": "Frage 1.2: ",
-              "type": "likert",
-              "answers": ["unter 18", "18-24", "25-34", "35-44", "45-54", "55-64", "über 65"],
-              "noStatement": false,
-              "legendType": "top"
-            },
-            {
-              "id": 102,
-              "question": "Bildungsgrad",
-              "questionPrefix": "Frage 1.3: ",
-              "type": "single-choice",
-              "answers": [
-                "ohne Schulabschluss",
-                "Hauptschulabschluss",
-                "Realschulabschluss",
-                "Fachhochschul- oder Hochschulreife",
-                "Bachelor",
-                "Master/Dipl.",
-                "Promotion"
-              ],
-              "noStatement": true,
-              "legendType": "top"
-            },
-            {
-              "id": 103,
-              "question": [
-                "Wie häufig nutze ich...",
-                ["Facebook", "Instagram", "Snapchat", "TikTok"]
-              ],
-              "questionPrefix": "Frage 1.4: ",
-              "type": "group-likert",
-              "answers": [
-                ["nie", "selten", "manch-mal", "häufig", "sehr häufig"],
-                ["nie", "selten", "manch-mal", "häufig", "sehr häufig"],
-                ["nie", "selten", "manch-mal", "häufig", "sehr häufig"],
-                ["nie", "selten", "manch-mal", "häufig", "sehr häufig"]
-              ],
-              "noStatement": false,
-              "legendType": "top"
-            }
-          ]
-        },
-        {
-          "type": "page",
-          "title": "Fragen Seite 2/4",
+          "title": "Fragen Seite 1/3",
           "description": "- **1** = Stimme überhaupt nicht zu\n- **4** = Stimme weder zu noch lehne ich ab\n- **7** = Stimme voll und ganz zu",
           "questions": [
             {
               "id": 201,
               "question": "Bei dem Ver&shy;braucher&shy;daten&shy;schutz geht es im Grunde darum, dass der Ver&shy;braucher Kontrolle und Selbst&shy;be&shy;stimmung darüber hat, wie seine Infor&shy;mationen ge&shy;sammelt, benutzt und weitergegeben werden.",
-              "questionPrefix": "Frage 2.1: ",
+              "questionPrefix": "Frage 1.1: ",
               "type": "likert",
               "answers": ["1", "", "", "4", "", "", "7"],
               "noStatement": false,
@@ -79,7 +22,7 @@
             {
               "id": 202,
               "question": "Die Kon&shy;trolle des Ver&shy;brauchers über seine per&shy;sönlichen Daten steht im Zen&shy;trum des Ver&shy;braucher&shy;daten&shy;schutzes.",
-              "questionPrefix": "Frage 2.2: ",
+              "questionPrefix": "Frage 1.2: ",
               "type": "likert",
               "answers": ["1", "", "", "4", "", "", "7"],
               "noStatement": false,
@@ -88,7 +31,7 @@
             {
               "id": 203,
               "question": "Ich glaube, dass der Daten&shy;schutz im In&shy;ter&shy;net be&shy;ein&shy;trächtigt wird, wenn die eigene Kon&shy;trolle darüber durch eine Marke&shy;ting&shy;trans&shy;aktion verloren geht oder ein&shy;geschränkt wird.",
-              "questionPrefix": "Frage 2.3: ",
+              "questionPrefix": "Frage 1.3: ",
               "type": "likert",
               "answers": ["1", "", "", "4", "", "", "7"],
               "noStatement": false,
@@ -98,7 +41,7 @@
         },
         {
           "type": "page",
-          "title": "Fragen Seite 3/4",
+          "title": "Fragen Seite 2/3",
           "description": "- **1** = Stimme überhaupt nicht zu\n- **4** = Stimme weder zu noch lehne ich ab\n- **7** = Stimme voll und ganz zu",
           "questions": [
             {
@@ -132,7 +75,7 @@
         },
         {
           "type": "page",
-          "title": "Fragen Seite 4/4",
+          "title": "Fragen Seite 3/3",
           "description": "- **1** = Stimme überhaupt nicht zu\n- **4** = Stimme weder zu noch lehne ich ab\n- **7** = Stimme voll und ganz zu",
           "questions": [
             {
@@ -172,7 +115,8 @@
               "legendType": "top"
             }
           ]
-        }
+        },
+        { "type": "page", "title": "Aufgabenszenario", "description": "TODO", "questions": [] }
       ]
     },
     {
@@ -181,7 +125,7 @@
         {
           "type": "normal",
           "blocks": [
-            { "type": "jump", "title": "UI {1}", "description": "", "path": "/ui/0" },
+            { "type": "jump", "title": "UI {1}", "description": "TODO", "path": "/ui/0" },
             {
               "type": "page",
               "title": "Fragen zu Nutzbarkeit 1/3",
@@ -298,7 +242,7 @@
         {
           "type": "normal",
           "blocks": [
-            { "type": "jump", "title": "UI {2}", "description": "", "path": "/ui/1" },
+            { "type": "jump", "title": "UI {2}", "description": "TODO", "path": "/ui/1" },
             {
               "type": "page",
               "title": "Fragen zu Nutzbarkeit 1/3",
@@ -415,7 +359,7 @@
         {
           "type": "normal",
           "blocks": [
-            { "type": "jump", "title": "UI {3}", "description": "", "path": "/ui/2" },
+            { "type": "jump", "title": "UI {3}", "description": "TODO", "path": "/ui/2" },
             {
               "type": "page",
               "title": "Fragen zu Nutzbarkeit 1/3",
@@ -534,10 +478,221 @@
     {
       "type": "normal",
       "blocks": [
+        {
+          "type": "page",
+          "title": "Fragen Seite 1/4",
+          "questions": [
+            {
+              "id": 100,
+              "question": "Geschlecht",
+              "questionPrefix": "Frage 2.1: ",
+              "type": "likert",
+              "answers": ["divers", "männlich", "weiblich"],
+              "noStatement": false,
+              "legendType": "bottom"
+            },
+            {
+              "id": 101,
+              "question": "Alter (in Jahren)",
+              "questionPrefix": "Frage 2.2: ",
+              "type": "likert",
+              "answers": ["unter 18", "18-24", "25-34", "35-44", "45-54", "55-64", "über 65"],
+              "noStatement": false,
+              "legendType": "top"
+            },
+            {
+              "id": 102,
+              "question": "Wähle deinen höchsten Bildungsabluss",
+              "questionPrefix": "Frage 2.3: ",
+              "type": "single-choice",
+              "answers": [
+                "ohne Schulabschluss",
+                "Hauptschulabschluss",
+                "Mittlerer Bildungsabschluss",
+                "Realschulabschluss",
+                "Fachhochschulreife/Fachgebundene Hochschulreife",
+                "Allgemeine Hochschulreife",
+                "Meister",
+                "Bachelor",
+                "Staatsexamen",
+                "Master/Diplom",
+                "Promotion"
+              ],
+              "noStatement": false,
+              "legendType": "top"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "title": "Fragen Seite 2/4",
+          "questions": [
+            {
+              "id": 103,
+              "question": "Bei welchen sozialen Netzwerken haben Sie ein Nutzerkonto?<br/>(Wählen Sie alle zutreffenden aus.)",
+              "questionPrefix": "Frage 2.4: ",
+              "type": "multiple-choice",
+              "answers": [
+                "Facebook",
+                "Instagram",
+                "Pinterest",
+                "Snapchat",
+                "Twitter",
+                "Flickr",
+                "Reddit",
+                "TikTok",
+                "Sonstiges"
+              ],
+              "others": true,
+              "noStatement": false,
+              "legendType": "top"
+            },
+            {
+              "id": 104,
+              "question": "Wie regelmäßig sind Sie in den sozialen Medien unterwegs?",
+              "questionPrefix": "Frage 2.5: ",
+              "type": "single-choice",
+              "answers": [
+                "Nie",
+                "Weniger als einmal im Monat",
+                "Mehrmals im Monat",
+                "Einmal in der Woche",
+                "Mehrmals in der Woche",
+                "Einmal am Tag",
+                "Mehrmals am Tag"
+              ],
+              "noStatement": false,
+              "legendType": "top"
+            },
+            {
+              "id": 105,
+              "question": "Welche sozialen Netzwerke nutzen Sie am häufigsten, um Fotos online zu teilen?",
+              "questionPrefix": "Frage 2.6: ",
+              "type": "multiple-choice",
+              "answers": [
+                "Facebook",
+                "Instagram",
+                "Pinterest",
+                "Snapchat",
+                "Twitter",
+                "Flickr",
+                "Reddit",
+                "TikTok",
+                "Sonstiges"
+              ],
+              "others": true,
+              "noStatement": false,
+              "legendType": "top"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "title": "Fragen Seite 3/4",
+          "questions": [
+            {
+              "id": 106,
+              "question": "Wie häufig teilen Sie Fotos in sozialen Netzwerken?",
+              "questionPrefix": "Frage 2.7: ",
+              "type": "single-choice",
+              "answers": [
+                "Nie",
+                "Weniger als einmal im Monat",
+                "Mehrmals im Monat",
+                "Einmal in der Woche",
+                "Mehrmals in der Woche",
+                "Einmal am Tag",
+                "Mehrmals am Tag"
+              ],
+              "noStatement": false,
+              "legendType": "top"
+            },
+            {
+              "id": 107,
+              "question": "Wie häufig teilen Sie Bilder über soziale Netzwerke, die von Ihnen, Ihren Freunden oder Ihrer Familie aufgenommen wurden?",
+              "questionPrefix": "Frage 2.8: ",
+              "type": "single-choice",
+              "answers": [
+                "Nie",
+                "Weniger als einmal im Monat",
+                "Mehrmals im Monat",
+                "Einmal in der Woche",
+                "Mehrmals in der Woche",
+                "Einmal am Tag",
+                "Mehrmals am Tag"
+              ],
+              "noStatement": false,
+              "legendType": "top"
+            },
+            {
+              "id": 108,
+              "question": "Wie häufig teilen Sie Bilder über soziale Netzwerke, die Sie im Internet gefunden haben oder von anderen Personen (als Ihre Freunde, Familie oder anderer Personen, die Sie persönlich kennen.) aufgenommen wurden?",
+              "questionPrefix": "Frage 2.9: ",
+              "type": "single-choice",
+              "answers": [
+                "Nie",
+                "Weniger als einmal im Monat",
+                "Mehrmals im Monat",
+                "Einmal in der Woche",
+                "Mehrmals in der Woche",
+                "Einmal am Tag",
+                "Mehrmals am Tag"
+              ],
+              "noStatement": false,
+              "legendType": "top"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "title": "Fragen Seite 4/4",
+          "questions": [
+            {
+              "id": 109,
+              "question": "Wie häufig nutzen Sie das Internet über einen Computer?",
+              "questionPrefix": "Frage 2.10: ",
+              "type": "single-choice",
+              "answers": [
+                "Die meiste Zeit des Tages",
+                "Mehrmals am Tag",
+                "Etwa einmal am Tag",
+                "Ein paar Mal pro Woche",
+                "Ein paar Mal im Monat",
+                "Ein paar Mal im Jahr",
+                "Nie"
+              ],
+              "noStatement": false,
+              "legendType": "top"
+            },
+            {
+              "id": 110,
+              "question": "Wie häufig benutzen Sie mobile geräte wie ein Smartphone oder ein Tablet?",
+              "questionPrefix": "Frage 2.11: ",
+              "type": "single-choice",
+              "answers": [
+                "Die meiste Zeit des Tages",
+                "Mehrmals am Tag",
+                "Etwa einmal am Tag",
+                "Ein paar Mal pro Woche",
+                "Ein paar Mal im Monat",
+                "Ein paar Mal im Jahr",
+                "Nie"
+              ],
+              "noStatement": false,
+              "legendType": "top"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "normal",
+      "blocks": [
         { "type": "page", "title": "D1", "description": "", "questions": [] },
         { "type": "page", "title": "D2", "description": "", "questions": [] },
         { "type": "page", "title": "D3", "description": "", "questions": [] },
-        { "type": "page", "title": "D4", "description": "", "questions": [] }
+        { "type": "page", "title": "D4", "description": "", "questions": [] },
+        { "type": "jump", "title": "Beenden", "description": "", "path": "/end" }
       ]
     }
   ]
