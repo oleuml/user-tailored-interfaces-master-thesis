@@ -33,6 +33,7 @@
         bind:answer={answers[q.id]}
         unfulfilledAlert={check && !questionAnswered(q.type, answers[q.id])}
         noStatement={q.noStatement}
+        others={q.others}
       />
     {/each}
   {/if}

@@ -21,7 +21,7 @@ export interface BlockInterface {
   length: () => number;
 }
 
-export type QuestionType = 'likert' | 'text' | 'group-likert' | 'single-choice';
+export type QuestionType = 'likert' | 'text' | 'group-likert' | 'single-choice' | 'multiple-choice';
 export type LegendType = 'none' | 'top' | 'top-rotated' | 'bottom' | 'bottom-rotated' | 'start-end';
 
 export type Question = {

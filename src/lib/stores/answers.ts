@@ -16,6 +16,14 @@ export const questionAnswered = (questionType: QuestionType, answer: object | ob
       return answer !== null;
     case 'single-choice':
       return answer !== null;
+    case 'multiple-choice':
+      if (Array.isArray(answer)) {
+        return !answer.reduce((prev, curr) => curr === null && prev, true);
+      } else if (answer === undefined) {
+        return false;
+      } else {
+        throw new Error('multiple choice questions need string[] as answers');
+      }
     default:
       return true;
   }

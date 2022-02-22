@@ -1,17 +1,17 @@
 <script lang="ts">
   import type { QuestionType } from '$lib/blocks';
 
-  import LikertScala, { LegendType } from '$lib/components/survey/types/LikertScala.svelte';
-  import SingleChoice from './types/SingleChoice.svelte';
+  import MultipleChoice from './choices/MultipleChoice.svelte';
 
   export let question: string | [string, string[]];
   export let questionPrefix: string;
   export let type: QuestionType;
-  export let answers: [string | string[]];
+  export let answers: string[] | string[][];
   export let legendType: LegendType;
-  export let answer: string | string[];
+  export let answer: object | object[];
   export let unfulfilledAlert: boolean;
   export let noStatement: boolean;
+  export let others: boolean = false;
 </script>
 
 <div
@@ -55,6 +55,12 @@
     <div class="flex w-full justify-center pt-2">
       <div class="w-11/12">
         <SingleChoice {answers} bind:answer />
+      </div>
+    </div>
+  {:else if type === 'multiple-choice'}
+    <div class="flex w-full justify-center pt-2">
+      <div class="w-11/12">
+        <MultipleChoice {answers} bind:answer {others} {noStatement} />
       </div>
     </div>
   {/if}
