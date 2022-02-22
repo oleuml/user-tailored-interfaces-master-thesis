@@ -38,12 +38,14 @@
     </svg>
   {/if}
   {#if name}
-    <div class="text-sm">{name}</div>
+    <div class="text-sm text-left">{name}</div>
   {/if}
 </button>
 
 <style lang="postcss">
   svg {
+    min-width: 24px;
+    min-height: 24px;
     @apply w-6 h-6 bg-blue-50 rounded-full;
   }
 </style>
