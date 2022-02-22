@@ -78,7 +78,7 @@
       {#if $blocks.description}
         {@html marked($blocks.description)}
       {/if}
-      <div class="flex mb-2">
+      <div class:hidden={$blocks.title === 'Beenden'} class="flex mb-2">
         <input
           class="mr-2"
           type="checkbox"
@@ -90,8 +90,8 @@
       </div>
       <div class="flex justify-center">
         <Button
-          disabled={!readCheck}
-          title="Aufgabe starten"
+          disabled={!readCheck && $blocks.title !== 'Beenden'}
+          title={$blocks.title === 'Beenden' ? 'Studie beenden' : 'Aufgabe starten'}
           on:click={() => {
             $goneToTask = true;
             goto($blocks.path);
