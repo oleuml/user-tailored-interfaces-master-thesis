@@ -3,6 +3,7 @@
 
   import LikertScala, { LegendType } from '$lib/components/survey/likert/LikertScala.svelte';
   import MultipleChoice from './choices/MultipleChoice.svelte';
+  import SingleChoice from './choices/SingleChoice.svelte';
 
   export let question: string | [string, string[]];
   export let questionPrefix: string;
