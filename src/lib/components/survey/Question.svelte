@@ -56,7 +56,7 @@
   {:else if type === 'single-choice'}
     <div class="flex w-full justify-center pt-2">
       <div class="w-11/12">
-        <SingleChoice {answers} bind:answer />
+        <SingleChoice {answers} bind:answer {noStatement} />
       </div>
     </div>
   {:else if type === 'multiple-choice'}
