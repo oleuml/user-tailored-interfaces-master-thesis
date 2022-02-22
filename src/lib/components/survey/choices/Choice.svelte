@@ -3,7 +3,7 @@
 
   export let type: 'checked' | 'filled';
   export let checked: boolean;
-  export let name: string;
+  export let name: string = null;
 
   const dispatcher = createEventDispatcher();
 </script>
@@ -37,5 +37,7 @@
       />
     </svg>
   {/if}
-  <div class="text-sm">{name}</div>
+  {#if name}
+    <div class="text-sm">{name}</div>
+  {/if}
 </button>
