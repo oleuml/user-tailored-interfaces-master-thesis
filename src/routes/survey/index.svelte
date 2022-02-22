@@ -69,7 +69,7 @@
 </div>
 
 <div class="grid grid-flow-row grid-cols-1 gap-2 p-2 select-none">
-  {#if $blocks.description}
+  {#if $blocks.type === 'page' && $blocks.description}
     <div class="box bg-blue-100 border-2 text-blue-900 border-blue-100 text-sm">
       {@html marked($blocks.description)}
     </div>
@@ -91,7 +91,7 @@
       <div class="flex justify-center">
         <Button
           disabled={!readCheck}
-          title="Fortfahren"
+          title="Aufgabe starten"
           on:click={() => {
             $goneToTask = true;
             goto($blocks.path);
@@ -102,7 +102,5 @@
   {/if}
   {#if $blocks && $blocks.type === 'page'}
     <Page questions={$blocks.questions} bind:answers={$answers} check={checkQuestionsAnswered} />
-  {:else if $blocks && $blocks.type === 'jump'}
-    {$blocks.title}
   {/if}
 </div>
