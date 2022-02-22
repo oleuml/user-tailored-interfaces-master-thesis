@@ -43,6 +43,7 @@
     "@mdi/js": "^6.5.95",
     "@types/seed-random": "^2.2.1",
     "color": "^4.2.0",
+    "confetti-js": "^0.0.18",
     "cookie": "^0.4.1",
     "js-cookie": "^3.0.1",
     "knex": "^0.95.14",
