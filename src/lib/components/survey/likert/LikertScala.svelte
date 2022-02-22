@@ -9,10 +9,12 @@
 </script>
 
 <script lang="ts">
-  export let answers;
+  import Choice from '../choices/Choice.svelte';
+
+  export let answers: string[];
   export let noStatement = false;
   export let legendType: LegendType = 'none';
-  export let answer: string;
+  export let answer: { text: string; index: number };
 
   $: barSize =
     legendType === 'start-end'
@@ -51,21 +53,27 @@
       <div class="flex w-full absolute h-6 px-0.5 items-center">
         <div class="h-1.5 bg-blue-900 opacity-50" style="width: {barSize}%;" />
       </div>
-      {#each answers as a, i}
-        <button
-          class="relative button"
-          class:bg-blue-50={answer === null || answer.index !== i}
-          class:bg-yellow-500={answer !== null && answer.index === i}
-          on:click={() => (answer = { text: a, index: i })}
-        />
+      {#each answers as name, i}
+        <div class="relative">
+          <Choice
+            type="filled"
+            checked={answer !== null && answer.index === i}
+            on:check={() => {
+              answer = { text: name, index: i };
+            }}
+          />
+        </div>
       {/each}
       {#if noStatement && legendType != 'start-end'}
-        <button
-          class="relative button"
-          class:bg-blue-50={answer === null || answer.text !== 'none'}
-          class:bg-yellow-500={answer !== null && answer.text === 'none'}
-          on:click={() => (answer = { text: 'none', index: answers.length })}
-        />
+        <div class="relative">
+          <Choice
+            type="filled"
+            checked={answer !== null && answer.index === answers.length}
+            on:check={() => {
+              answer = { text: 'none', index: answers.length };
+            }}
+          />
+        </div>
       {/if}
     </div>
     {#if legendType === 'bottom'}
@@ -85,12 +93,15 @@
     </div>
     {#if noStatement}
       <div class="text-sm pr-1">{noStatementTitle}</div>
-      <button
-        class="relative button"
-        class:bg-blue-50={answer === null || answer.text !== 'none'}
-        class:bg-yellow-500={answer !== null && answer.text === 'none'}
-        on:click={() => (answer = { text: 'none', index: answers.length })}
-      />
+      <div class="relative">
+        <Choice
+          type="filled"
+          checked={answer !== null && answer.index === answers.length}
+          on:check={() => {
+            answer = { text: 'none', index: answers.length };
+          }}
+        />
+      </div>
     {/if}
   {/if}
 </div>
@@ -98,9 +109,5 @@
 <style lang="scss">
   .start-end {
     @apply flex flex-wrap flex-grow-0 justify-center text-center w-14 text-sm px-1;
-  }
-
-  .button {
-    @apply rounded-full border-2 border-blue-900 w-6 h-6;
   }
 </style>
