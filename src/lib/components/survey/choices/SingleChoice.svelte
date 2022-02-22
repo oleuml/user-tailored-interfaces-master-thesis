@@ -23,7 +23,7 @@
         type="filled"
         name="Keine Angabe"
         checked={answer !== null && answer.index === answers.length}
-        on:check={() => (answer = { text: 'noStatement', index: answers.length })}
+        on:check={() => (answer = { text: 'none', index: answers.length })}
       />
     </li>
   {/if}

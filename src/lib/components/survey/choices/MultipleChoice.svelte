@@ -73,7 +73,7 @@
         checked={answer[noStatementIndex] !== null}
         on:check={() => {
           answer[noStatementIndex] = {
-            text: 'Keines der Genannten',
+            text: 'none',
             index: noStatementIndex
           };
         }}
