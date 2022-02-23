@@ -78,7 +78,7 @@
       {#if $blocks.description}
         {@html marked($blocks.description)}
       {/if}
-      <div class:hidden={$blocks.title === 'Beenden'} class="flex mb-2">
+      <div class="flex mb-2">
         <input
           class="mr-2"
           type="checkbox"
@@ -90,8 +90,8 @@
       </div>
       <div class="flex justify-center">
         <Button
-          disabled={!readCheck && $blocks.title !== 'Beenden'}
-          title={$blocks.title === 'Beenden' ? 'Studie beenden' : 'Aufgabe starten'}
+          disabled={!readCheck}
+          title="Aufgabe starten"
           on:click={() => {
             $goneToTask = true;
             goto($blocks.path);
@@ -102,5 +102,19 @@
   {/if}
   {#if $blocks && $blocks.type === 'page'}
     <Page questions={$blocks.questions} bind:answers={$answers} check={checkQuestionsAnswered} />
+    {#if $blocks && blocks.length - 1 === blocks.page()}
+      <div class="flex justify-center">
+        <Button
+          title="Studie beenden"
+          on:click={() => {
+            checkQuestionsAnswered = !answers.send($blocks.questions);
+            if (!checkQuestionsAnswered) {
+              goto('/end');
+              document.body.scrollIntoView();
+            }
+          }}
+        />
+      </div>
+    {/if}
   {/if}
 </div>
