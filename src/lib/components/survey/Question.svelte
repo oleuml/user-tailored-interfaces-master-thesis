@@ -4,6 +4,7 @@
   import LikertScala, { LegendType } from '$lib/components/survey/likert/LikertScala.svelte';
   import MultipleChoice from './choices/MultipleChoice.svelte';
   import SingleChoice from './choices/SingleChoice.svelte';
+  import TextArea from './textarea/TextArea.svelte';
 
   export let question: string | [string, string[]];
   export let questionPrefix: string;
@@ -22,7 +23,7 @@
   class:border-red-500={unfulfilledAlert}
 >
   <div class="font-medium text-md">
-    {questionPrefix}
+    {questionPrefix ? questionPrefix : ''}
     <i class="hyphens-manual">{@html type === 'group-likert' ? question[0] : question}</i>
   </div>
   {#if type === 'likert'}
@@ -64,6 +65,10 @@
       <div class="w-11/12">
         <MultipleChoice {answers} bind:answer {others} {noStatement} />
       </div>
+    </div>
+  {:else if type === 'text'}
+    <div class="pt-2">
+      <TextArea bind:answer />
     </div>
   {/if}
 </div>
