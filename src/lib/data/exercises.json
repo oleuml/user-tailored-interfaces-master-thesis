@@ -1,8 +1,8 @@
 [
   {
     "id": 0,
-    "title": "Wähle alle Kontakte aus",
-    "description": "In dieser Aufgabe sollst du alle Kontakte auswählen. Jeder Kontakt soll den Post bekommen. Beim Senden bekommst du dann die Information, ob die Aufgabe erfüllt ist.",
+    "title": "Wählen Sie alle Kontakte aus",
+    "description": "In dieser Aufgabe sollen Sie alle Kontakte auswählen. Jeder Kontakt soll den Post bekommen. Beim Senden bekommen Sie dann die Information, ob die Aufgabe erfüllt ist.",
     "condition": "all",
     "postImagePath": "/images/cat_image.jpg",
     "postDescription": "Unser neuer Mitbewohner. Kater \"Roland\" ist uns gestern zugelaufen und geht seitdem nicht mehr weg. 😍 🐈",
@@ -10,8 +10,8 @@
   },
   {
     "id": 1,
-    "title": "Wähle alle Kontakte ab",
-    "description": "In dieser Aufgabe sollst du alle Kontakte abwählen. Kein Kontakt soll den Post bekommen. Beim Senden bekommst du dann die Information, ob die Aufgabe erfüllt ist.",
+    "title": "Wählen Sie alle Kontakte ab",
+    "description": "In dieser Aufgabe sollen Sie alle Kontakte abwählen. Kein Kontakt soll den Post bekommen. Beim Senden bekommen Sie dann die Information, ob die Aufgabe erfüllt ist.",
     "condition": "nobody",
     "postImagePath": "/images/party_image.png",
     "postDescription": "Beste Party ever.... 🍻 <br/>Morgen auf Arbeit bestimmt mit Kater 😅",
@@ -20,7 +20,7 @@
   {
     "id": 2,
     "title": "Wähle eine bestimmte Person ab",
-    "description": "In dieser Aufgabe sollst du deinen Chef Hardwin Arati als Empfänger ausschließen. Beim Senden bekommst du dann die Information, ob die Aufgabe erfüllt ist.",
+    "description": "In dieser Aufgabe sollen Sie Ihren Chef Hardwin Arati als Empfänger ausschließen. Beim Senden bekommen Sie dann die Information, ob die Aufgabe erfüllt ist.",
     "condition": "deselect-one",
     "conditionBody": {
       "member": "Hardwin Arati"
@@ -45,8 +45,8 @@
   },
   {
     "id": 3,
-    "title": "Wähle eine bestimmte Person aus",
-    "description": "Stelle dir vor du warst heute an einem wunderschönen Tag im Park mit deiner Arbeitskollegin <i>Līna Chike</i>. Und erstellst nun ein Post mit Bild vom Park und dir online.<br/>Deine Aufgabe ist nun, dass deine Arbeitskollegin Līna Chike den Post auf jeden Fall bekommen soll und stelle dabei sicher, dass kein ein anderer Kollege wiederum diesen Post sehen kann. Beim Senden bekommst du dann die Information, ob die Aufgabe erfüllt ist.",
+    "title": "Wählen Sie eine bestimmte Person aus",
+    "description": "Stelle dir vor du warst heute an einem wunderschönen Tag im Park mit deiner Arbeitskollegin <i>Līna Chike</i>. Und erstellst nun ein Post mit Bild vom Park und dir online.<br/>Deine Aufgabe ist nun, dass deine Arbeitskollegin Līna Chike den Post auf jeden Fall bekommen soll und stelle dabei sicher, dass kein anderer Kollege wiederum diesen Post sehen kann. Beim Senden bekommen Sie dann die Information, ob die Aufgabe erfüllt ist.",
     "condition": "select-only-one-of-group",
     "conditionBody": {
       "member": "Līna Chike",
@@ -73,7 +73,7 @@
   {
     "id": 4,
     "title": "Die Einladung",
-    "description": "Demnächst ist ein Fest mit Familie und Freunden geplant. Mit deinem Post möchstest du all diese Einladen. Ausgenommen ist aber alle Familienmitglieder mit Nachnamen <i>Garbi</i>. Stelle auch sicher das alle Freunde die Einladung erhalten, aber keiner der Kollegen oder Bekannten.",
+    "description": "Demnächst ist ein Fest mit Familie und Freunden geplant. Mit ihrem Post möchsten Sie all diese einladen. Ausgenommen sind aber alle Familienmitglieder mit Nachnamen <i>Garbi</i>. Stellen Sie auch sicher, dass alle Freunde die Einladung erhalten, aber keiner der Kollegen oder Bekannten.",
     "condition": "selection-of-choice",
     "conditionBody": {
       "Familie": {
