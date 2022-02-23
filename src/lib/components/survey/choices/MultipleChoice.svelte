@@ -5,6 +5,7 @@
   export let answers: string[];
   export let others: boolean;
   export let noStatement: boolean;
+  export let noStatementText: string = null;
 
   let othersTextValue = '';
 
@@ -69,7 +70,7 @@
     <li>
       <Choice
         type="filled"
-        name="Keines der Genannten"
+        name={noStatementText ? noStatementText : 'Keine Angabe'}
         checked={answer[noStatementIndex] !== null}
         on:check={() => {
           answer[noStatementIndex] = {

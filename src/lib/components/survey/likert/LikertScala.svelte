@@ -15,12 +15,13 @@
   export let noStatement = false;
   export let legendType: LegendType = 'none';
   export let answer: { text: string; index: number };
+  export let noStatementText: string = null;
 
   $: barSize =
     legendType === 'start-end'
       ? 100
       : ((answers.length - (noStatement ? 1.0 : 0.0)) / answers.length) * 100;
-  let noStatementTitle = 'K.A.';
+  let noStatementTitle = noStatementText ? noStatementText : 'K.A.';
 </script>
 
 <div class="flex w-full items-center">

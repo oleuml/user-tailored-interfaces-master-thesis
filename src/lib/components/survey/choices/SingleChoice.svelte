@@ -4,6 +4,7 @@
   export let answer: { text: string; index: number };
   export let answers: string[];
   export let noStatement: boolean;
+  export let noStatementText: string = null;
 </script>
 
 <ul class="space-y-1">
@@ -21,7 +22,7 @@
     <li>
       <Choice
         type="filled"
-        name="Keine Angabe"
+        name={noStatementText ? noStatementText : 'Keine Angabe'}
         checked={answer !== null && answer.index === answers.length}
         on:check={() => (answer = { text: 'none', index: answers.length })}
       />

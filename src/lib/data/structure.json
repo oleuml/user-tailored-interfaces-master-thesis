@@ -544,6 +544,7 @@
               ],
               "others": true,
               "noStatement": true,
+              "noStatementText": "Ich habe bei keinem sozialen Netzwerk ein Nutzerkonto.",
               "legendType": "top"
             },
             {
@@ -580,6 +581,7 @@
               ],
               "others": true,
               "noStatement": true,
+              "noStatementText": "Ich nutze keine sozialen Netzwerke um Fotos zu teilen.",
               "legendType": "top"
             }
           ]

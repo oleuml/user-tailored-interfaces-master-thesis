@@ -14,6 +14,7 @@
   export let answer: object | object[];
   export let unfulfilledAlert: boolean;
   export let noStatement: boolean;
+  export let noStatementText: string = null;
   export let others: boolean = false;
 </script>
 
@@ -50,6 +51,7 @@
             answers={subAnswers}
             legendType={i === 0 ? legendType : 'none'}
             {noStatement}
+            {noStatementText}
           />
         </div>
       </div>
@@ -57,13 +59,13 @@
   {:else if type === 'single-choice'}
     <div class="flex w-full justify-center pt-2">
       <div class="w-11/12">
-        <SingleChoice {answers} bind:answer {noStatement} />
+        <SingleChoice {answers} bind:answer {noStatement} {noStatementText} />
       </div>
     </div>
   {:else if type === 'multiple-choice'}
     <div class="flex w-full justify-center pt-2">
       <div class="w-11/12">
-        <MultipleChoice {answers} bind:answer {others} {noStatement} />
+        <MultipleChoice {answers} bind:answer {others} {noStatement} {noStatementText} />
       </div>
     </div>
   {:else if type === 'text'}

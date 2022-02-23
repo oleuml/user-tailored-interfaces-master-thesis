@@ -32,6 +32,7 @@ export type Question = {
   answers: Array<string | Array<string>>;
   legendType: LegendType;
   noStatement: boolean;
+  noStatementText?: string;
 };
 
 export class Page implements BlockInterface {
