@@ -24,6 +24,8 @@ export const questionAnswered = (questionType: QuestionType, answer: object | ob
       } else {
         throw new Error('multiple choice questions need string[] as answers');
       }
+    case 'text':
+      return true;
     default:
       return true;
   }
