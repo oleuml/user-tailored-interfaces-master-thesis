@@ -46,7 +46,7 @@
     <button
       slot="end"
       class="flex flex-wrap content-center justify-center w-12 h-12 disabled:invisible"
-      disabled={$blocks.type === 'jump'}
+      disabled={$blocks.type === 'jump' || blocks.page() === blocks.length - 1}
       on:click={async () => {
         if ($blocks.type === 'page') {
           checkQuestionsAnswered = !(await answers.send($blocks.questions));
