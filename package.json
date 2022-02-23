@@ -11,7 +11,7 @@
     "format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. ."
   },
   "devDependencies": {
-    "@sveltejs/adapter-node": "^1.0.0-next.66",
+    "@sveltejs/adapter-node": "^1.0.0-next.69",
     "@sveltejs/kit": "next",
     "@types/color": "^3.0.3",
     "@types/cookie": "^0.4.1",
@@ -32,9 +32,9 @@
     "prettier-plugin-svelte": "^2.4.0",
     "sass": "^1.43.4",
     "scss": "^0.2.4",
-    "svelte": "^3.34.0",
+    "svelte": "^3.46.4",
     "svelte-check": "^2.2.6",
-    "svelte-preprocess": "^4.9.8",
+    "svelte-preprocess": "^4.10.4",
     "tslib": "^2.3.1",
     "typescript": "^4.4.3"
   },
