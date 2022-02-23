@@ -13,7 +13,7 @@
     "title": "Wählen Sie alle Kontakte ab",
     "description": "In dieser Aufgabe sollen Sie alle Kontakte abwählen. Kein Kontakt soll den Post bekommen. Beim Senden bekommen Sie dann die Information, ob die Aufgabe erfüllt ist.",
     "condition": "nobody",
-    "postImagePath": "/images/party_image.png",
+    "postImagePath": "/images/party_image.jpg",
     "postDescription": "Beste Party ever.... 🍻 <br/>Morgen auf Arbeit bestimmt mit Kater 😅",
     "riskValue": 0.85
   },
@@ -25,7 +25,7 @@
     "conditionBody": {
       "member": "Hardwin Arati"
     },
-    "postImagePath": "/images/party_image.png",
+    "postImagePath": "/images/party_image.jpg",
     "postDescription": "Beste Party ever.... 🍻 <br/>Morgen auf Arbeit bestimmt mit Kater 😅",
     "riskValue": 0.85,
     "preloadMembers": [
@@ -89,7 +89,7 @@
       "Bekannte": "nobody",
       "Kollegen": "nobody"
     },
-    "postImagePath": "/images/party_invitation_image.png",
+    "postImagePath": "/images/invitation_image.jpg",
     "postDescription": "Wir laden ein! Am 1. April 2022 wollen wir mit euch eine Party feiern. 🎉 🥳 🕺🏽 💃🏽 19 Uhr geht es los. Wo? Bei uns zu Hause! Für Essen und Getränke wird gesorgt. 🍻 <br/>Meldet euch bitte kurz bei uns, ob ihr teilnehmt. ✉️",
     "riskValue": 0.65,
     "preloadMembers": [
