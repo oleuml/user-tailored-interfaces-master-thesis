@@ -14,6 +14,8 @@ export const questionAnswered = (questionType: QuestionType, answer: object | ob
       }
     case 'likert':
       return answer !== null;
+    case 'likert-vertical':
+      return answer !== null;
     case 'single-choice':
       return answer !== null;
     case 'multiple-choice':

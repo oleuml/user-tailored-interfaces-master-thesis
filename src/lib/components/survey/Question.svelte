@@ -4,6 +4,7 @@
   import LikertScala, { LegendType } from '$lib/components/survey/likert/LikertScala.svelte';
   import MultipleChoice from './choices/MultipleChoice.svelte';
   import SingleChoice from './choices/SingleChoice.svelte';
+  import LikertVertical from './likert/LikertVertical.svelte';
   import TextArea from './textarea/TextArea.svelte';
 
   export let question: string | [string, string[]];
@@ -56,6 +57,12 @@
         </div>
       </div>
     {/each}
+  {:else if type === 'likert-vertical'}
+    <div class="flex w-full justify-center pt-2">
+      <div class="w-11/12">
+        <LikertVertical {answers} bind:answer {noStatement} {noStatementText} />
+      </div>
+    </div>
   {:else if type === 'single-choice'}
     <div class="flex w-full justify-center pt-2">
       <div class="w-11/12">
