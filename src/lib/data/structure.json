@@ -8,14 +8,22 @@
         {
           "type": "page",
           "title": "Fragen Seite 1/3",
-          "description": "- **1** = Stimme überhaupt nicht zu\n- **4** = Stimme weder zu noch lehne ich ab\n- **7** = Stimme voll und ganz zu",
+          "description": "",
           "questions": [
             {
               "id": 201,
               "question": "Bei dem Ver&shy;braucher&shy;daten&shy;schutz geht es im Grunde darum, dass der Ver&shy;braucher Kontrolle und Selbst&shy;be&shy;stimmung darüber hat, wie seine Infor&shy;mationen ge&shy;sammelt, benutzt und weitergegeben werden.",
               "questionPrefix": "Frage 1.1: ",
-              "type": "likert",
-              "answers": ["1", "", "", "4", "", "", "7"],
+              "type": "likert-vertical",
+              "answers": [
+                "Stimme überhaupt nicht zu",
+                "Stimme nicht zu",
+                "Stimme eher nicht zu",
+                "Weder noch",
+                "Stimme eher zu",
+                "Stimme zu",
+                "Stimme voll und ganz zu"
+              ],
               "noStatement": false,
               "legendType": "top"
             },
@@ -23,8 +31,16 @@
               "id": 202,
               "question": "Die Kon&shy;trolle des Ver&shy;brauchers über seine per&shy;sönlichen Daten steht im Zen&shy;trum des Ver&shy;braucher&shy;daten&shy;schutzes.",
               "questionPrefix": "Frage 1.2: ",
-              "type": "likert",
-              "answers": ["1", "", "", "4", "", "", "7"],
+              "type": "likert-vertical",
+              "answers": [
+                "Stimme überhaupt nicht zu",
+                "Stimme nicht zu",
+                "Stimme eher nicht zu",
+                "Weder noch",
+                "Stimme eher zu",
+                "Stimme zu",
+                "Stimme voll und ganz zu"
+              ],
               "noStatement": false,
               "legendType": "top"
             },
@@ -32,8 +48,16 @@
               "id": 203,
               "question": "Ich glaube, dass der Daten&shy;schutz im In&shy;ter&shy;net be&shy;ein&shy;trächtigt wird, wenn die eigene Kon&shy;trolle darüber durch eine Marke&shy;ting&shy;trans&shy;aktion verloren geht oder ein&shy;geschränkt wird.",
               "questionPrefix": "Frage 1.3: ",
-              "type": "likert",
-              "answers": ["1", "", "", "4", "", "", "7"],
+              "type": "likert-vertical",
+              "answers": [
+                "Stimme überhaupt nicht zu",
+                "Stimme nicht zu",
+                "Stimme eher nicht zu",
+                "Weder noch",
+                "Stimme eher zu",
+                "Stimme zu",
+                "Stimme voll und ganz zu"
+              ],
               "noStatement": false,
               "legendType": "top"
             }
@@ -42,14 +66,22 @@
         {
           "type": "page",
           "title": "Fragen Seite 2/3",
-          "description": "- **1** = Stimme überhaupt nicht zu\n- **4** = Stimme weder zu noch lehne ich ab\n- **7** = Stimme voll und ganz zu",
+          "description": "",
           "questions": [
             {
               "id": 301,
               "question": "Unternehmen, die online Infor&shy;mationen be&shy;schaffen, sollten offen&shy;legen, wie die Daten erhoben, ver&shy;arbeitet und ver&shy;wendet werden.",
               "questionPrefix": "Frage 3.1: ",
-              "type": "likert",
-              "answers": ["1", "", "", "4", "", "", "7"],
+              "type": "likert-vertical",
+              "answers": [
+                "Stimme überhaupt nicht zu",
+                "Stimme nicht zu",
+                "Stimme eher nicht zu",
+                "Weder noch",
+                "Stimme eher zu",
+                "Stimme zu",
+                "Stimme voll und ganz zu"
+              ],
               "noStatement": false,
               "legendType": "top"
             },
@@ -57,8 +89,16 @@
               "id": 302,
               "question": "Eine gute Praktik für Ver&shy;braucher&shy;daten&shy;schutz sollte In&shy;forma&shy;tionen klar und deut&shy;lich sicht&shy;bar offen&shy;legen.",
               "questionPrefix": "Frage 3.2: ",
-              "type": "likert",
-              "answers": ["1", "", "", "4", "", "", "7"],
+              "type": "likert-vertical",
+              "answers": [
+                "Stimme überhaupt nicht zu",
+                "Stimme nicht zu",
+                "Stimme eher nicht zu",
+                "Weder noch",
+                "Stimme eher zu",
+                "Stimme zu",
+                "Stimme voll und ganz zu"
+              ],
               "noStatement": false,
               "legendType": "top"
             },
@@ -66,8 +106,16 @@
               "id": 303,
               "question": "Es ist mir sehr wichtig, dass ich da&shy;rüber in&shy;formiert bin, wie meine per&shy;sönlichen Da&shy;ten genutzt werden.",
               "questionPrefix": "Frage 3.3: ",
-              "type": "likert",
-              "answers": ["1", "", "", "4", "", "", "7"],
+              "type": "likert-vertical",
+              "answers": [
+                "Stimme überhaupt nicht zu",
+                "Stimme nicht zu",
+                "Stimme eher nicht zu",
+                "Weder noch",
+                "Stimme eher zu",
+                "Stimme zu",
+                "Stimme voll und ganz zu"
+              ],
               "noStatement": false,
               "legendType": "top"
             }
@@ -76,14 +124,22 @@
         {
           "type": "page",
           "title": "Fragen Seite 3/3",
-          "description": "- **1** = Stimme überhaupt nicht zu\n- **4** = Stimme weder zu noch lehne ich ab\n- **7** = Stimme voll und ganz zu",
+          "description": "",
           "questions": [
             {
               "id": 401,
               "question": "Ich mache mir für gewöhn&shy;lich Ge&shy;danken da&shy;rüber, wenn Unter&shy;nehmen mich nach meinen per&shy;sön&shy;lichen In&shy;forma&shy;tionen fragen.",
               "questionPrefix": "Frage 4.1: ",
-              "type": "likert",
-              "answers": ["1", "", "", "4", "", "", "7"],
+              "type": "likert-vertical",
+              "answers": [
+                "Stimme überhaupt nicht zu",
+                "Stimme nicht zu",
+                "Stimme eher nicht zu",
+                "Weder noch",
+                "Stimme eher zu",
+                "Stimme zu",
+                "Stimme voll und ganz zu"
+              ],
               "noStatement": false,
               "legendType": "top"
             },
@@ -91,8 +147,16 @@
               "id": 402,
               "question": "Ich denke manch&shy;mal zwei&shy;mal da&shy;rüber nach, meine persön&shy;lichen Daten aus&shy;zu&shy;händigen, wenn Unter&shy;nehmen mich da&shy;nach fragen.",
               "questionPrefix": "Frage 4.2: ",
-              "type": "likert",
-              "answers": ["1", "", "", "4", "", "", "7"],
+              "type": "likert-vertical",
+              "answers": [
+                "Stimme überhaupt nicht zu",
+                "Stimme nicht zu",
+                "Stimme eher nicht zu",
+                "Weder noch",
+                "Stimme eher zu",
+                "Stimme zu",
+                "Stimme voll und ganz zu"
+              ],
               "noStatement": false,
               "legendType": "top"
             },
@@ -100,8 +164,16 @@
               "id": 403,
               "question": "Es stört mich, meine per&shy;sön&shy;lichen In&shy;forma&shy;tionen an so viele Unter&shy;nehmen weiter&shy;zu&shy;geben.",
               "questionPrefix": "Frage 4.3: ",
-              "type": "likert",
-              "answers": ["1", "", "", "4", "", "", "7"],
+              "type": "likert-vertical",
+              "answers": [
+                "Stimme überhaupt nicht zu",
+                "Stimme nicht zu",
+                "Stimme eher nicht zu",
+                "Weder noch",
+                "Stimme eher zu",
+                "Stimme zu",
+                "Stimme voll und ganz zu"
+              ],
               "noStatement": false,
               "legendType": "top"
             },
@@ -109,8 +181,16 @@
               "id": 404,
               "question": "Ich mache mir Sor&shy;gen, dass Unter&shy;nehmen zu viele persön&shy;liche Da&shy;ten von mir sammeln.",
               "questionPrefix": "Frage 4.4: ",
-              "type": "likert",
-              "answers": ["1", "", "", "4", "", "", "7"],
+              "type": "likert-vertical",
+              "answers": [
+                "Stimme überhaupt nicht zu",
+                "Stimme nicht zu",
+                "Stimme eher nicht zu",
+                "Weder noch",
+                "Stimme eher zu",
+                "Stimme zu",
+                "Stimme voll und ganz zu"
+              ],
               "noStatement": false,
               "legendType": "top"
             }
