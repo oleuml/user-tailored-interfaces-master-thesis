@@ -41,7 +41,7 @@
   });
 </script>
 
-<div class="flex-initial sticky w-full top-0">
+<div class="flex-initial sticky w-full top-0 z-10">
   <TopBar title={$blocks.title}>
     <button
       slot="end"
