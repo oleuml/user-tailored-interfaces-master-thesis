@@ -78,7 +78,7 @@
       {#if $blocks.description}
         {@html marked($blocks.description)}
       {/if}
-      <div class="flex mb-2">
+      <div class="flex mb-2 mt-2">
         <input
           class="mr-2"
           type="checkbox"
@@ -86,7 +86,7 @@
           name="readCheck"
           id="readCheck"
         />
-        <label for="readCheck">Hast du die Aufgabestellung gelesen?</label>
+        <label for="readCheck">Haben Sie die Aufgabenstellung gelesen?</label>
       </div>
       <div class="flex justify-center">
         <Button
