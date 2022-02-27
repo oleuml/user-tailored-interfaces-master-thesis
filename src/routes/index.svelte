@@ -54,16 +54,13 @@
         <article class="p-2">
           <p class="font-bold pb-1">Hallo und herzlich willkommen!</p>
           <p class="text-sm">
-            Vielen Dank erstmal, dass Du den Weg hierher gefunden hast. Ich, Ole Umlauft, führe im
-            Rahmen meiner Masterarbeit diese Studie durch. In dieser Studie geht es um die
-            Abwicklung mehrerer Bildveröffentlichungen innerhalb fiktiver Szenarien. Jede Abwicklung
-            ist eine Aufgabe, welche im Vorhinein beschrieben wird. Ziel dabei ist es schlussendlich
-            herauszufinden, ob es für verschiedene Situationen oder Personengruppen mit ähnlichen
-            Eigenschaften zugeschnittene Benutzeroberflächen benötigt. Zusätzlich wird auch
-            evaluiert, ob die Hinweise und Darstellungsweisen dem Nutzer dabei helfen, die
-            "richtigen" Entscheidungen zu treffen und das in einer angemessenen Zeit.
+            Vielen Dank erstmal, dass Sie den Weg hierher gefunden hast. Ich, Ole Umlauft, führe
+            diese Studie im Rahmen meiner Masterarbeit durch. Untersucht werden Entscheidungen
+            bezüglich des Personenkreises bei Bildveröffentlichungen in sozialen Netzwerken. Dafür
+            wickeln Sie mehrere Bildveröffentlichungen in fiktiven Szenarien ab. Bitte bearbeiten
+            Sie die Studie nach bestem Wissen und Gewissen. Sie benötigen ca. 35 min für die
+            Durchführung. Holen Sie sich also ruhig eine Kaffee oder Tee dazu.
           </p>
-          <p class="text-sm">Die Durchführung der Studie dauert ca. 30 min.</p>
         </article>
       </div>
       <div class="box text-red-700 bg-red-200">
@@ -73,31 +70,31 @@
             <span>WICHTIG!</span>
           </p>
           <ul class="list-disc list-inside text-sm">
-            <li><b>Du musst mindestens 18 Jahre alt sein.</b></li>
-            <li><b>Du musst diese Studie an einem Smartphone durchführen.</b></li>
-            <li><b>Du darfst an dieser Studie nur einmal teilnehmen.</b></li>
+            <li><b>Sie dürfen nur teilnehmen, wenn Sie 18 Jahre oder älter sind.</b></li>
+            <li><b>Bitte führen Sie die Studie nur an einem Smartphone durch.</b></li>
+            <li><b>Sie dürfen die Studie nur einmal bearbeiten.</b></li>
           </ul>
         </article>
       </div>
       <div class="box text-blue-900 bg-blue-100">
         <article class="p-2">
-          <p class="font-bold pb-1">Vielen Dank und viel Spaß.</p>
+          <p class="font-bold pb-1">Vielen Dank und viel Spaß!</p>
           <p class="text-sm">
-            Gerne kannst Du den Link an Freunde und Bekannte weiterleiten. Dies würde mir sehr
-            helfen.
+            Senden Sie den Link gerne an ihre Freunde und Bekannten weiter. Das würde mir sehr
+            helfen!
           </p>
         </article>
         <div class="flex px-2 pb-2">
           <input type="checkbox" bind:checked />
           <span on:click={() => (checked = !checked)} class="pl-2"
-            >Du bist <a
+            >Ich bin mit den <a
               target="_blank"
               rel="noopener noreferrer"
               on:click|stopPropagation
               class="text-blue-900 text-opacity-80 flex flex-wrap"
               href="/privacy-policy.pdf"
               ><span>Datenschutzbestimmungen</span><Icon path={mdiOpenInNew} size={0.7} /></a
-            > einverstanden</span
+            > einverstanden.</span
           >
         </div>
         <div class="flex flex-wrap justify-center">

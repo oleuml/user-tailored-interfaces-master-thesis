@@ -33,6 +33,6 @@
   <canvas class="absolute -z-10" bind:this={confettiElement} />
   <article class="text-center mx-10 shadow-md rounded-md p-2 bg-blue-100 text-blue-900">
     <p class="font-bold text-lg">Danke!</p>
-    <p>Ich bedanke mich rechtherzlich bei Ihnen und danke für ihre Teilnahme an dieser Studie!</p>
+    <p>Ich bedanke mich herzlich bei Ihnen für die Teilnahme an meiner Studie!</p>
   </article>
 </div>
