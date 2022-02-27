@@ -54,12 +54,12 @@
         <article class="p-2">
           <p class="font-bold pb-1">Hallo und herzlich willkommen!</p>
           <p class="text-sm">
-            Vielen Dank erstmal, dass Sie den Weg hierher gefunden hast. Ich, Ole Umlauft, führe
+            Vielen Dank erstmal, dass Sie den Weg hierher gefunden haben. Ich, Ole Umlauft, führe
             diese Studie im Rahmen meiner Masterarbeit durch. Untersucht werden Entscheidungen
             bezüglich des Personenkreises bei Bildveröffentlichungen in sozialen Netzwerken. Dafür
             wickeln Sie mehrere Bildveröffentlichungen in fiktiven Szenarien ab. Bitte bearbeiten
             Sie die Studie nach bestem Wissen und Gewissen. Sie benötigen ca. 35 min für die
-            Durchführung. Holen Sie sich also ruhig eine Kaffee oder Tee dazu.
+            Durchführung. Holen Sie sich also ruhig einen Kaffee oder Tee dazu.
           </p>
         </article>
       </div>
