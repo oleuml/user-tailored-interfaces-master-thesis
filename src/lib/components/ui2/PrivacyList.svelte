@@ -47,7 +47,9 @@
 
   let searchFilter = '';
   $: filteredMembers = members.filter(
-    (m) => m.name.includes(searchFilter) || m.group.includes(searchFilter)
+    (m) =>
+      m.name.toLowerCase().includes(searchFilter.toLowerCase()) ||
+      m.group.toLowerCase().includes(searchFilter.toLowerCase())
   );
 </script>
 
