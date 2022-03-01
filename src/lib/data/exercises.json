@@ -46,7 +46,7 @@
   {
     "id": 3,
     "title": "Wählen Sie eine bestimmte Person aus",
-    "description": "Stelle dir vor du warst heute an einem wunderschönen Tag im Park mit deiner Arbeitskollegin <i>Līna Chike</i>. Und erstellst nun ein Post mit Bild vom Park und dir online.<br/>Deine Aufgabe ist nun, dass deine Arbeitskollegin Līna Chike den Post auf jeden Fall bekommen soll und stelle dabei sicher, dass kein anderer Kollege wiederum diesen Post sehen kann. Beim Senden bekommen Sie dann die Information, ob die Aufgabe erfüllt ist.",
+    "description": "Stellen Sie sich vor sie waren heute mit Ihrer Arbeitskollegin <i>Līna Chike</i> an einem wunderschönen Tag im Park. Nachdem Sie Fotos im Park gemacht haben, stellen Sie nun ein Bild von sich selbst im Park online.<br/>Ihre Aufgabe ist nun, dass Ihre Arbeitskollegin Līna Chike den Post auf jeden Fall bekommen soll und dabei sichergestellt ist, dass kein anderer Kollege wiederum diesen Post sehen kann. Beim Senden bekommen Sie dann die Information, ob die Aufgabe erfüllt ist.",
     "condition": "select-only-one-of-group",
     "conditionBody": {
       "member": "Līna Chike",
@@ -73,7 +73,7 @@
   {
     "id": 4,
     "title": "Die Einladung",
-    "description": "Demnächst ist ein Fest mit Familie und Freunden geplant. Mit ihrem Post möchsten Sie all diese einladen. Ausgenommen sind aber alle Familienmitglieder mit Nachnamen <i>Garbi</i>. Stellen Sie auch sicher, dass alle Freunde die Einladung erhalten, aber keiner der Kollegen oder Bekannten.",
+    "description": "Demnächst ist ein Fest mit Familie und Freunden geplant. Mit ihrem Post möchten Sie all diese einladen. Ausgenommen sind aber alle Familienmitglieder mit Nachnamen <i>Garbi</i>. Stellen Sie auch sicher, dass alle Freunde die Einladung erhalten, aber keiner der Kollegen oder Bekannten. Beim Senden bekommen Sie dann die Information, ob die Aufgabe erfüllt ist.",
     "condition": "selection-of-choice",
     "conditionBody": {
       "Familie": {
