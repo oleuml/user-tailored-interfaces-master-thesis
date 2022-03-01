@@ -1206,6 +1206,30 @@
                 "Eine Grenze zwischen ausgewählt und abgewählt."
               ],
               "noStatement": false
+            },
+            {
+              "id": "K-9",
+              "question": "Was bedeutet die Helligkeit (Intesität) der grünen Balken?",
+              "questionPrefix": "Frage 3.9: ",
+              "type": "single-choice",
+              "answers": [
+                "Dunkel grün bedeutet, die Person ausgewählt und hellgrün bedeutet die Person ist nicht ausgewählt",
+                "Dunkel grün bedeutet, die Person nicht ausgewählt und hellgrün bedeutet die Person ist ausgewählt"
+              ],
+              "noStatement": false
+            },
+            {
+              "id": "K-10",
+              "question": "Was bedeutet die Länge der grünen Balken? (Wählen Sie alles zutreffenden aus.)",
+              "questionPrefix": "Frage 3.8: ",
+              "type": "multiple-choice",
+              "answers": [
+                "Wenn ein grüner Balken sehr kurz ist, dann bedeutet dies, dass das Risiko diesen Post mit der Person zu teilen eher sehr hoch ist.",
+                "Wenn ein grüner Balken sehr kurz ist, dann bedeutet dies, dass das Risiko diesen Post mit der Person zu teilen eher sehr klein ist.",
+                "Wenn ein grüner Balken sehr lang ist, dann bedeutet dies, dass das Risiko diesen Post mit der Person zu teilen eher sehr klein ist.",
+                "Wenn ein grüner Balken sehr lang ist, dann bedeutet dies, dass das Risiko diesen Post mit der Person zu teilen eher sehr hoch ist."
+              ],
+              "noStatement": false
             }
           ]
         },
