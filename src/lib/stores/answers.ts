@@ -45,10 +45,14 @@ export const resendFailedAnswerSendings = async (numPages: number) => {
     if (submitted) {
       localStorage.removeItem(lsAnswerID);
     }
+    return submitted;
   }
 };
 
 export const submit = async (answers: any): Promise<boolean> => {
+  if (answers === null) {
+    return false;
+  }
   let submitted: boolean[] = Object.entries(answers).map((_) => false);
   if (submitted.length === 0) return true;
 
@@ -57,7 +61,7 @@ export const submit = async (answers: any): Promise<boolean> => {
       try {
         const res = await fetch(`/api/submit/answers/${key}`, {
           method: 'POST',
-          body: value ? JSON.stringify(value) : 'null',
+          body: JSON.stringify(value),
           headers: { 'Content-Type': 'application/json' }
         });
         return res.ok || res.status === 400;
