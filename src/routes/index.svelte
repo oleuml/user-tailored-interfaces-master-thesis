@@ -95,10 +95,8 @@
               on:click|stopPropagation
               class="text-blue-900 text-opacity-80 flex flex-wrap"
               href="/privacy-policy.pdf"
-              ><span>Datenschutzbestimmungen und Teilnahmebedinungen </span><Icon
-                path={mdiOpenInNew}
-                size={0.7}
-              /></a
+              ><span>Teilnahmebedinungen</span><span><Icon path={mdiOpenInNew} size={0.7} /></span
+              ></a
             > einverstanden.</span
           >
         </div>
