@@ -11,13 +11,14 @@
   import Page from '$lib/components/survey/Page.svelte';
   import Button from '$lib/components/material/Button.svelte';
   import TopBar from '$lib/components/material/TopBar.svelte';
-  import { answerStore } from '$lib/stores/answers';
+  import { answerStore, resendFailedAnswerSendings } from '$lib/stores/answers';
   import { blockStore } from '$lib/stores/survey';
   import { mdiChevronRight } from '@mdi/js';
   import Icon from 'mdi-svelte';
   import { marked } from 'marked';
   import { afterNavigate, goto } from '$app/navigation';
   import { goneToTaskStore } from '$lib/stores/goneToTask';
+  import { SvelteToast, toast } from '@zerodevx/svelte-toast';
 
   export let token: string;
   const blocks = blockStore(token);
@@ -106,11 +107,24 @@
       <div class="flex justify-center">
         <Button
           title="Studie beenden"
-          on:click={() => {
-            checkQuestionsAnswered = !answers.send($blocks.questions);
+          on:click={async () => {
+            checkQuestionsAnswered = !(await answers.send($blocks.questions));
             if (!checkQuestionsAnswered) {
-              goto('/end');
-              document.body.scrollIntoView();
+              let submitted = resendFailedAnswerSendings(blocks.length);
+              if (!submitted) {
+                toast.push(
+                  'Ihre Verbindung zum Internet ist schwach oder sie haben keine Internetverbindung. Stellen Sie sicher, dass ihre Verbindung stabil ist, um die Studie abzuschließen.',
+                  {
+                    theme: {
+                      '--toastBackground': '#F56565',
+                      '--toastBarBackground': '#C53030'
+                    }
+                  }
+                );
+              } else {
+                goto('/end');
+                document.body.scrollIntoView();
+              }
             }
           }}
         />
@@ -118,3 +132,5 @@
     {/if}
   {/if}
 </div>
+
+<SvelteToast />

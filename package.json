@@ -20,6 +20,7 @@
     "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "^4.31.1",
     "@typescript-eslint/parser": "^4.31.1",
+    "@zerodevx/svelte-toast": "^0.7.0",
     "autoprefixer": "^10.3.7",
     "cssnano": "^5.0.8",
     "eslint": "^7.32.0",

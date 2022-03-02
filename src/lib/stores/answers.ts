@@ -1,5 +1,6 @@
 import { browser } from '$app/env';
 import type { Question, QuestionType } from '$lib/blocks';
+import _ from 'lodash';
 import { writable } from 'svelte/store';
 
 export const questionAnswered = (questionType: QuestionType, answer: object | object[]) => {
@@ -33,6 +34,40 @@ export const questionAnswered = (questionType: QuestionType, answer: object | ob
   }
 };
 
+export const resendFailedAnswerSendings = async (numPages: number) => {
+  for (let page = 0; page < numPages; page++) {
+    const lsAnswerID = `answers-${page}`;
+    const answers = JSON.parse(localStorage.getItem(lsAnswerID));
+    if (answers === undefined || answers === null) {
+      continue;
+    }
+    let submitted = await submit(answers);
+    if (submitted) {
+      localStorage.removeItem(lsAnswerID);
+    }
+  }
+};
+
+export const submit = async (answers: any): Promise<boolean> => {
+  let submitted: boolean[] = Object.entries(answers).map((_) => false);
+  if (submitted.length === 0) return true;
+
+  return Object.entries(answers)
+    .map(async ([key, value]) => {
+      try {
+        const res = await fetch(`/api/submit/answers/${key}`, {
+          method: 'POST',
+          body: value ? JSON.stringify(value) : 'null',
+          headers: { 'Content-Type': 'application/json' }
+        });
+        return res.ok || res.status === 400;
+      } catch {
+        return false;
+      }
+    })
+    .reduce(async (a, b) => (await a) && (await b));
+};
+
 export const checkAllFulfilled = (questions: Question[], answers: object) => {
   return questions
     .map((q) => questionAnswered(q.type, answers[q.id]))
@@ -59,7 +94,7 @@ export const answerStore = (pageId: number) => {
     subscribe,
     set,
     update,
-    send: (questions: Question[]) => {
+    send: async (questions: Question[]) => {
       let answers;
       subscribe((value) => {
         answers = value;
@@ -67,18 +102,8 @@ export const answerStore = (pageId: number) => {
 
       let check = checkAllFulfilled(questions, answers);
       if (check) {
-        // Submit data
-        let responses: Response[] = [];
-        Object.entries(answers).forEach(async ([key, value]) => {
-          responses.push(
-            await fetch(`/api/submit/answers/${key}`, {
-              method: 'POST',
-              body: JSON.stringify(value),
-              headers: { 'Content-Type': 'application/json' }
-            })
-          );
-        });
-        if (responses.filter((res) => !res.ok || res.status !== 400).length === 0) {
+        const submitted = await submit(answers);
+        if (submitted) {
           set(undefined);
           localStorage.removeItem(lsAnswerID);
         }
