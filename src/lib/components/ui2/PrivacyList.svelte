@@ -77,7 +77,7 @@
         track('search-filter', { value: searchFilter });
       }}
       placeholder="Suche"
-      class="px-3 py-3 placeholder-gray-500 text-gray-600 relative bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full pl-10"
+      class="px-3 py-3 placeholder-gray-500 text-gray-600 relative bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full pl-10 select-all"
     />
   </div>
   <div class="w-full">
