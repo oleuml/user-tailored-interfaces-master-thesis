@@ -2,6 +2,7 @@
   export let answer: { text: string; index: number };
 
   let othersTextValue = '';
+  if (answer === null) answer = { text: othersTextValue, index: 0 };
 </script>
 
 <textarea
