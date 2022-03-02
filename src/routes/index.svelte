@@ -72,6 +72,9 @@
           <ul class="list-disc list-inside text-sm">
             <li><b>Sie dürfen nur teilnehmen, wenn Sie 18 Jahre oder älter sind.</b></li>
             <li><b>Bitte führen Sie die Studie nur an einem Smartphone durch.</b></li>
+            <li>
+              <b>Stellen Sie sicher, dass ihr Smartphone eine stabile Internetverbindung hat.</b>
+            </li>
             <li><b>Sie dürfen die Studie nur einmal bearbeiten.</b></li>
           </ul>
         </article>
