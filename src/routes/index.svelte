@@ -70,7 +70,6 @@
             <span>WICHTIG!</span>
           </p>
           <ul class="list-disc list-inside text-sm">
-            <li><b>Sie dürfen nur teilnehmen, wenn Sie 18 Jahre oder älter sind.</b></li>
             <li><b>Bitte führen Sie die Studie nur an einem Smartphone durch.</b></li>
             <li>
               <b>Stellen Sie sicher, dass ihr Smartphone eine stabile Internetverbindung hat.</b>
@@ -96,7 +95,10 @@
               on:click|stopPropagation
               class="text-blue-900 text-opacity-80 flex flex-wrap"
               href="/privacy-policy.pdf"
-              ><span>Datenschutzbestimmungen</span><Icon path={mdiOpenInNew} size={0.7} /></a
+              ><span>Datenschutzbestimmungen und Teilnahmebedinungen </span><Icon
+                path={mdiOpenInNew}
+                size={0.7}
+              /></a
             > einverstanden.</span
           >
         </div>
