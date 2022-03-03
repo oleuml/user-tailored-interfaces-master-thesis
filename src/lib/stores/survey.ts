@@ -1,5 +1,5 @@
 import { browser } from '$app/env';
-import { Block, BlockData, BlockInterface } from '$lib/blocks';
+import { Block, type BlockData, type BlockInterface } from '$lib/blocks';
 import { get, writable } from 'svelte/store';
 import structure from '$lib/data/structure.json';
 

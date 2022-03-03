@@ -9,7 +9,7 @@
   import PrivacyMemberListTitle from './ui3/PrivacyMemberListTitle.svelte';
   import { createEventDispatcher } from 'svelte';
   import type { TaskTrackingStore } from '$lib/stores/taskTracking';
-  import _, { Dictionary } from 'lodash';
+  import _, { type Dictionary } from 'lodash';
   import { writable } from 'svelte/store';
   import { checker } from './ui3/Slider.svelte';
 

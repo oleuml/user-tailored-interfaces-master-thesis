@@ -1,7 +1,7 @@
 <script lang="ts">
-  import type { QuestionType } from '$lib/blocks';
+  import type { LegendType, QuestionType } from '$lib/blocks';
 
-  import LikertScala, { LegendType } from '$lib/components/survey/likert/LikertScala.svelte';
+  import LikertScala from '$lib/components/survey/likert/LikertScala.svelte';
   import MultipleChoice from './choices/MultipleChoice.svelte';
   import SingleChoice from './choices/SingleChoice.svelte';
   import LikertVertical from './likert/LikertVertical.svelte';

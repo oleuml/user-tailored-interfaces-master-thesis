@@ -1,7 +1,7 @@
 import { browser } from '$app/env';
 import type { Condition, Exercise } from '$lib/exercises';
 import type { Member } from '$lib/members';
-import { Writable, writable } from 'svelte/store';
+import { type Writable, writable } from 'svelte/store';
 
 export type Action =
   | 'alert'

@@ -1,14 +1,5 @@
-<script lang="ts" context="module">
-  export type LegendType =
-    | 'none'
-    | 'top'
-    | 'top-rotated'
-    | 'bottom'
-    | 'bottom-rotated'
-    | 'start-end';
-</script>
-
 <script lang="ts">
+  import type { LegendType } from '$lib/blocks';
   import Choice from '../choices/Choice.svelte';
 
   export let answers: string[];
