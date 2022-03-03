@@ -7,7 +7,7 @@
         {
           "type": "page",
           "title": "Start",
-          "description": "Die folgenden Fragen sollen ihre generelle Einstellung zum Thema Datenschutz ermitteln. Es ist wichtig, dass Sie diese wahrheitsgemäß beantworten. Es gibt kein richtig oder falsch! Ihr Gefühl zählt.",
+          "description": "Die folgenden Fragen sollen Ihre generelle Einstellung zum Thema Datenschutz ermitteln. Es ist wichtig, dass Sie diese wahrheitsgemäß beantworten. Es gibt kein richtig oder falsch! Ihr Gefühl zählt.",
           "questions": []
         },
         {
@@ -218,7 +218,7 @@
             {
               "type": "jump",
               "title": "Beispiel: Gruppierungen",
-              "description": "Versetzen Sie sich bitte in die folgende Situation hinein: Sie sind Andrea(s) Blaguna, der jüngste Spross in der Blagunafamilie und stehen voll im Leben. Die kommenden Aufgaben zeigen Ausschnitte ihrer Woche, an denen Sie ihre Freunde, Familie, Kollegen und Anderen gerne teilhaben lassen möchten. Dafür wollen Sie Bilder auf ihren sozialen Medien mit ihren Kontakten teilen. Aber Vorsicht, nicht jedes Bild ist vielleicht für alle geeignet.<br/>Sie durchlaufen nun also den Prozess der Bildveröffentlichung als Andrea(s) Blaguna und entscheiden entsprechend der Aufgabenstellung über den empfangenden Personenkreis. Lesen Sie genau.",
+              "description": "Versetzen Sie sich bitte in die folgende Situation hinein: Sie sind Andrea(s) Blaguna, der jüngste Spross in der Blagunafamilie und stehen voll im Leben. Die kommenden Aufgaben zeigen Ausschnitte Ihrer Woche, an denen Sie Ihre Freunde, Familie, Kollegen und Anderen gerne teilhaben lassen möchten. Dafür wollen Sie Bilder auf Ihren sozialen Medien mit Ihren Kontakten teilen. Aber Vorsicht, nicht jedes Bild ist vielleicht für alle geeignet.<br/>Sie durchlaufen nun also den Prozess der Bildveröffentlichung als Andrea(s) Blaguna und entscheiden entsprechend der Aufgabenstellung über den empfangenden Personenkreis. Lesen Sie genau.",
               "path": "/ui/0"
             },
             {
@@ -434,7 +434,7 @@
             {
               "type": "jump",
               "title": "Beispiel: Auflistung",
-              "description": "Versetzen Sie sich bitte in die folgende Situation hinein: Sie sind Andrea(s) Blaguna, der jüngste Spross in der Blagunafamilie und stehen voll im Leben. Die kommenden Aufgaben zeigen Ausschnitte ihrer Woche, an denen Sie ihre Freunde, Familie, Kollegen und Anderen gerne teilhaben lassen möchten. Dafür wollen Sie Bilder auf ihren sozialen Medien mit ihren Kontakten teilen. Aber Vorsicht, nicht jedes Bild ist vielleicht für alle geeignet.<br/>Sie durchlaufen nun also den Prozess der Bildveröffentlichung als Andrea(s) Blaguna und entscheiden entsprechend der Aufgabenstellung über den empfangenden Personenkreis. Lesen Sie genau.",
+              "description": "Versetzen Sie sich bitte in die folgende Situation hinein: Sie sind Andrea(s) Blaguna, der jüngste Spross in der Blagunafamilie und stehen voll im Leben. Die kommenden Aufgaben zeigen Ausschnitte Ihrer Woche, an denen Sie Ihre Freunde, Familie, Kollegen und Anderen gerne teilhaben lassen möchten. Dafür wollen Sie Bilder auf Ihren sozialen Medien mit Ihren Kontakten teilen. Aber Vorsicht, nicht jedes Bild ist vielleicht für alle geeignet.<br/>Sie durchlaufen nun also den Prozess der Bildveröffentlichung als Andrea(s) Blaguna und entscheiden entsprechend der Aufgabenstellung über den empfangenden Personenkreis. Lesen Sie genau.",
               "path": "/ui/1"
             },
             {
@@ -650,7 +650,7 @@
             {
               "type": "jump",
               "title": "Beispiel: Kreis und Keile",
-              "description": "Versetzen Sie sich bitte in die folgende Situation hinein: Sie sind Andrea(s) Blaguna, der jüngste Spross in der Blagunafamilie und stehen voll im Leben. Die kommenden Aufgaben zeigen Ausschnitte ihrer Woche, an denen Sie ihre Freunde, Familie, Kollegen und Anderen gerne teilhaben lassen möchten. Dafür wollen Sie Bilder auf ihren sozialen Medien mit ihren Kontakten teilen. Aber Vorsicht, nicht jedes Bild ist vielleicht für alle geeignet.<br/>Sie durchlaufen nun also den Prozess der Bildveröffentlichung als Andrea(s) Blaguna und entscheiden entsprechend der Aufgabenstellung über den empfangenden Personenkreis. Lesen Sie genau.",
+              "description": "Versetzen Sie sich bitte in die folgende Situation hinein: Sie sind Andrea(s) Blaguna, der jüngste Spross in der Blagunafamilie und stehen voll im Leben. Die kommenden Aufgaben zeigen Ausschnitte Ihrer Woche, an denen Sie Ihre Freunde, Familie, Kollegen und Anderen gerne teilhaben lassen möchten. Dafür wollen Sie Bilder auf Ihren sozialen Medien mit Ihren Kontakten teilen. Aber Vorsicht, nicht jedes Bild ist vielleicht für alle geeignet.<br/>Sie durchlaufen nun also den Prozess der Bildveröffentlichung als Andrea(s) Blaguna und entscheiden entsprechend der Aufgabenstellung über den empfangenden Personenkreis. Lesen Sie genau.",
               "path": "/ui/2"
             },
             {
@@ -868,7 +868,7 @@
         {
           "type": "page",
           "title": "Fragen Seite 1/5",
-          "description": "Abschließend beantworten Sie bitte noch einige generelle Fragen zu ihrer Person und ihrem Verhalten im Internet und den sozialen Medien.",
+          "description": "Abschließend beantworten Sie bitte noch einige generelle Fragen zu Ihrer Person und Ihrem Verhalten im Internet und den sozialen Medien.",
           "questions": [
             {
               "id": 100,
