@@ -19,7 +19,7 @@
   import exercisesJSON from '$lib/data/exercises.json';
   import { activeExerciseStore, taskTrackingStore } from '$lib/stores/taskTracking';
   import type { Load } from '@sveltejs/kit';
-  import { checkCondition, Exercise } from '$lib/exercises';
+  import { checkCondition, type Exercise } from '$lib/exercises';
   import { onMount } from 'svelte';
   import type { Member } from '$lib/members';
   import UI1 from '$lib/components/UI1.svelte';

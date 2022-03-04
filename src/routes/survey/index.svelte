@@ -16,9 +16,13 @@
   import { mdiChevronRight } from '@mdi/js';
   import Icon from 'mdi-svelte';
   import { marked } from 'marked';
-  import { afterNavigate, goto } from '$app/navigation';
+  import { goto } from '$app/navigation';
   import { goneToTaskStore } from '$lib/stores/goneToTask';
   import { SvelteToast, toast } from '@zerodevx/svelte-toast';
+  import { browser } from '$app/env';
+  import { onMount } from 'svelte';
+  import { lastUIStore } from '$lib/stores/lastUI';
+  import _ from 'lodash';
 
   export let token: string;
   const blocks = blockStore(token);
@@ -29,15 +33,25 @@
     answers = answerStore(currentPageNum);
   }
 
+  let lastUI = lastUIStore();
+
   let checkQuestionsAnswered = false;
   let readCheck = false;
   let goneToTask = goneToTaskStore();
 
-  afterNavigate(() => {
-    if ($goneToTask) {
-      blocks.next();
-      $goneToTask = false;
-      readCheck = false;
+  onMount(() => {
+    if (browser) {
+      let checkFulfilled = _.range(5)
+        .map((i) => JSON.parse(localStorage.getItem(`U${$lastUI}-T${i}-fulfilled`)) === true)
+        .reduce((a, b) => a && b);
+      if ($goneToTask && checkFulfilled) {
+        blocks.next();
+        $goneToTask = false;
+        readCheck = false;
+      }
+      if ($goneToTask && !checkFulfilled && $blocks.type === 'jump') {
+        goto($blocks.path);
+      }
     }
   });
 </script>
@@ -95,6 +109,7 @@
           title="Aufgabe starten"
           on:click={() => {
             $goneToTask = true;
+            $lastUI = parseInt($blocks.path.split('/')[2]);
             goto($blocks.path);
           }}
         />
