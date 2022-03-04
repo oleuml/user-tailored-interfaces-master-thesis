@@ -12,6 +12,7 @@
   import _, { type Dictionary } from 'lodash';
   import { writable } from 'svelte/store';
   import { checker } from './ui3/Slider.svelte';
+  import Button from './material/Button.svelte';
 
   const dispatcher = createEventDispatcher();
 
@@ -144,6 +145,16 @@
         bind:threshold={$groupThresholds[selected]}
         bind:members={groups[selected]}
         on:track={track}
+      />
+    </div>
+    <div class="sticky bottom-0 text-center mt-2">
+      <Button
+        title="Schießen"
+        on:click={() => {
+          dispatcher('close');
+          selected = null;
+          taskStore.add('close-group', { position: 'bottom' });
+        }}
       />
     </div>
   {/if}
