@@ -13,7 +13,7 @@
   export let active: boolean;
   export let defaultMembers: Array<Member>;
   export let members: Array<Member>;
-  export let riskValue: number;
+  export let sensitivityValue: number;
 
   $: groups = _.groupBy(members, (m) => m.group);
 
@@ -43,7 +43,7 @@
 >
   <div class="mx-4">
     <RiskIndicator
-      {riskValue}
+      {sensitivityValue}
       on:track={({ detail: { action, data } }) => {
         taskStore.add(action, data);
       }}

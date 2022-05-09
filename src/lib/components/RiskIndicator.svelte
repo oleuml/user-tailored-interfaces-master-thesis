@@ -5,7 +5,7 @@
 
   const dispatcher = createEventDispatcher();
 
-  export let riskValue: number; // between 0 and 1
+  export let sensitivityValue: number; // between 0 and 1
 
   const showInfo = () => {
     track('alert');
@@ -24,16 +24,16 @@
     <div>
       <span
         class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full"
-        class:text-green-600={riskValue <= 0.2}
-        class:text-lime-600={riskValue > 0.2 && riskValue <= 0.4}
-        class:text-yellow-600={riskValue > 0.4 && riskValue <= 0.6}
-        class:text-orange-600={riskValue > 0.6 && riskValue <= 0.8}
-        class:text-red-600={riskValue > 0.8}
-        class:bg-green-200={riskValue <= 0.2}
-        class:bg-lime-200={riskValue > 0.2 && riskValue <= 0.4}
-        class:bg-yellow-200={riskValue > 0.4 && riskValue <= 0.6}
-        class:bg-orange-200={riskValue > 0.6 && riskValue <= 0.8}
-        class:bg-red-200={riskValue > 0.8}
+        class:text-green-600={sensitivityValue <= 0.2}
+        class:text-lime-600={sensitivityValue > 0.2 && sensitivityValue <= 0.4}
+        class:text-yellow-600={sensitivityValue > 0.4 && sensitivityValue <= 0.6}
+        class:text-orange-600={sensitivityValue > 0.6 && sensitivityValue <= 0.8}
+        class:text-red-600={sensitivityValue > 0.8}
+        class:bg-green-200={sensitivityValue <= 0.2}
+        class:bg-lime-200={sensitivityValue > 0.2 && sensitivityValue <= 0.4}
+        class:bg-yellow-200={sensitivityValue > 0.4 && sensitivityValue <= 0.6}
+        class:bg-orange-200={sensitivityValue > 0.6 && sensitivityValue <= 0.8}
+        class:bg-red-200={sensitivityValue > 0.8}
       >
         Risiko
       </span>
@@ -41,19 +41,19 @@
     <div class="text-right">
       <span
         class="text-xs font-semibold inline-block"
-        class:text-green-600={riskValue <= 0.2}
-        class:text-lime-600={riskValue > 0.2 && riskValue <= 0.4}
-        class:text-yellow-600={riskValue > 0.4 && riskValue <= 0.6}
-        class:text-orange-600={riskValue > 0.6 && riskValue <= 0.8}
-        class:text-red-600={riskValue > 0.8}
+        class:text-green-600={sensitivityValue <= 0.2}
+        class:text-lime-600={sensitivityValue > 0.2 && sensitivityValue <= 0.4}
+        class:text-yellow-600={sensitivityValue > 0.4 && sensitivityValue <= 0.6}
+        class:text-orange-600={sensitivityValue > 0.6 && sensitivityValue <= 0.8}
+        class:text-red-600={sensitivityValue > 0.8}
       >
-        {#if riskValue <= 0.2}
+        {#if sensitivityValue <= 0.2}
           Sehr gering
-        {:else if riskValue <= 0.4}
+        {:else if sensitivityValue <= 0.4}
           gering
-        {:else if riskValue <= 0.6}
+        {:else if sensitivityValue <= 0.6}
           mittel
-        {:else if riskValue <= 0.8}
+        {:else if sensitivityValue <= 0.8}
           hoch
         {:else}
           sehr hoch
@@ -84,12 +84,12 @@
     />
     <div
       class="absolute w-4 h-4"
-      class:text-green-800={riskValue <= 0.2}
-      class:text-lime-800={riskValue > 0.2 && riskValue <= 0.4}
-      class:text-yellow-800={riskValue > 0.4 && riskValue <= 0.6}
-      class:text-orange-800={riskValue > 0.6 && riskValue <= 0.8}
-      class:text-red-800={riskValue > 0.8}
-      style="left: calc({riskValue * 100}% - 0.5rem)"
+      class:text-green-800={sensitivityValue <= 0.2}
+      class:text-lime-800={sensitivityValue > 0.2 && sensitivityValue <= 0.4}
+      class:text-yellow-800={sensitivityValue > 0.4 && sensitivityValue <= 0.6}
+      class:text-orange-800={sensitivityValue > 0.6 && sensitivityValue <= 0.8}
+      class:text-red-800={sensitivityValue > 0.8}
+      style="left: calc({sensitivityValue * 100}% - 0.5rem)"
     >
       <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
         <path style="fill: currentColor" d="M 8,3 0,16 16,16 z" />

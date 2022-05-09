@@ -43,7 +43,7 @@
   $: defaultMembers = defaultMembersJSON.map<Member>((m: Member) => {
     const exercise = exercises[$activeExercise];
     let memberScores = groupedMembers[m.group].map((m) => m.riskScore).sort((a, b) => a - b);
-    let threshold = memberScores[Math.floor(memberScores.length * (1 - exercise.riskValue))];
+    let threshold = memberScores[Math.floor(memberScores.length * (1 - exercise.sensitivityValue))];
 
     if (exercise.preloadMembers) {
       let preload = exercise.preloadMembers.find((pm) => pm.name === m.name);
@@ -122,7 +122,7 @@
     {defaultMembers}
     bind:members={$members}
     {taskStore}
-    riskValue={exercises[$activeExercise].riskValue}
+    sensitivityValue={exercises[$activeExercise].sensitivityValue}
     on:close={closeModal}
   />
 {:else if ui === 1}
@@ -131,7 +131,7 @@
     {defaultMembers}
     bind:members={$members}
     {taskStore}
-    riskValue={exercises[$activeExercise].riskValue}
+    sensitivityValue={exercises[$activeExercise].sensitivityValue}
     on:close={closeModal}
   />
 {:else if ui === 2}
@@ -139,7 +139,7 @@
     active={modalsOpen > 0}
     bind:members={$members}
     {taskStore}
-    riskValue={exercises[$activeExercise].riskValue}
+    sensitivityValue={exercises[$activeExercise].sensitivityValue}
     activeTask={$activeExercise}
     on:close={closeModal}
     on:open={openModal}

@@ -17,7 +17,7 @@ export type Exercise = {
   conditionBody?: any;
   postImagePath: string;
   postDescription: string;
-  riskValue: number;
+  sensitivityValue: number;
   preloadMembers?: any;
 };
 

@@ -6,7 +6,7 @@
     "condition": "all",
     "postImagePath": "/images/cat_image.jpg",
     "postDescription": "Unser neuer Mitbewohner. Kater \"Roland\" ist uns gestern zugelaufen und geht seitdem nicht mehr weg. 😍 🐈",
-    "riskValue": 0.24
+    "sensitivityValue": 0.24
   },
   {
     "id": 1,
@@ -15,7 +15,7 @@
     "condition": "nobody",
     "postImagePath": "/images/party_image.jpg",
     "postDescription": "Beste Party ever.... 🍻 <br/>Morgen auf Arbeit bestimmt mit Kater 😅",
-    "riskValue": 0.85
+    "sensitivityValue": 0.85
   },
   {
     "id": 2,
@@ -27,7 +27,7 @@
     },
     "postImagePath": "/images/party_image.jpg",
     "postDescription": "Beste Party ever.... 🍻 <br/>Morgen auf Arbeit bestimmt mit Kater 😅",
-    "riskValue": 0.85,
+    "sensitivityValue": 0.85,
     "preloadMembers": [
       {
         "name": "Hardwin Arati",
@@ -54,7 +54,7 @@
     },
     "postImagePath": "/images/park_image.png",
     "postDescription": "Der Sommer ist endlich da. Mit Līna Chike im schönsten Park der Stadt! 🏞️ 🌳 ☀️",
-    "riskValue": 0.45,
+    "sensitivityValue": 0.45,
     "preloadMembers": [
       {
         "name": "Līna Chike",
@@ -91,7 +91,7 @@
     },
     "postImagePath": "/images/invitation_image.jpg",
     "postDescription": "Wir laden ein! Am 1. April 2022 wollen wir mit euch eine Party feiern. 🎉 🥳 🕺🏽 💃🏽 19 Uhr geht es los. Wo? Bei uns zu Hause! Für Essen und Getränke wird gesorgt. 🍻 <br/>Meldet euch bitte kurz bei uns, ob Ihr teilnehmt. ✉️",
-    "riskValue": 0.65,
+    "sensitivityValue": 0.65,
     "preloadMembers": [
       { "name": "Sanjay Blaguna", "riskScore": 0.05 },
       { "name": "Vincent Blaguna", "riskScore": 0.84 },

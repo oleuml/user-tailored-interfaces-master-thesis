@@ -19,7 +19,7 @@
   export let taskStore: TaskTrackingStore;
   export let active: boolean;
   export let members: Array<Member>;
-  export let riskValue: number;
+  export let sensitivityValue: number;
   export let activeTask: number;
 
   let selected = null;
@@ -46,7 +46,7 @@
   const initGroupThresholds = () => {
     Object.keys(groups).forEach((group) => {
       let memberScores = groups[group].map((m) => m.riskScore).sort((a, b) => a - b);
-      let threshold = memberScores[Math.floor(memberScores.length * (1 - riskValue))];
+      let threshold = memberScores[Math.floor(memberScores.length * (1 - sensitivityValue))];
       $groupThresholds[group] = threshold;
     });
   };
@@ -104,7 +104,7 @@
   }}
 >
   <div class="mx-4">
-    <RiskIndicator {riskValue} on:track={track} />
+    <RiskIndicator {sensitivityValue} on:track={track} />
   </div>
   <div class="flex justify-center w-full">
     <PrivacyCake
