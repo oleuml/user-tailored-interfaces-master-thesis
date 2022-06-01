@@ -1,4 +1,4 @@
-# Master Thesis
+# Master Thesis -- Study Tool
 
 My master thesis is about the comparison of two UIs for privacy settings. In order to determine this, a study is conducted. In this study, a questionnaire is asked, which first asks general information about the user. This is followed by the IUIPC-10 scale. After the general information is determined, the users are shown 2 different UIs in random order. There they have to complete different tasks. After each UI, a usability questionnaire (SUS) is asked. During the execution, meta information is collected to track the behavior afterwards.
 All questions and tasks are in German, since the study also takes place in German-speaking countries.
