@@ -1,3 +1,8 @@
+<!--
+  Pure visual separator between the pieces of cake.
+  It is an SVG path.
+-->
+
 <script>
   import { drawSeparator } from './PrivacyCake.svelte';
 

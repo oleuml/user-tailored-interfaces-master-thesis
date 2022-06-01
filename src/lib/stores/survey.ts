@@ -6,6 +6,9 @@ import structure from '$lib/data/structure.json';
 enum ID {
   SURVEY = 'current-survey-page'
 }
+
+// Loads the study based on the permutation seed and
+// Jumps to the position which is stored in the localStorage.
 export const blockStore = (permutationSeed: string) => {
   const blocks = Block.loadFrom(structure as unknown as BlockInterface, null, permutationSeed);
 

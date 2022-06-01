@@ -1,3 +1,8 @@
+<!--
+  Simple wrapper component for scaling and animations for subcomponents.
+  This is for the modal stacking.
+-->
+
 <script lang="ts" context="module">
   export type Scale = 1.0 | 0.95 | 0.9;
 </script>

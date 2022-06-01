@@ -1,3 +1,7 @@
+<!--
+  Exercise Modal is used to display the task description,
+  whether the task has been completed, and whether this task needs to be repeated.
+-->
 <script lang="ts">
   import { goto } from '$app/navigation';
   import type { Exercise } from '$lib/exercises';

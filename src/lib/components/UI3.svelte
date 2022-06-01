@@ -1,3 +1,9 @@
+<!--
+  This component brings together the individual components of the simplfied privacy wedges.
+  This component consists of two modals. The first one represents the wedges and the second one represents the
+  the detailed group view that the risk sliders implement.
+-->
+
 <script lang="ts">
   import type { Member } from '$lib/members';
   import Modal from './Modal.svelte';

@@ -1,3 +1,7 @@
+<!--
+  Component which represents all groups among themselves.
+-->
+
 <script lang="ts">
   import type { Action } from '$lib/stores/taskTracking';
   import PrivacyGroupItem from './PrivacyGroupItem.svelte';

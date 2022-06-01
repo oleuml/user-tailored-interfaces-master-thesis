@@ -1,3 +1,8 @@
+<!--
+  Combines the CakeParts (Wedges) and the CakePartSeparators into one component.
+  It is an SVG.
+-->
+
 <script context="module">
   export const polarToCartesian = (centerX, centerY, radius, angleInDegrees) => {
     let angleInRadians = ((angleInDegrees - 90) * Math.PI) / 180.0;
@@ -89,7 +94,7 @@
   export let thresholds: Dictionary<number>;
   export let toggled = false;
   export let selected = null;
-  let svg;
+  let svg: SVGElement;
 
   const track = (action: Action, data?: any) => {
     dispatcher('track', { action: action, data: data });

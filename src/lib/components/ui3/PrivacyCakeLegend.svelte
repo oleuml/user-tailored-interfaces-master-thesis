@@ -1,3 +1,7 @@
+<!--
+  Shows the legend for the PrivacyCake.
+-->
+
 <script lang="ts">
   import Color from 'color';
   import type { Action } from '$lib/stores/taskTracking';

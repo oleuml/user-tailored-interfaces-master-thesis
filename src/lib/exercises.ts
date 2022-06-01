@@ -21,6 +21,7 @@ export type Exercise = {
   preloadMembers?: any;
 };
 
+// Checks the condition of the tasks
 export const checkCondition = (condition: Condition, members: Member[], conditionBody?: any) => {
   switch (condition) {
     case 'all':

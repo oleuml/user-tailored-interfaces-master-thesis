@@ -1,3 +1,7 @@
+<!--
+  This component brings together the individual components of the grouping.
+-->
+
 <script lang="ts">
   import type { Member } from '$lib/members';
   import NewPostPrivacy from './NewPostPrivacy.svelte';

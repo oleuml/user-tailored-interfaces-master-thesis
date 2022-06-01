@@ -1,3 +1,8 @@
+<!--
+  This component is for wrapping the UI content in a modal.
+  It uses the `Modal` component implements the send button.
+-->
+
 <script lang="ts">
   import Button from '$lib/components/material/Button.svelte';
   import { mdiSend } from '@mdi/js';

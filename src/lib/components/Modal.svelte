@@ -1,3 +1,8 @@
+<!--
+  This is a modal which opens from the bottom up.
+  It mimics the character of an iOS modal.
+-->
+
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
   import { fade, fly } from 'svelte/transition';

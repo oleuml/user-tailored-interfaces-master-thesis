@@ -1,3 +1,9 @@
+<!--
+  MemberSlider wraps the Slider component in an extra component.
+  Additionally, the member is displayed and whether
+  the person is selected based on score and threshold.
+-->
+
 <script lang="ts">
   import Icon from 'mdi-svelte';
   import MemberBadge from '$lib/components/MemberBadge.svelte';

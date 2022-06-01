@@ -46,6 +46,12 @@ export type TrackingData = {
   timestamp: number;
 };
 
+// Implements the task tracking store.
+// This takes care of storing all events,
+// stores when the task was started,
+// whether it was sent and whether it was fulfilled.
+// The `send` function of the store sends on fulfillnes
+// sends the data to the backend and clears the memory.
 export const taskTrackingStore = (
   ui: number,
   task: Exercise,
@@ -217,6 +223,7 @@ export const taskTrackingStore = (
           members: members,
           tracking: trackingData
         };
+        // Send data to the backend
         let response = await fetch(`/api/submit/tasks/${ui}/${task.id}`, {
           method: 'POST',
           body: JSON.stringify(data),
@@ -237,7 +244,6 @@ export const taskTrackingStore = (
           localStorage.removeItem(lsStartedID);
           localStorage.removeItem(lsTrackingID);
         }
-        // TODO: if (!response.ok) retry() // when to start retry?
       }
     },
     started: startedStore,

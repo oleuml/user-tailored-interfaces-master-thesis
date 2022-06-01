@@ -1,3 +1,7 @@
+<!--
+  Groups the members of a group and adds functions like select all or deselect all.
+-->
+
 <script lang="ts">
   import Icon from 'mdi-svelte';
   import {

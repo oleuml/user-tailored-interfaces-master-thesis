@@ -1,3 +1,9 @@
+<!--
+  NewPost is the component to represent the post which is the first page.
+  This gets a title, an image path and a post description passed to it.
+  Additionally a taskFulfilled property, but this is only used for animations.
+-->
+
 <script lang="ts">
   import { fade } from 'svelte/transition';
   import { expoIn } from 'svelte/easing';

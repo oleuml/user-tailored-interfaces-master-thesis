@@ -1,3 +1,6 @@
+<!--
+  This component implements changing the risk value of a contact.
+-->
 <script context="module">
   export const checker = (threshold, score) => {
     return score === 1.0 ? false : score <= threshold;

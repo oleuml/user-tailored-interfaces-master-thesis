@@ -74,6 +74,7 @@ export class Page implements BlockInterface {
   length = () => 1;
 }
 
+// Implements the TreeStructure for the study structure which is defined in lib/data/structure.json
 export class Block implements BlockInterface {
   parent: BlockInterface | null;
   readonly type: BlockType;

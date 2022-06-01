@@ -3,6 +3,7 @@ import type { Question, QuestionType } from '$lib/blocks';
 import _ from 'lodash';
 import { writable } from 'svelte/store';
 
+// Checks whether a question has been answered.
 export const questionAnswered = (questionType: QuestionType, answer: object | object[]) => {
   switch (questionType) {
     case 'group-likert':
@@ -49,6 +50,7 @@ export const resendFailedAnswerSendings = async (numPages: number) => {
   }
 };
 
+// Submit the answers to the backend
 export const submit = async (answers: any): Promise<boolean> => {
   if (answers === null) {
     return false;
@@ -78,6 +80,7 @@ export const checkAllFulfilled = (questions: Question[], answers: object) => {
     .reduce((prev, curr) => prev && curr, true);
 };
 
+// Persistant answer store.
 export const answerStore = (pageId: number) => {
   const lsAnswerID = `answers-${pageId}`;
   let initialValue: object;

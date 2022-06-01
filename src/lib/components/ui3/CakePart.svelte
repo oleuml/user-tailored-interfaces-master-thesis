@@ -1,3 +1,7 @@
+<!--
+  Implements the Wedge component. It is an SVG group.
+-->
+
 <script lang="ts" context="module">
   export const getRadius = (minRadius: number, maxRadius: number, threshold: number): number => {
     return threshold * (maxRadius - minRadius) + minRadius;

@@ -1,3 +1,7 @@
+<!--
+  This component indicates risk based on the senvitivity value of a given task.
+-->
+
 <script lang="ts">
   import type { Action } from '$lib/stores/taskTracking';
 

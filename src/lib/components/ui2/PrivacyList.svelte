@@ -1,3 +1,7 @@
+<!--
+  Component for listing the members and selecting and deselecting them.
+-->
+
 <script lang="ts">
   import type { Member } from '$lib/members';
   import type { Action } from '$lib/stores/taskTracking';

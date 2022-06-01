@@ -1,6 +1,8 @@
 import { browser } from '$app/env';
 import { writable } from 'svelte/store';
 
+// Needed to return to the user interfaces when
+// the back button is triggered in the browser.
 export const lastUIStore = () => {
   const lsGoneID = 'lastUI';
 

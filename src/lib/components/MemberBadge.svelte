@@ -1,3 +1,7 @@
+<!--
+  This component is the rounded nameplate, which includes the abbreviations of the Member/Contact.
+-->
+
 <script lang="ts">
   import { getRandomInt } from '$lib/utils/math';
   import Icon from 'mdi-svelte';
