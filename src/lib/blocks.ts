@@ -150,8 +150,12 @@ export class Block implements BlockInterface {
   };
 
   private push = (block: BlockInterface) => {
-    if (this.type === 'permutation' && this.random() < 0.5) this.blocks.unshift(block);
-    else this.blocks.push(block);
+    // expanded study quick fix: only ACB and BCA
+    if (this.type === 'permutation' && this.blocks.length === 2) {
+      this.blocks.splice(this.blocks.length / 2, 0, block);
+    } else if (this.type === 'permutation' && this.random() < 0.5) {
+      this.blocks.unshift(block);
+    } else this.blocks.push(block);
   };
 
   length = (): number => {
