@@ -65,7 +65,7 @@
     defaultMembers.map<Member>((m: Member) => {
       let memberScores = groupedMembers[m.group].map((m) => m.riskScore).sort((a, b) => a - b);
       let threshold =
-        memberScores[Math.floor(memberScores.length * (1 - exercises[$activeExercise].riskValue))];
+        memberScores[Math.floor(memberScores.length * (1 - exercises[$activeExercise].sensitivityValue))];
 
       return { ...m, checked: checker(threshold, m.riskScore) } as Member;
     }), // copies the original member sets
